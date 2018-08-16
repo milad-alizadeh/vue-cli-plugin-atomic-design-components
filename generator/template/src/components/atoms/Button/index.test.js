@@ -1,14 +1,14 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import Button from '.'
 
 describe('Atom - Button', () => {
   test('Default tag is <button>', () => {
-    const wrapper = shallowMount(Button)
+    const wrapper = mount(Button)
     expect(wrapper.contains('button')).toBe(true)
   })
 
   test('Tag should be <a> if href is available', () => {
-    const wrapper = shallowMount(Button, {
+    const wrapper = mount(Button, {
       propsData: { href: 'http://google.com' }
     })
 
@@ -17,7 +17,7 @@ describe('Atom - Button', () => {
   })
 
   test('Tag should be <router-link> if href is available', () => {
-    const wrapper = shallowMount(Button, {
+    const wrapper = mount(Button, {
       propsData: {
         to: '/home'
       },
@@ -29,7 +29,7 @@ describe('Atom - Button', () => {
   })
 
   test('Renders the correct classes based on props passed', () => {
-    const wrapper = shallowMount(Button, {
+    const wrapper = mount(Button, {
       propsData: {
         success: true,
         warning: true,
@@ -45,8 +45,18 @@ describe('Atom - Button', () => {
     expect(wrapper.attributes().class).toContain('disabled')
   })
 
+  test('Renders slots', () => {
+    const wrapper = mount(Button, {
+      slots: {
+        default: 'Click here'
+      }
+    })
+
+    expect(wrapper.text()).toContain('Click here')
+  })
+
   test('Emits click event', () => {
-    const wrapper = shallowMount(Button)
+    const wrapper = mount(Button)
     wrapper.find('button').trigger('click')
     expect(wrapper.emitted().click).toBeTruthy()
     expect(wrapper.emitted().click.length).toBe(1)
