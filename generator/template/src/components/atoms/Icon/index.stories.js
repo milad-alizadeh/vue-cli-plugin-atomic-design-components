@@ -5,7 +5,7 @@ import Icon from '.'
 const wrapper = {
   components: { Icon },
   propsDescription: {
-    name: `Icon name. This is the svg filename without .svg extension. ie 'twitter'`,
+    name: `Icon name. This is the svg filename located in 'atoms/Icon/icons' without .svg extension`,
     color: `Icon color`,
     size: `Icon size. Options: ['small', 'medium', 'large']`
   }

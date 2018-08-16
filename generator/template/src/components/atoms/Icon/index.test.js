@@ -1,9 +1,9 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import Icon from '.'
 
 describe('Atom - Icon', () => {
   test('Renders the correct classes based on props passed', () => {
-    const wrapper = shallowMount(Icon, {
+    const wrapper = mount(Icon, {
       propsData: {
         name: 'linkedin',
         size: 'large',

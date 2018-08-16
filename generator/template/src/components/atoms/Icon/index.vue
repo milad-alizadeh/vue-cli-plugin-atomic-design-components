@@ -1,13 +1,12 @@
 <template>
   <div
-    v-if="svg"
     :class="[
       'a-icon',
       `a-icon--${color}`,
       `a-icon--${size}`
     ]"
   >
-    <component :is="svg" />
+    <component v-if="svg" :is="svg" />
   </div>
 </template>
 
@@ -30,9 +29,26 @@ export default {
       default: 'small'
     }
   },
+  created () {
+    this.loadSvg()
+  },
   computed: {
-    svg () {
+    svgLoader () {
       return () => import(`./icons/${this.name}.svg`)
+    }
+  },
+  data () {
+    return {
+      svg: null
+    }
+  },
+  methods: {
+    loadSvg () {
+      this.svgLoader().then(comp => {
+        if (comp.render) {
+          this.svg = comp
+        }
+      })
     }
   }
 }
