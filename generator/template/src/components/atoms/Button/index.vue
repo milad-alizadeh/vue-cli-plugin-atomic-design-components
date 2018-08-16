@@ -24,7 +24,7 @@
 export default {
   props: {
     href: String,
-    to: String,
+    to: [Object, String],
     success: Boolean,
     warning: Boolean,
     error: Boolean,
@@ -46,7 +46,7 @@ export default {
     border-radius: .3rem;
     color: #fff;
     cursor: pointer;
-    display: inline-block;
+    display: inline-flex;
     font-family: inherit;
     font-size: 1.6rem;
     line-height: 1;

@@ -1,42 +1,52 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import StoryRouter from 'storybook-vue-router'
 import { action } from '@storybook/addon-actions'
 import Button from '.'
 
+const wrapper = {
+  components: { Button },
+  propsDescription: {
+    success: 'Sucess mode',
+    warning: 'Warning mode',
+    error: 'Error mode',
+    disabled: 'Disabled mode',
+    to: '"to" prop for vue-router - renders a <router-link>',
+    href: '"href" for link - renders an <a> component'
+  }
+}
+
 storiesOf('Atom - Button', module)
   .addDecorator(VueInfoAddon)
-  .addDecorator(StoryRouter())
   .add('default', () => ({
-    components: { Button },
+    ...wrapper,
     template: '<Button>Click here</Button>'
   }))
   .add('success', () => ({
-    components: { Button },
+    ...wrapper,
     template: '<Button success>Click here</Button>'
   }))
   .add('error', () => ({
-    components: { Button },
+    ...wrapper,
     template: '<Button error>Click here</Button>'
   }))
   .add('warning', () => ({
-    components: { Button },
+    ...wrapper,
     template: '<Button warning>Click here</Button>'
   }))
   .add('disabled', () => ({
-    components: { Button },
+    ...wrapper,
     template: '<Button disabled>Click here</Button>'
   }))
   .add('link', () => ({
-    components: { Button },
+    ...wrapper,
     template: '<Button href="https://google.com">Click here</Button>'
   }))
   .add('router-link', () => ({
-    components: { Button },
-    template: '<Button to="/home">Click here</Button>'
+    ...wrapper,
+    template: `<Button :to="{ name: 'Home' }">Click here</Button>`
   }))
   .add('click event', () => ({
-    components: { Button },
+    ...wrapper,
     template: '<Button @click="action">Click here</Button>',
     methods: { action: action('button clicked') }
   }))
