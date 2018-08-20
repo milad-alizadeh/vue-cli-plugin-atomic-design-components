@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils'
-import Heading from '.'
+import VHeading from '.'
 
-describe('Atom - Heading', () => {
+describe('Atom - VHeading', () => {
   test('Renders the correct tag', () => {
-    const wrapper = mount(Heading, {
+    const wrapper = mount(VHeading, {
       propsData: {
         level: 2
       }
@@ -13,15 +13,15 @@ describe('Atom - Heading', () => {
   })
 
   test('Renders slots', () => {
-    const wrapper = mount(Heading, {
+    const wrapper = mount(VHeading, {
       propsData: {
         level: 1
       },
       slots: {
-        default: 'Heading title'
+        default: 'VHeading title'
       }
     })
 
-    expect(wrapper.text()).toBe('Heading title')
+    expect(wrapper.text()).toBe('VHeading title')
   })
 })

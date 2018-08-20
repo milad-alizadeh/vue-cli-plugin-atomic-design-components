@@ -1,11 +1,11 @@
 <template>
   <component
     :class="{
-      'a-button': 1,
-      'a-button--disabled': disabled,
-      'a-button--success': success,
-      'a-button--error': error,
-      'a-button--warning': warning
+      'v-a-button': 1,
+      'v-a-button--disabled': disabled,
+      'v-a-button--success': success,
+      'v-a-button--error': error,
+      'v-a-button--warning': warning
     }"
     :is="type"
     :href="href"
@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .a-button {
+  .v-a-button {
     background: #2196f3;
     border-radius: .3rem;
     color: #fff;

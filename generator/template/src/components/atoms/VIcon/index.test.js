@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils'
-import Icon from '.'
+import VIcon from '.'
 
-describe('Atom - Icon', () => {
+describe('Atom - VIcon', () => {
   test('Renders the correct classes based on props passed', () => {
-    const wrapper = mount(Icon, {
+    const wrapper = mount(VIcon, {
       propsData: {
         name: 'linkedin',
         size: 'large',

@@ -1,9 +1,9 @@
 <template>
   <div
     :class="[
-      'a-icon',
-      `a-icon--${color}`,
-      `a-icon--${size}`
+      'v-a-icon',
+      `v-a-icon--${color}`,
+      `v-a-icon--${size}`
     ]"
   >
     <component v-if="svg" :is="svg" />
@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .a-icon {
+  .v-a-icon {
     display: block;
 
     &--small {

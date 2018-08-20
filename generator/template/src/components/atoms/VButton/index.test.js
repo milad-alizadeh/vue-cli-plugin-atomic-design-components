@@ -1,14 +1,14 @@
 import { mount } from '@vue/test-utils'
-import Button from '.'
+import VButton from '.'
 
-describe('Atom - Button', () => {
+describe('Atom - VButton', () => {
   test('Default tag is <button>', () => {
-    const wrapper = mount(Button)
+    const wrapper = mount(VButton)
     expect(wrapper.contains('button')).toBe(true)
   })
 
   test('Tag should be <a> if href is available', () => {
-    const wrapper = mount(Button, {
+    const wrapper = mount(VButton, {
       propsData: { href: 'http://google.com' }
     })
 
@@ -17,7 +17,7 @@ describe('Atom - Button', () => {
   })
 
   test('Tag should be <router-link> if href is available', () => {
-    const wrapper = mount(Button, {
+    const wrapper = mount(VButton, {
       propsData: {
         to: '/home'
       },
@@ -29,7 +29,7 @@ describe('Atom - Button', () => {
   })
 
   test('Renders the correct classes based on props passed', () => {
-    const wrapper = mount(Button, {
+    const wrapper = mount(VButton, {
       propsData: {
         success: true,
         warning: true,
@@ -46,7 +46,7 @@ describe('Atom - Button', () => {
   })
 
   test('Renders slots', () => {
-    const wrapper = mount(Button, {
+    const wrapper = mount(VButton, {
       slots: {
         default: 'Click here'
       }
@@ -56,7 +56,7 @@ describe('Atom - Button', () => {
   })
 
   test('Emits click event', () => {
-    const wrapper = mount(Button)
+    const wrapper = mount(VButton)
     wrapper.find('button').trigger('click')
     expect(wrapper.emitted().click).toBeTruthy()
     expect(wrapper.emitted().click.length).toBe(1)

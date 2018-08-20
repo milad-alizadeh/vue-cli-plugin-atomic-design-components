@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import Icon from '.'
+import components from 'components'
 
 const wrapper = {
-  components: { Icon },
+  components,
   propsDescription: {
     name: `Icon name. This is the svg filename located in 'atoms/Icon/icons' without .svg extension`,
     color: `Icon color`,
@@ -11,22 +11,22 @@ const wrapper = {
   }
 }
 
-storiesOf('Atom - Icon', module)
+storiesOf('Atom - VIcon', module)
   .addDecorator(VueInfoAddon)
   .add('default', () => ({
     ...wrapper,
     template: `
       <div>
-        <Icon name="twitter" />
-        <Icon name="linkedin" />
+        <VIcon name="twitter" />
+        <VIcon name="linkedin" />
       </div>
     `
   }))
   .add('color', () => ({
     ...wrapper,
-    template: '<Icon name="twitter" color="red" />'
+    template: '<VIcon name="twitter" color="red" />'
   }))
   .add('size', () => ({
     ...wrapper,
-    template: '<Icon name="twitter" size="large" />'
+    template: '<VIcon name="twitter" size="large" />'
   }))
