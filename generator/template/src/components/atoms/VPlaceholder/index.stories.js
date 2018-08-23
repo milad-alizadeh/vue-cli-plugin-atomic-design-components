@@ -63,7 +63,7 @@ storiesOf('Atom - VPlaceholder', module)
     ...wrapper,
     template: `
       <div>
-        <VPlaceholder type="image" :speed=".7" aspectRatio="2"/>
+        <VPlaceholder type="image" :speed=".7" :aspectRatio="2"/>
 
         <br/>
 
