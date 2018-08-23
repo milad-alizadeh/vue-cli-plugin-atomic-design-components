@@ -16,7 +16,7 @@ describe('Atom - VButton', () => {
     expect(wrapper.attributes().href).toBe('http://google.com')
   })
 
-  test('Tag should be <router-link> if href is available', () => {
+  test('Tag should be <router-link> if "to" prop is available', () => {
     const wrapper = mount(VButton, {
       propsData: {
         to: '/home'

@@ -14,7 +14,7 @@
     @click="$emit('click')"
     :disabled="disabled"
   >
-  <span class="a-button__label">
+  <span class="v-a-button__label">
     <slot></slot>
   </span>
   </component>
