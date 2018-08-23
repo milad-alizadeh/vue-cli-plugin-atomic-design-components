@@ -25,5 +25,20 @@ storiesOf('Atom - VHeading', module)
   }))
   .add('loading', () => ({
     ...wrapper,
-    template: `<VHeading :level="1" :placeholderBoxNumber="3"></VHeading>`
+    template: `
+      <div>
+        <VButton @click="handleClick" style="margin-bottom: 4rem">Load content</VButton>
+        <VHeading :level="1" :placeholderNumber="2">{{ title }}</VHeading>
+      </div>
+    `,
+    data () {
+      return {
+        title: ''
+      }
+    },
+    methods: {
+      handleClick () {
+        this.title = 'Hello World'
+      }
+    }
   }))

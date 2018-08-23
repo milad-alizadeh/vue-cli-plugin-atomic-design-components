@@ -43,12 +43,12 @@ export default {
     }
   },
   methods: {
-    loadSvg () {
-      this.svgLoader().then(comp => {
-        if (comp.render) {
-          this.svg = comp
-        }
-      })
+    async loadSvg () {
+      try {
+        this.svg = await this.svgLoader()
+      } catch (e) {
+        throw new Error('Could not load icon svg')
+      }
     }
   }
 }

@@ -6,17 +6,7 @@
       `v-a-heading--${level}`
     ]"
   >
-  <slot v-if="$slots.default && $slots.default[0].text"></slot>
-  <template v-else>
-    <VPlaceholder
-      v-for="(number, index) in placeholderBoxNumber"
-      height="2rem"
-      :key="index"
-      :width="index >= 1 && placeholderBoxNumber - 1 === index ? '80%' : '100%'"
-      :marginBottom="index !== placeholderBoxNumber - 1 ? '1rem' : null"
-    />
-  </template>
-
+    <slot></slot>
   </component>
 </template>
 
@@ -30,7 +20,7 @@ export default {
       },
       required: true
     },
-    placeholderBoxNumber: {
+    placeholderNumber: {
       type: Number,
       default: 2
     }
@@ -39,6 +29,11 @@ export default {
     type () {
       return `h${this.level}`
     }
+    // hasSlots () {
+    //   return this.$slots.default && this.$slots.default[0].text
+    //   // if (!this.$slots.default && !this.$slots.default.length) return
+    //   // if (this.$slots.default[0].text) return true
+    // }
   }
 }
 </script>
