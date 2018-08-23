@@ -31,9 +31,3 @@ storiesOf('Atom - VList', module)
       </VList>
     `
   }))
-  .add('loading', () => ({
-    ...wrapper,
-    template: `
-      <VList ordered> {{ null }}</VList>
-    `
-  }))

@@ -5,8 +5,7 @@ import components from 'components'
 const wrapper = {
   components,
   propsDescription: {
-    level: `VHeading level. Options[1, 2, 3, 4]. For example '1' will result in a <h1> tag`,
-    placeholderBoxNumber: `The number of placeholderboxes shown when there are no slots.`
+    level: `VHeading level. Options[1, 2, 3, 4]. For example '1' will result in a <h1> tag`
   }
 }
 
@@ -22,23 +21,4 @@ storiesOf('Atom - VHeading', module)
         <VHeading :level="4">Heading 4</VHeading>
       </div>
     `
-  }))
-  .add('loading', () => ({
-    ...wrapper,
-    template: `
-      <div>
-        <VButton @click="handleClick" style="margin-bottom: 4rem">Load content</VButton>
-        <VHeading :level="1" :placeholderNumber="2">{{ title }}</VHeading>
-      </div>
-    `,
-    data () {
-      return {
-        title: ''
-      }
-    },
-    methods: {
-      handleClick () {
-        this.title = 'Hello World'
-      }
-    }
   }))

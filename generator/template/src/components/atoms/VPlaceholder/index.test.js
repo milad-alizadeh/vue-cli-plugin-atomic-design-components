@@ -2,17 +2,18 @@ import { mount } from '@vue/test-utils'
 import VPlaceholder from '.'
 
 describe('Atom - VPlaceholder', () => {
-  test('renders correctly with the right ', () => {
+  test('calculatas the correct viebox based on type', () => {
     const wrapper = mount(VPlaceholder, {
       propsData: {
-        width: '60%',
-        height: '10px',
-        marginBottom: '10px'
+        type: 'text',
+        lines: 3
       }
     })
 
-    expect(wrapper.attributes().style).toContain('width: 60%')
-    expect(wrapper.attributes().style).toContain('height: 10px')
-    expect(wrapper.attributes().style).toContain('margin-bottom: 10px')
+    expect(wrapper.find('svg').attributes().viewBox).toBe('0 0 400 60')
+
+    wrapper.setProps({ lines: 4 })
+
+    expect(wrapper.find('svg').attributes().viewBox).toBe('0 0 400 85')
   })
 })

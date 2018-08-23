@@ -45,7 +45,8 @@ export default {
   methods: {
     async loadSvg () {
       try {
-        this.svg = await this.svgLoader()
+        let comp = await this.svgLoader()
+        this.svg = comp.default
       } catch (e) {
         throw new Error('Could not load icon svg')
       }

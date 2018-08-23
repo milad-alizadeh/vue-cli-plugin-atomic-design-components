@@ -19,21 +19,7 @@ export default {
         return [1, 2, 3, 4].indexOf(val) !== -1
       },
       required: true
-    },
-    placeholderNumber: {
-      type: Number,
-      default: 2
     }
-  },
-  computed: {
-    type () {
-      return `h${this.level}`
-    }
-    // hasSlots () {
-    //   return this.$slots.default && this.$slots.default[0].text
-    //   // if (!this.$slots.default && !this.$slots.default.length) return
-    //   // if (this.$slots.default[0].text) return true
-    // }
   }
 }
 </script>
