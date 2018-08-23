@@ -20,6 +20,11 @@ export default {
       },
       required: true
     }
+  },
+  computed: {
+    type () {
+      return `h${this.level}`
+    }
   }
 }
 </script>
@@ -27,63 +32,19 @@ export default {
 <style lang="scss">
 .v-a-heading {
   &--1 {
-    font-size: 3.2rem;
-    line-height: 1.25;
-
-    @include breakpoint($medium) {
-      font-size: 4rem;
-      line-height: 1.125;
-    }
-
-    @include breakpoint($x-large) {
-      font-size: 4.8rem;
-      line-height: 1.05;
-    }
+    @include heading-x-large();
   }
 
   &--2 {
-    font-size: 2.6rem;
-    line-height: 1.15384615;
-
-    @include breakpoint($medium) {
-      font-size: 3.2rem;
-      line-height: 1.25;
-    }
-
-    @include breakpoint($x-large) {
-      font-size: 3.6rem;
-      line-height: 1.25;
-    }
+    @include heading-large();
   }
 
   &--3 {
-    font-size: 2.2rem;
-    line-height: 1.13636364;
-
-    @include breakpoint($medium) {
-      font-size: 2.4rem;
-      line-height: 1.25;
-    }
-
-    @include breakpoint($x-large) {
-      font-size: 2.8rem;
-      line-height: 1.25;
-    }
+    @include heading-medium();
   }
 
   &--4 {
-    font-size: 1.8rem;
-    line-height: 1.1;
-
-    @include breakpoint($medium) {
-      font-size: 1.8rem;
-      line-height: 1.22;
-    }
-
-    @include breakpoint($x-large) {
-      font-size: 1.8rem;
-      line-height: 1.22;
-    }
+    @include heading-small();
   }
 }
 </style>
