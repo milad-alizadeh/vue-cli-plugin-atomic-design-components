@@ -1,3 +1,21 @@
 module.exports = (api, options, rootOptions) => {
+  api.extendPackage({
+    devDependencies: {
+      vuelidate: "^0.7.4"
+    }
+  })
+
   api.render('./template')
+
+  api.injectImports('src/main.js', `import Vuelidate from 'vuelidate'`)
+
+  api.postProcessFiles(files => {
+    let main = files['src/main.js']
+    if (main) {
+      const lines = main.split(/\r?\n/g).reverse()
+      const lastImportIndex = lines.findIndex(line => line.match(/^import/))
+      lines[lastImportIndex] += `\n Vue.use(Vuelidate)`
+      main = lines.reverse().join('\n')
+    }
+  })
 }
