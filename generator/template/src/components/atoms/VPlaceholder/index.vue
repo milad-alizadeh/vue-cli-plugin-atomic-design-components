@@ -69,6 +69,8 @@
 </template>
 
 <script>
+import { uid } from '@/helpers'
+
 export default {
   props: {
     type: {
@@ -145,7 +147,7 @@ export default {
       return '0 0 400 240'
     },
     shapeId () {
-      return '_' + Math.random().toString(36).substr(2, 9)
+      return uid()
     }
   },
   methods: {
