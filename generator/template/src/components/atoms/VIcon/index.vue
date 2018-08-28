@@ -75,11 +75,11 @@ export default {
     }
 
     &--red {
-      color: red
+      color: $error
     }
 
     &--black {
-      color: black;
+      color: $black;
     }
 
     svg {

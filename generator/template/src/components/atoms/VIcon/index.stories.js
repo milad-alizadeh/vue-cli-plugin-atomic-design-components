@@ -24,9 +24,20 @@ storiesOf('Atom - VIcon', module)
   }))
   .add('color', () => ({
     ...wrapper,
-    template: '<VIcon name="twitter" color="red" />'
+    template: `
+      <div>
+        <VIcon name="twitter" color="red" />
+        <VIcon name="twitter" color="black" />
+      </div>
+    `
   }))
   .add('size', () => ({
     ...wrapper,
-    template: '<VIcon name="twitter" size="large" />'
+    template: `
+    <div>
+      <VIcon name="twitter" size="small" />
+      <VIcon name="twitter" size="medium" />
+      <VIcon name="twitter" size="large" />
+    </div>
+    `
   }))
