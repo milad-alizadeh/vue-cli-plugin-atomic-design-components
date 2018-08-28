@@ -77,19 +77,19 @@ export default {
     }
 
     &--success {
-      background: #4caf50;
+      background: $success;
     }
 
     &--error {
-      background: #ff5252;
+      background: $error;
     }
 
     &--warning {
-      background: #ffc105;
+      background: $warning;
     }
 
     &--disabled {
-      background: #aaa;
+      background: $disabled;
       cursor: not-allowed;
 
       &:hover {
