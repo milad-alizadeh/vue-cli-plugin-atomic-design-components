@@ -42,9 +42,9 @@ export default {
 
 <style lang="scss">
   .v-a-button {
-    background: #2196f3;
+    background: $blue;
     border-radius: .3rem;
-    color: #fff;
+    color: $white;
     cursor: pointer;
     display: inline-flex;
     font-family: inherit;
