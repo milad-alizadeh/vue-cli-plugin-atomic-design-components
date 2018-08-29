@@ -59,9 +59,11 @@ export default {
 <style lang="scss">
 .v-a-input-text {
   font-size: 1.6rem;
-  padding: .5rem;
-  border: .1rem solid $grey;
+  padding: .8rem 1rem;
+  border: .1rem solid $grey-light;
   max-width: 40rem;
+  line-height: 1;
   width: 100%;
+  border-radius: .3rem;
 }
 </style>

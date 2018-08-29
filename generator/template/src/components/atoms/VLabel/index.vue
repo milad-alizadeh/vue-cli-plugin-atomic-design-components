@@ -35,6 +35,7 @@ export default {
 .v-a-label {
   font-size: 1.6rem;
   display: block;
+  user-select: none;
 
   &--error {
     color: $error;

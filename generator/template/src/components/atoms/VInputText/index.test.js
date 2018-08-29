@@ -19,19 +19,4 @@ describe('Atom - VInputText', () => {
     expect(emittedInput).toBeTruthy()
     expect(emittedInput[0][0]).toBe('Hello World')
   })
-
-  test('Has correct classes based on paassed props', () => {
-    const wrapper = mount(VInputText, {
-      propsData: {
-        type: 'text',
-        error: true,
-        success: true
-      }
-    })
-
-    const cssClass = wrapper.attributes().class
-
-    expect(cssClass).toContain('error')
-    expect(cssClass).toContain('success')
-  })
 })
