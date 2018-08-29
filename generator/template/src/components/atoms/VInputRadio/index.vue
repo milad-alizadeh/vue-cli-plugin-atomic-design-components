@@ -10,7 +10,7 @@
       :required="required"
       @change="toggle"
     >
-    <div class="v-a-input-radio__graphic"></div>
+    <div class="v-a-input-radio__circle"></div>
   </div>
 </template>
 
@@ -78,10 +78,10 @@ export default {
   $this: &;
   display: inline-flex;
 
-  &__graphic {
+  &__circle {
     width: 2rem;
     height: 2rem;
-    background: $black;
+    background: $blue;
     border-radius: 50%;
     display: flex;
     font-size: 2rem;
@@ -95,14 +95,14 @@ export default {
       background: $white;
       border-radius: 50%;
       opacity: 0;
-      transition: opacity .3s;
+      transition: opacity .2s;
     }
   }
 
   &__input {
     display: none;
 
-    &:checked + #{$this}__graphic:before {
+    &:checked + #{$this}__circle::before {
       opacity: 1;
     }
   }

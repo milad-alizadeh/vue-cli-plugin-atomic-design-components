@@ -15,7 +15,7 @@ describe('Atom - VInputRadio', () => {
     expect(wrapper.emitted().change[0][0]).toBe('Option 1')
   })
 
-  test('Has correct classes based on paassed props', () => {
+  test('Has correct classes based on passed props', () => {
     const wrapper = mount(VInputRadio, {
       propsData: {
         checked: true,
