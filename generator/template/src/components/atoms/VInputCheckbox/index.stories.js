@@ -23,7 +23,7 @@ storiesOf('Atom - VInputCheckbox', module)
     template: `
       <div>
         <label>
-          <VInputCheckbox v-model="selectedValue" />
+          <VInputCheckbox v-model="selectedValue" checked/>
           Do you accept the terms and conditions?
         </label>
 
@@ -43,7 +43,7 @@ storiesOf('Atom - VInputCheckbox', module)
     template: `
       <div>
         <label>
-          <VInputCheckbox v-model="selectedValue" value="option1" checked/>
+          <VInputCheckbox v-model="selectedValue" value="option1" />
           Options 1
         </label>
 
@@ -64,7 +64,7 @@ storiesOf('Atom - VInputCheckbox', module)
     `,
     data () {
       return {
-        selectedValue: []
+        selectedValue: ['option1', 'option3']
       }
     }
   }))

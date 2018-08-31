@@ -5,11 +5,10 @@ describe('Atom - VInputCheckbox', () => {
   test('Two way data binding', () => {
     const wrapper = mount(VInputCheckbox)
 
-    const input = wrapper.find('input')
-    input.element.checked = true
-    input.trigger('change')
-    expect(wrapper.emitted().change).toBeTruthy()
-    expect(wrapper.emitted().change[0][0]).toBe(true)
+    wrapper.find('input').trigger('click')
+
+    expect(wrapper.emitted().input).toBeTruthy()
+    expect(wrapper.emitted().input[0][0]).toBe(true)
   })
 
   test('Has correct classes based on passed props', () => {

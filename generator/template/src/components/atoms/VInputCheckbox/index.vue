@@ -7,8 +7,9 @@
       :id="id"
       :checked="shouldBeChecked"
       :disabled="disabled"
+      :name="name"
       :required="required"
-      @change="onChange"
+      @change="toggle"
     >
     <div class="v-a-input-checkbox__box">
       <svg class="v-a-input-checkbox__graphic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
@@ -22,10 +23,13 @@
 export default {
   model: {
     prop: 'modelValue',
-    event: 'change'
+    event: 'input'
   },
   props: {
-    value: [String, Boolean],
+    value: {
+      type: [String, Boolean],
+      reqruied: true
+    },
     checked: {
       type: Boolean,
       default: false
@@ -38,22 +42,15 @@ export default {
       type: Boolean,
       default: false
     },
-    id: {
-      type: String
-    },
+    id: String,
+    name: String,
     modelValue: {
-      default: ''
-    },
-    trueValue: {
-      default: true
-    },
-    falseValue: {
-      default: false
+      default: undefined
     }
   },
   computed: {
     shouldBeChecked () {
-      if (this.modelValue === null) {
+      if (this.modelValue === undefined) {
         return this.checked
       }
 
@@ -61,39 +58,37 @@ export default {
         return this.modelValue.includes(this.value)
       }
 
-      return this.modelValue === this.trueValue
+      return !!this.modelValue
     }
   },
   methods: {
-    toggle (isChecked) {
-      if (this.modelValue instanceof Array) {
-        let newValue = [...this.modelValue]
+    toggle () {
+      let value
+      if (Array.isArray(this.modelValue)) {
+        value = [...this.modelValue]
 
-        if (isChecked) {
-          newValue.push(this.value)
+        if (this.shouldBeChecked) {
+          value.splice(value.indexOf(this.value), 1)
         } else {
-          newValue.splice(newValue.indexOf(this.value), 1)
+          value.push(this.value)
         }
-
-        this.$emit('change', newValue)
       } else {
-        this.$emit('change', isChecked ? this.trueValue : this.falseValue)
+        value = !this.shouldBeChecked
       }
-    },
-    onChange (event) {
-      this.toggle(event.target.checked)
+
+      this.$emit('input', value)
     }
   },
   watch: {
-    checked (newVal) {
-      if (this.checked) {
-        this.toggle(newVal)
+    checked (newValue) {
+      if (newValue !== this.shouldBeChecked) {
+        this.toggle()
       }
     }
   },
   mounted () {
-    if (this.checked) {
-      this.toggle(this.checked)
+    if (this.checked && !this.shouldBeChecked) {
+      this.toggle()
     }
   }
 }
