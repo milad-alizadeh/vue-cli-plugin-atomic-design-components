@@ -1,30 +1,35 @@
 <template>
   <div :class="[
-    'v-m-form-radio',
-    `${error ? 'v-m-form-radio--error' : ''}`,
-    `${success ? 'v-m-form-radio--success' : ''}`,
-    `${disabled ? 'v-m-form-radio--disabled' : ''}`
+    'v-m-form-checkbox',
+    `${error ? 'v-m-form-checkbox--error' : ''}`,
+    `${success ? 'v-m-form-checkbox--success' : ''}`,
+    `${disabled ? 'v-m-form-checkbox--disabled' : ''}`
   ]">
-    <div class="v-m-form-radio__question">
-      <VText v-if="label">
+    <div
+      class="v-m-form-checkbox__question"
+      v-if="label && options"
+    >
+      <VText>
         <template v-if="required">* </template>{{ label }}
       </VText>
     </div>
 
-    <div class="v-m-form-radio__options">
+    <div
+      v-if="options"
+      class="v-m-form-checkbox__options"
+    >
       <div
         v-for="option in options"
         :key="option.value"
         :class="[
-          'v-m-form-radio__option',
-          `${option.disabled || disabled ? 'v-m-form-radio__option--disabled' : '' }`
+          'v-m-form-checkbox__option',
+          `${option.disabled || disabled ? 'v-m-form-checkbox__option--disabled' : '' }`
         ]"
       >
         <VLabel>
-          <VInputRadio
+          <VInputCheckbox
             v-model="selectedValue"
             :value="option.value"
-            :checked="disabled ? false : option.checked"
             :disabled="disabled ? disabled : option.disabled"
             :required="required"
           />
@@ -32,9 +37,28 @@
           {{ option.label }}
         </VLabel>
       </div>
-
-      <VText v-if="error && errorMessage" size="x-small">{{ errorMessage }}</VText>
     </div>
+
+    <template v-else>
+      <div
+        :class="[
+          'v-m-form-checkbox__option',
+          `${disabled ? 'v-m-form-checkbox__option--disabled' : '' }`
+        ]"
+      >
+        <VLabel>
+          <VInputCheckbox
+            v-model="selectedValue"
+            :disabled="disabled"
+            :checked="checked"
+          />
+
+          {{ label }}
+        </VLabel>
+      </div>
+    </template>
+
+    <VText v-if="error && errorMessage" size="x-small">{{ errorMessage }}</VText>
   </div>
 </template>
 
@@ -48,11 +72,16 @@ export default {
   },
   props: {
     label: String,
-    options: {
-      type: Array,
+    options: Array,
+    errorMessage: String,
+    checked: {
+      type: Boolean,
+      default: false
+    },
+    value: {
+      type: [Array, Boolean],
       required: true
     },
-    errorMessage: String,
     error: {
       type: Boolean,
       default: false
@@ -84,12 +113,21 @@ export default {
     return {
       selectedValue: null
     }
+  },
+  mounted () {
+    if (this.options && this.options.length) {
+      if (this.value instanceof Array && this.value.length) {
+        this.selectedValue = this.value
+      } else {
+        this.selectedValue = []
+      }
+    }
   }
 }
 </script>
 
 <style lang="scss">
-.v-m-form-radio {
+.v-m-form-checkbox {
   $this: &;
 
   &__question {
@@ -99,7 +137,7 @@ export default {
   &__option {
     margin-bottom: 1.5rem;
 
-    .v-a-input-radio {
+    .v-a-input-checkbox {
       margin-right: .5rem;
     }
 
@@ -114,7 +152,7 @@ export default {
         cursor: not-allowed;
       }
 
-      .v-a-input-radio__circle {
+      .v-a-input-checkbox__box {
         background: $grey-light;
       }
     }
