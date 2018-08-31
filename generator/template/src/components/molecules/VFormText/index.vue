@@ -6,6 +6,7 @@
     `${disabled ? 'v-m-form-text--disabled' : ''}`
   ]">
     <VLabel
+      v-if="label"
       :forAttribute="`#${id}`"
       :error="error"
     >
