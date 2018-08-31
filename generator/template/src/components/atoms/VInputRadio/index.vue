@@ -8,6 +8,7 @@
       :checked="shouldBeChecked"
       :disabled="disabled"
       :required="required"
+      :name="name"
       @change="toggle"
     >
     <div class="v-a-input-radio__circle"></div>
@@ -37,9 +38,8 @@ export default {
       type: Boolean,
       default: false
     },
-    id: {
-      type: String
-    },
+    id: String,
+    name: String,
     modelValue: {
       default: ''
     }
