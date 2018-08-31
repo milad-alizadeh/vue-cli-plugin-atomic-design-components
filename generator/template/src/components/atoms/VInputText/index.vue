@@ -9,6 +9,7 @@
     :value="value"
     :disabled="disabled"
     :required="required"
+    :name="name"
     :placeholder="placeholder"
     @input="$emit('input', $event.target.value)"
     @focus="$emit('focus')"
@@ -45,9 +46,8 @@ export default {
       type: String,
       default: ''
     },
-    id: {
-      type: String
-    },
+    id: String,
+    name: String,
     placeholder: {
       type: String,
       default: ''
