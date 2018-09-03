@@ -5,7 +5,8 @@ import components from 'components'
 const wrapper = {
   components,
   propsDescription: {
-    for: '"for" attribute for label'
+    htmlFor: '"for" attribute for label',
+    required: 'If label is for a required input'
   }
 }
 
@@ -40,15 +41,12 @@ storiesOf('Atom - VLabel', module)
       }
     }
   }))
-  .add('forAttribute', () => ({
+  .add('htmlFor', () => ({
     ...wrapper,
     template: `
       <div>
-        Choose One of these
-        <br/><br/>
-
-        <VLabel forAttribute="text-input">Full Name</VLabel>
-        <VInputText id="text-input" />
+        <VLabel htmlFor="text-input">Full Name</VLabel>
+        <input type="text" id="text-input" />
       </div>
     `
   }))

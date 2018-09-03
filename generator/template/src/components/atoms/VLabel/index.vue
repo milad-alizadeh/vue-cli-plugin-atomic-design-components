@@ -1,11 +1,7 @@
 <template>
   <label
-    :for="forAttribute"
-    :class="[
-      'v-a-label',
-      `${error ? 'v-a-label--error' : ''}`,
-      `${success ? 'v-a-label--success' : ''}`
-    ]"
+    :for="htmlFor"
+    class="v-a-label"
   >
     <template v-if="required">* </template><slot></slot>
   </label>
@@ -14,16 +10,8 @@
 <script>
 export default {
   props: {
-    forAttribute: String,
+    htmlFor: String,
     required: {
-      type: Boolean,
-      default: false
-    },
-    error: {
-      type: Boolean,
-      default: false
-    },
-    success: {
       type: Boolean,
       default: false
     }
