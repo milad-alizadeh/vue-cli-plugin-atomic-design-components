@@ -1,12 +1,12 @@
 <template>
-  <div :class="[
+  <fieldset :class="[
     'v-m-form-radio',
     `${error ? 'v-m-form-radio--error' : ''}`,
     `${success ? 'v-m-form-radio--success' : ''}`,
     `${disabled ? 'v-m-form-radio--disabled' : ''}`
   ]">
-    <div class="v-m-form-radio__question">
-      <VText v-if="label">
+    <div class="v-m-form-radio__question" v-if="label">
+      <VText tag="legend">
         <template v-if="required">* </template>{{ label }}
       </VText>
     </div>
@@ -35,7 +35,7 @@
 
       <VText v-if="error && errorMessage" size="x-small">{{ errorMessage }}</VText>
     </div>
-  </div>
+  </fieldset>
 </template>
 
 <script>

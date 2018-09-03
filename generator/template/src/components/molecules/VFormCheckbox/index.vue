@@ -1,5 +1,5 @@
 <template>
-  <div :class="[
+  <fieldset :class="[
     'v-m-form-checkbox',
     `${error ? 'v-m-form-checkbox--error' : ''}`,
     `${success ? 'v-m-form-checkbox--success' : ''}`,
@@ -9,7 +9,7 @@
       class="v-m-form-checkbox__question"
       v-if="label && options"
     >
-      <VText>
+      <VText tag="legend">
         <template v-if="required">* </template>{{ label }}
       </VText>
     </div>
@@ -59,7 +59,7 @@
     </template>
 
     <VText v-if="error && errorMessage" size="x-small">{{ errorMessage }}</VText>
-  </div>
+  </fieldset>
 </template>
 
 <script>

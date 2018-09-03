@@ -7,7 +7,7 @@
   ]">
     <VLabel
       v-if="label"
-      :forAttribute="`#${id}`"
+      :htmlFor="`#${id}`"
       :error="error"
     >
       <template v-if="required">* </template>{{ label }}
