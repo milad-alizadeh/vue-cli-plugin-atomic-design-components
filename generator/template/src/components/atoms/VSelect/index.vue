@@ -9,14 +9,14 @@
       :id="id"
       @change="$emit('change', $event.target.value)"
     >
-    <option disabled value="">{{ emptyValueLabel }}</option>
-    <option
-      v-for="option in options"
-      :value="option.value"
-      :key="option.value"
-      :selected="option.selected"
-      :disabled="disabled ? disabled : option.disabled"
-    >{{ option.label }}</option>
+      <option disabled value="">{{ emptyValueLabel }}</option>
+      <option
+        v-for="option in options"
+        :value="option.value"
+        :key="option.value"
+        :selected="option.selected"
+        :disabled="disabled ? disabled : option.disabled"
+      >{{ option.label }}</option>
     </select>
 
     <svg class="v-a-select__arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284.929 284.929">
