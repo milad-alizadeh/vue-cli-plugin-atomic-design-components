@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import components from 'components'
+import VFormCheckbox from '.'
 
 const wrapper = {
-  components,
+  components: { VFormCheckbox },
   propsDescription: {
     label: 'The label for all the options. Generally is a question',
     options: `An array of option objects. displayed as chekcboxes. A single option format is:

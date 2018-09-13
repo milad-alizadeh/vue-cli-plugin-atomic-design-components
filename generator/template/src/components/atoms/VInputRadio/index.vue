@@ -17,6 +17,7 @@
 
 <script>
 export default {
+  name: 'VInputRadio',
   model: {
     prop: 'modelValue',
     event: 'change'
@@ -97,6 +98,10 @@ export default {
       opacity: 0;
       transition: opacity .2s;
     }
+  }
+
+  &:focus {
+    box-shadow: 0 0 .6rem rgba($black, .4)
   }
 
   &__input {

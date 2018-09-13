@@ -14,6 +14,8 @@
       </VText>
     </div>
 
+    <VValidationMessages :error="error" :errorMessages="errorMessages" />
+
     <div
       v-if="options"
       class="v-m-form-checkbox__options"
@@ -32,6 +34,7 @@
             :value="option.value"
             :disabled="disabled ? disabled : option.disabled"
             :required="required"
+            :name="name"
           />
 
           {{ option.label }}
@@ -57,15 +60,25 @@
         </VLabel>
       </div>
     </template>
-
-    <VText v-if="error && errorMessage" size="x-small">{{ errorMessage }}</VText>
   </fieldset>
 </template>
 
 <script>
+import VLabel from 'atoms/VLabel'
+import VText from 'atoms/VText'
+import VInputCheckbox from 'atoms/VInputCheckbox'
+import VValidationMessages from 'molecules/VValidationMessages'
+
 import { uid } from '@/helpers'
 
 export default {
+  name: 'VFormCheckbox',
+  components: {
+    VLabel,
+    VText,
+    VInputCheckbox,
+    VValidationMessages
+  },
   model: {
     prop: 'value',
     event: 'change'
@@ -73,7 +86,8 @@ export default {
   props: {
     label: String,
     options: Array,
-    errorMessage: String,
+    errorMessages: [String, Array],
+    name: String,
     checked: {
       type: Boolean,
       default: false
@@ -129,6 +143,12 @@ export default {
 <style lang="scss">
 .v-m-form-checkbox {
   $this: &;
+  border: 0;
+
+  .v-m-validation-messages {
+    margin-bottom: 1rem;
+    margin-top: -1rem;
+  }
 
   &__question {
     margin-bottom: 1.5rem;

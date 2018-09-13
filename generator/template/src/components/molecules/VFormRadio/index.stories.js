@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import components from 'components'
+import VFormRadio from '.'
 
 const wrapper = {
-  components,
+  components: { VFormRadio },
   propsDescription: {
     label: 'The label for all the options. Generally is a question',
     options: `An array of option objects. displayed as radio buttons. Option format is:

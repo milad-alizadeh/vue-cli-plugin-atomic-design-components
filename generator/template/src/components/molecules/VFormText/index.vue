@@ -20,20 +20,33 @@
       :required="required"
       :placeholder="placeholder"
       :disabled="disabled"
+      :autocomplete="autocomplete"
       :value="value"
+      :name="name"
       @input="value => $emit('input', value)"
-      @focus="$emit('focus')"
-      @blur="$emit('blur')"
+      @focus="$emit('focus', $event)"
+      @blur="$emit('blur', $event)"
+      @keypress="$emit('keypress', $event)"
     />
 
-    <VText v-if="error && errorMessage" size="x-small">{{ errorMessage }}</VText>
+    <VValidationMessages :error="error" :errorMessages="errorMessages" />
   </div>
 </template>
 
 <script>
+import VInputText from 'atoms/VInputText'
+import VLabel from 'atoms/VLabel'
+import VValidationMessages from 'molecules/VValidationMessages'
+
 import { uid } from '@/helpers'
 
 export default {
+  name: 'VFormText',
+  components: {
+    VInputText,
+    VLabel,
+    VValidationMessages
+  },
   props: {
     label: String,
     type: {
@@ -48,7 +61,8 @@ export default {
       type: String,
       default: ''
     },
-    errorMessage: String,
+    errorMessages: [String, Array],
+    name: String,
     error: {
       type: Boolean,
       default: false
@@ -57,6 +71,7 @@ export default {
       type: Boolean,
       default: false
     },
+    autocomplete: String,
     disabled: {
       type: Boolean,
       default: false
@@ -86,7 +101,7 @@ export default {
     margin-bottom: 1rem;
   }
 
-  &--error {
+  &--error, {
     .v-a-text,
     .v-a-label,
     .v-a-input-text {
@@ -98,7 +113,7 @@ export default {
     }
   }
 
-  &--success {
+  &--success, {
     .v-a-text,
     .v-a-label,
     .v-a-input-text {

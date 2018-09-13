@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import components from 'components'
+import VLoader from '.'
 
 const wrapper = {
-  components,
+  components: { VLoader },
   propsDescription: {
     size: `Size of the loader. Options ['small', 'medium', 'large']`
   }

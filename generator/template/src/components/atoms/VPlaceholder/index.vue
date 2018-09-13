@@ -72,6 +72,7 @@
 import { uid } from '@/helpers'
 
 export default {
+  name: 'VPlaceholder',
   props: {
     type: {
       type: String,

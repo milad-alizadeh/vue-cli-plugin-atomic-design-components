@@ -7,10 +7,11 @@
       'v-a-button--error': error,
       'v-a-button--warning': warning
     }"
-    :is="type"
+    :is="tag"
     :href="href"
     :to="to"
     :target="href ? '_blank' : null"
+    :type="type"
     @click="$emit('click')"
     :disabled="disabled"
   >
@@ -22,8 +23,10 @@
 
 <script>
 export default {
+  name: 'VButton',
   props: {
     href: String,
+    type: String,
     to: [Object, String],
     success: Boolean,
     warning: Boolean,
@@ -31,7 +34,7 @@ export default {
     disabled: Boolean
   },
   computed: {
-    type () {
+    tag () {
       if (this.href) return 'a'
       if (this.to) return 'router-link'
       return 'button'
@@ -58,6 +61,10 @@ export default {
 
     &__label {
       position: relative;
+    }
+
+    &:focus {
+      box-shadow: 0 0 .5rem rgba($black, .4)
     }
 
     &::before {

@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 'VIcon',
   props: {
     name: {
       required: true,
@@ -35,6 +36,11 @@ export default {
   computed: {
     svgLoader () {
       return () => import(`./icons/${this.name}.svg`)
+    }
+  },
+  watch: {
+    name () {
+      this.loadSvg()
     }
   },
   data () {

@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: 'VLoader',
   props: {
     size: {
       type: String,

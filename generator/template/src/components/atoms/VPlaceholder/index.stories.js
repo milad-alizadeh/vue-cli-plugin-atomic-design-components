@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import components from 'components'
+import VPlaceholder from '.'
 
 const wrapper = {
-  components,
+  components: { VPlaceholder },
   propsDescription: {
     type: `Type of placeholder. Options: ['bullet-list', 'text']`,
     imageGraphic: `Available only on 'image' type. The name of graphic to be used as the center icon`,

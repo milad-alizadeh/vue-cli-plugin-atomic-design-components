@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import components from 'components'
+import VFormSelect from '.'
 
 const wrapper = {
-  components,
+  components: { VFormSelect },
   propsDescription: {
     label: 'Label text for the field',
     required: 'Whether the field is required',

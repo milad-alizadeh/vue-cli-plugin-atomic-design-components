@@ -1,10 +1,10 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
 import { action } from '@storybook/addon-actions'
-import components from 'components'
+import VButton from '.'
 
 const wrapper = {
-  components,
+  components: { VButton },
   propsDescription: {
     success: 'Sucess mode',
     warning: 'Warning mode',

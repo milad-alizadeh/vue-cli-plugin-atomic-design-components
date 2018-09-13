@@ -27,6 +27,7 @@
 
 <script>
 export default {
+  name: 'VSelect',
   model: {
     prop: 'value',
     event: 'change'
@@ -78,6 +79,11 @@ export default {
     border: .1rem solid $grey-light;
     border-radius: .3rem;
     background: $white;
+    width: 100%;
+
+    &:focus {
+      box-shadow: 0 0 .6rem rgba($black, .4)
+    }
   }
 
   &__arrow {

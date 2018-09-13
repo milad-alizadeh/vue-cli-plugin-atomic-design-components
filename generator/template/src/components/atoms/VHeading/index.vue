@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 'VHeading',
   props: {
     level: {
       type: Number,

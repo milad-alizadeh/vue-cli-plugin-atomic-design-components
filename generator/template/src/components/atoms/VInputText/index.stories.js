@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import components from 'components'
+import VInputText from '.'
 
 const wrapper = {
-  components,
+  components: { VInputText },
   propsDescription: {
     type: `Type of the text input. Options ['text', 'email', 'url', 'tel', 'search', 'password']`,
     disabled: 'Disables the input by adding "disabled" attribute',

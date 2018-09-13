@@ -9,20 +9,6 @@ describe('Molecule - VFormText', () => {
       propsData: {
         value: '',
         type: 'text'
-      },
-      stubs: {
-        VInputText: {
-          name: 'VInputText',
-          template: '<input type="text" />'
-        },
-        VLabel: {
-          name: 'VLabel',
-          template: '<label><slot></slot></label>'
-        },
-        VText: {
-          name: 'VText',
-          template: '<p><slot></slot></p>'
-        }
       }
     })
   })
@@ -38,14 +24,14 @@ describe('Molecule - VFormText', () => {
   })
 
   test('Shows error message if available', () => {
-    expect(wrapper.find({ name: 'VText' }).exists()).toBe(false)
+    expect(wrapper.find({ name: 'VValidationMessages' }).text()).toBe('')
 
     wrapper.setProps({
-      errorMessage: 'Please enter your name',
+      errorMessages: 'Please enter your name',
       error: true
     })
 
-    expect(wrapper.find({ name: 'VText' }).text()).toContain('Please enter your name')
+    expect(wrapper.find({ name: 'VValidationMessages' }).text()).toContain('Please enter your name')
   })
 
   test('Renders the coreect classes', () => {

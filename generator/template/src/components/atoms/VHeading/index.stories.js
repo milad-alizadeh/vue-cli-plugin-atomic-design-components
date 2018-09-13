@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import components from 'components'
+import VHeading from '.'
 
 const wrapper = {
-  components,
+  components: { VHeading },
   propsDescription: {
     level: `VHeading level. Options[1, 2, 3, 4]. For example '1' will result in a <h1> tag`
   }

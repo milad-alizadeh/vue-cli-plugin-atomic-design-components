@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  name: 'VText',
   props: {
     tag: {
       type: String,

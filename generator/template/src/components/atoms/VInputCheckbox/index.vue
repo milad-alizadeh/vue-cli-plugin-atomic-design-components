@@ -8,7 +8,6 @@
       :checked="shouldBeChecked"
       :disabled="disabled"
       :name="name"
-      :required="required"
       @change="toggle"
     >
     <div class="v-a-input-checkbox__box">
@@ -21,6 +20,7 @@
 
 <script>
 export default {
+  name: 'VInputCheckbox',
   model: {
     prop: 'modelValue',
     event: 'input'
@@ -35,10 +35,6 @@ export default {
       default: false
     },
     disabled: {
-      type: Boolean,
-      default: false
-    },
-    required: {
       type: Boolean,
       default: false
     },
@@ -103,6 +99,7 @@ export default {
     width: 2rem;
     height: 2rem;
     background: $blue;
+    border-radius: .3rem;
     display: flex;
     font-size: 2rem;
     justify-content: center;

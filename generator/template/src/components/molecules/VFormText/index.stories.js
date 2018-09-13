@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import components from 'components'
+import VFormText from '.'
 
 const wrapper = {
-  components,
+  components: { VFormText },
   propsDescription: {
     label: 'Label text for the field',
     type: `Type of the text input. Options ['text', 'email', 'url', 'tel', 'search', 'password']`,

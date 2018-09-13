@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 'VList',
   props: {
     ordered: Boolean
   }

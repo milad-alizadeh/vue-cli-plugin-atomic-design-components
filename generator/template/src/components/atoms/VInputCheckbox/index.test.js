@@ -15,7 +15,6 @@ describe('Atom - VInputCheckbox', () => {
     const wrapper = mount(VInputCheckbox, {
       propsData: {
         checked: true,
-        required: true,
         value: 'Option 2',
         disabled: true
       }
@@ -23,7 +22,6 @@ describe('Atom - VInputCheckbox', () => {
 
     const input = wrapper.find('input')
     expect(input.attributes().value).toBe('Option 2')
-    expect(input.attributes().required).toBe('required')
     expect(input.attributes().disabled).toBe('disabled')
   })
 })

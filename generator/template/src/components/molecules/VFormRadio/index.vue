@@ -11,6 +11,8 @@
       </VText>
     </div>
 
+    <VValidationMessages :error="error" :errorMessages="errorMessages" />
+
     <div class="v-m-form-radio__options">
       <div
         v-for="option in options"
@@ -27,21 +29,32 @@
             :checked="disabled ? false : option.checked"
             :disabled="disabled ? disabled : option.disabled"
             :required="required"
+            :name="name"
           />
 
           {{ option.label }}
         </VLabel>
       </div>
-
-      <VText v-if="error && errorMessage" size="x-small">{{ errorMessage }}</VText>
     </div>
   </fieldset>
 </template>
 
 <script>
+import VLabel from 'atoms/VLabel'
+import VText from 'atoms/VText'
+import VInputRadio from 'atoms/VInputRadio'
+import VValidationMessages from 'molecules/VValidationMessages'
+
 import { uid } from '@/helpers'
 
 export default {
+  name: 'VFormRadio',
+  components: {
+    VLabel,
+    VText,
+    VInputRadio,
+    VValidationMessages
+  },
   model: {
     prop: 'value',
     event: 'change'
@@ -52,7 +65,8 @@ export default {
       type: Array,
       required: true
     },
-    errorMessage: String,
+    errorMessages: [String, Array],
+    name: String,
     error: {
       type: Boolean,
       default: false

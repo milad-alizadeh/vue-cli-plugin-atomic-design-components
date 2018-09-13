@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'VLabel',
   props: {
     htmlFor: String,
     required: {

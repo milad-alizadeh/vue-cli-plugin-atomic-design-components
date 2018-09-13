@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import components from 'components'
+import VInputCheckbox from '.'
 
 const wrapper = {
-  components,
+  components: { VInputCheckbox },
   propsDescription: {
     value: 'Value of radio button.',
     checked: 'Whether the radio is checked. Can also be checked programatically using v-bind.',

@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import components from 'components'
+import VSelect from '.'
 
 const wrapper = {
-  components,
+  components: { VSelect },
   propsDescription: {
     options: 'Available options for the select. A single option format is: { label: String, value: String }',
     value: 'Value of Select box'

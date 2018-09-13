@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import components from 'components'
+import VList from '.'
 
 const wrapper = {
-  components,
+  components: { VList },
   propsDescription: {
     ordered: 'Whether the list is an ordred list'
   }

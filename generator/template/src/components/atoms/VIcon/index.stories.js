@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import components from 'components'
+import VIcon from '.'
 
 const wrapper = {
-  components,
+  components: { VIcon },
   propsDescription: {
     name: `Icon name. This is the svg filename located in 'atoms/Icon/icons' without .svg extension`,
     color: `Icon color`,

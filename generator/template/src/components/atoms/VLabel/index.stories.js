@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
-import components from 'components'
+import VLabel from '.'
 
 const wrapper = {
-  components,
+  components: { VLabel },
   propsDescription: {
     htmlFor: '"for" attribute for label',
     required: 'If label is for a required input'

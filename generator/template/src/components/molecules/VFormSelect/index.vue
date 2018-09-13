@@ -22,17 +22,30 @@
       :id="id"
       :emptyValueLabel="emptyValueLabel"
       :options="options"
+      :autocomplete="autocomplete"
+      :name="name"
       @change="value => $emit('input', value)"
+      @focus="$emit('focus')"
+      @blur="$emit('blur')"
     />
-
-    <VText v-if="error && errorMessage" size="x-small">{{ errorMessage }}</VText>
+    
+    <VValidationMessages :error="error" :errorMessages="errorMessages" />
   </div>
 </template>
 
 <script>
+import VLabel from 'atoms/VLabel'
+import VSelect from 'atoms/VSelect'
+import VValidationMessages from 'molecules/VValidationMessages'
 import { uid } from '@/helpers'
 
 export default {
+  name: 'VFormSelect',
+  components: {
+    VLabel,
+    VSelect,
+    VValidationMessages
+  },
   props: {
     label: String,
     options: {
@@ -53,7 +66,9 @@ export default {
       default: false
     },
     emptyValueLabel: String,
-    errorMessage: String,
+    autocomplete: String,
+    errorMessages: [String, Array],
+    name: String,
     error: {
       type: Boolean,
       default: false
@@ -79,6 +94,7 @@ export default {
 
   .v-a-select {
     margin-bottom: 1rem;
+    width: 100%;
   }
 
   &--error {
