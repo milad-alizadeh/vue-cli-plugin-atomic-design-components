@@ -14,10 +14,13 @@
       :name="name"
       :autocomplete="autocomplete"
       :placeholder="placeholder"
+      :pattern="pattern"
+      :inputmode="inputmode"
       @input="$emit('input', $event.target.value)"
       @focus="$emit('focus', $event)"
       @blur="$emit('blur', $event)"
       @keypress="$emit('keypress', $event)"
+      @paste="$emit('paste', $event)"
     >
 
     <div
@@ -67,12 +70,14 @@ export default {
       type: String,
       default: ''
     },
-    id: String,
-    name: String,
     placeholder: {
       type: String,
       default: ''
-    }
+    },
+    id: String,
+    name: String,
+    pattern: String,
+    inputmode: String
   },
   data () {
     return {

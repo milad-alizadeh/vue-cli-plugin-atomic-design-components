@@ -6,7 +6,7 @@ const wrapper = {
   components: { VFormPayment }
 }
 
-storiesOf('Molecules - VFormPayment', module)
+storiesOf('Organism - VFormPayment', module)
   .addDecorator(VueInfoAddon)
   .add('default', () => ({
     ...wrapper,

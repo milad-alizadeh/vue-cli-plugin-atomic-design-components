@@ -1,46 +1,57 @@
 <template>
   <div
     :class="[
-      'v-m-form-payment',
-      `${error ? 'v-m-form-payment--error' : ''}`,
-      `${success ? 'v-m-form-payment--success' : ''}`,
-      `${disabled ? 'v-m-form-payment--disabled' : ''}`
+      'v-o-form-payment',
+      `${error ? 'v-o-form-payment--error' : ''}`,
+      `${success ? 'v-o-form-payment--success' : ''}`,
+      `${disabled ? 'v-o-form-payment--disabled' : ''}`
     ]"
   >
-    <div class="v-m-form-payment__section v-m-form-payment__section--card-holder">
+    <div class="v-o-form-payment__section v-o-form-payment__section--card-holder">
       <VFormText
         v-model="payment.cardHolder"
         type="text"
         :label="label.cardHolder"
+        :error="$v.payment.cardHolder.$error"
+        @blur="$v.payment.cardHolder.$touch()"
+        :errorMessages="$getErrorMessages('cardHolder')"
         :placeholder="placeholder.cardHolder"
         autocomplete="cc-name"
       />
     </div>
 
-    <div class="v-m-form-payment__section v-m-form-payment__section--card-number">
+    <div class="v-o-form-payment__section v-o-form-payment__section--card-number">
       <VFormCreditCardNumber
         v-model="payment.creditCard"
         :label="label.creditCardNumber"
         :placeholder="placeholder.creditCardNumber"
+        :error="$v.payment.creditCard.$error"
+        @blur="$v.payment.creditCard.$touch()"
+        :errorMessages="$getErrorMessages('creditCard')"
         autocomplete="cc-number"
       />
     </div>
 
-    <div class="v-m-form-payment__section--card-details">
+    <div class="v-o-form-payment__section--card-details">
       <VFormText
         v-model="payment.securityCode"
         type="text"
         autocomplete="cc-csc"
+        :error="$v.payment.securityCode.$error"
+        @blur="$v.payment.securityCode.$touch()"
+        :errorMessages="$getErrorMessages('securityCode')"
+        @keypress="handleSecurityKeypress"
         :label="label.securityCode + `${payment.creditCard.type ? ` (${payment.creditCard.type.code.name})` : ''}`"
         :placeholder="placeholder.securityCode"
       />
 
-      <VFormText
-        v-model="formattedExpiry"
-        type="text"
+      <VFormExpiryDate
+        v-model="payment.expiry"
         :label="label.expiry"
         :placeholder="placeholder.expiry"
-        @keypress="isNumberKey"
+        :error="$v.payment.expiry.$error"
+        @blur="$v.payment.expiry.$touch()"
+        :errorMessages="$getErrorMessages('expiry')"
         autocomplete="cc-exp"
       />
     </div>
@@ -48,23 +59,24 @@
 </template>
 
 <script>
-import VIcon from 'atoms/VIcon'
-import VLabel from 'atoms/VLabel'
-import VInputCreditCard from 'atoms/VInputCreditCard'
-import VInputText from 'atoms/VInputText'
+import VFormText from 'molecules/VFormText'
+import VFormCreditCardNumber from 'molecules/VFormCreditCardNumber'
+import VFormExpiryDate from 'molecules/VFormExpiryDate'
 import VValidationMessages from 'molecules/VValidationMessages'
 
-import { uid } from '@/helpers'
+import { required, creditCard, expiry } from '@/validations'
+import { limitLength, isNumberKey } from '@/helpers'
+import validationErrorMessages from '@/mixins/validationErrorMessages'
 
 export default {
   name: 'VFormCreditCard',
   components: {
-    VIcon,
-    VLabel,
-    VInputText,
-    VInputCreditCard,
+    VFormCreditCardNumber,
+    VFormText,
+    VFormExpiryDate,
     VValidationMessages
   },
+  mixins: [validationErrorMessages],
   props: {
     label: {
       type: Object,
@@ -107,51 +119,14 @@ export default {
     errorMessages: [String, Array]
   },
   methods: {
-    flattenDate (string) {
-      return string.replace(/[^0-9]+/g, '')
-    },
-    isNumberKey (e) {
-      let charCode = (e.which) ? e.which : e.keyCode
-      if ((charCode > 31 && (charCode < 48 || charCode > 57))) {
-        e.preventDefault()
-      } else {
-        return true
-      }
-    },
-    formatDate(string) {
-      let flattendDate = this.flattenDate(string)
-      let formatted
-      // console.log(flattendDate.substring(0, 2), flattendDate.substring(3, flattendDate.length));
-
-      if (flattendDate.length >= 3) {
-        flattendDate.substring(3, flattendDate.length)
-        formatted = flattendDate.substring(0, 2) + '/' + flattendDate.substring(3, flattendDate.length)
-      } else {
-        formatted = flattendDate
+    handleSecurityKeypress (e) {
+      let size
+      if (this.payment.creditCard.type) {
+        size = this.payment.creditCard.type.code.size
       }
 
-      console.log(flattendDate, formatted)
-      //
-      // if (flattendDate.length <= 1) return flattendDate
-      //
-      // if (flattendDate.length >= 4) {
-      //   formatted = formatted.substring(0, 5)
-      // }
-      //
-      return formatted
-    }
-  },
-  computed: {
-    formattedExpiry: {
-      get () {
-        return this.formatDate(this.payment.expiry)
-      },
-      set (newVal) {
-        this.payment.expiry = this.flattenDate(newVal)
-      }
-    },
-    uid () {
-      return uid()
+      limitLength(e, (size || 4))
+      isNumberKey(e)
     }
   },
   watch: {
@@ -197,12 +172,24 @@ export default {
         expiry: ''
       }
     }
+  },
+  validations: {
+    payment: {
+      creditCard,
+      cardHolder: {
+        required
+      },
+      securityCode: {
+        required
+      },
+      expiry
+    }
   }
 }
 </script>
 
 <style lang="scss">
-.v-m-form-payment {
+.v-o-form-payment {
   display: grid;
 
   &__section {
