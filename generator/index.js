@@ -1,6 +1,6 @@
 module.exports = (api, options, rootOptions) => {
   api.extendPackage({
-    devDependencies: {
+    dependencies: {
       vuelidate: "^0.7.4",
       "vue-tel-input": "^2.0.5",
       "credit-card-type": "^7.1.0"

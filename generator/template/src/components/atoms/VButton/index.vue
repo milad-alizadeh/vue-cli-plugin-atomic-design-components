@@ -7,17 +7,18 @@
       'v-a-button--error': error,
       'v-a-button--warning': warning
     }"
+    :id="id"
     :is="tag"
     :href="href"
     :to="to"
-    :target="href ? '_blank' : null"
+    :target="computedTarget"
     :type="type"
-    @click="$emit('click')"
+    @click="$emit('click', $event)"
     :disabled="disabled"
   >
-  <span class="v-a-button__label">
-    <slot></slot>
-  </span>
+    <span class="v-a-button__label">
+      <slot></slot>
+    </span>
   </component>
 </template>
 
@@ -27,13 +28,18 @@ export default {
   props: {
     href: String,
     type: String,
+    id: String,
     to: [Object, String],
+    target: String,
     success: Boolean,
     warning: Boolean,
     error: Boolean,
     disabled: Boolean
   },
   computed: {
+    computedTarget () {
+      return this.target || (this.href ? '_blank' : null)
+    },
     tag () {
       if (this.href) return 'a'
       if (this.to) return 'router-link'

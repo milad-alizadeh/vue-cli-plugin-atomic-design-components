@@ -41,6 +41,8 @@
         @blur="$v.payment.securityCode.$touch()"
         :errorMessages="$getErrorMessages('securityCode')"
         @keypress="handleSecurityKeypress"
+        pattern="\d*"
+        inputmode="numeric"
         :label="label.securityCode + `${payment.creditCard.type ? ` (${payment.creditCard.type.code.name})` : ''}`"
         :placeholder="placeholder.securityCode"
       />
@@ -116,6 +118,19 @@ export default {
       type: Boolean,
       default: false
     },
+    validations: {
+      type: Object,
+      default () {
+        return {
+          payment: {
+            creditCard,
+            cardHolder: { required },
+            securityCode: { required },
+            expiry
+          }
+        }
+      }
+    },
     errorMessages: [String, Array]
   },
   methods: {
@@ -130,6 +145,11 @@ export default {
     }
   },
   watch: {
+    error (newValue) {
+      if (newValue) {
+        this.$v.$touch()
+      }
+    },
     'payment.creditCard' (newValue) {
       this.$emit('input', this.payment)
     },
@@ -173,17 +193,8 @@ export default {
       }
     }
   },
-  validations: {
-    payment: {
-      creditCard,
-      cardHolder: {
-        required
-      },
-      securityCode: {
-        required
-      },
-      expiry
-    }
+  validations () {
+    return this.validations
   }
 }
 </script>

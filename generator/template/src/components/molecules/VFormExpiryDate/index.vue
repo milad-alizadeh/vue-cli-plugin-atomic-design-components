@@ -20,7 +20,7 @@
       :disabled="disabled"
       :name="name"
       :autocomplete="autocomplete"
-      pattern="\d*"
+      pattern="[0-9/]+"
       inputmode="numeric"
       @focus="$emit('focus', $event)"
       @blur="$emit('blur', $event)"
@@ -85,7 +85,8 @@ export default {
   },
   data () {
     return {
-      expiry: this.value
+      expiry: this.value ? onlyDigits(this.value).slice(0, 4) : '',
+      lastDate: ''
     }
   },
   computed: {
@@ -109,7 +110,8 @@ export default {
   },
   methods: {
     handleChange (e) {
-      this.expiry = onlyDigits(e.target.value).slice(0, 4)
+      let { value } = e.target
+      this.expiry = onlyDigits(value).slice(0, 4)
     },
     format (e) {
       limitLength(e, 5)
@@ -126,36 +128,43 @@ export default {
         e.preventDefault()
       }
     },
-    formatDate (string) {
-      let flattendDate = onlyDigits(string)
+    formatDate (date) {
+      let digitDate = date
       let formatted = ''
-      let length = flattendDate.length
+      let length = digitDate.length
       let month = ''
       let year = ''
 
       if (length) {
         switch (length) {
           case 1:
-            month = flattendDate.slice(0, 1)
+            month = digitDate.slice(0, 1)
             if (month > 1) month = `0${month}`
             break
 
           case 2:
-            month = flattendDate.slice(0, 2)
+            month = digitDate.slice(0, 2)
             if (month > 12) month = 12
             break
 
           case 3:
-            month = flattendDate.slice(0, 2)
-            year = flattendDate.charAt(2)
+            month = digitDate.slice(0, 2)
+            year = digitDate.charAt(2)
             break
 
           default:
-            month = flattendDate.slice(0, 2)
-            year = flattendDate.slice(2, 4)
+            month = digitDate.slice(0, 2)
+            year = digitDate.slice(2, 4)
         }
 
         formatted = month + (month.length >= 2 ? `/${year}` : '')
+
+        if (this.lastDate.length >= digitDate.length) {
+          this.lastDate = ''
+          return ''
+        } else {
+          this.lastDate = digitDate
+        }
       }
 
       return formatted

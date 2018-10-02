@@ -9,7 +9,7 @@
       :name="name"
       :placeholder="placeholder"
       type="text"
-      pattern="\d*"
+      pattern="[0-9 ]+"
       inputmode="numeric"
       @focus="$emit('focus')"
       @blur="$emit('blur')"

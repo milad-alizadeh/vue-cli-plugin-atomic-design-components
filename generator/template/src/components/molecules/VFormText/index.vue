@@ -23,6 +23,8 @@
       :autocomplete="autocomplete"
       :value="value"
       :name="name"
+      :inputmode="inputmode"
+      :pattern="pattern"
       @input="value => $emit('input', value)"
       @focus="$emit('focus', $event)"
       @blur="$emit('blur', $event)"
@@ -66,6 +68,14 @@ export default {
     error: {
       type: Boolean,
       default: false
+    },
+    pattern: {
+      type: String,
+      default: null
+    },
+    inputmode: {
+      type: String,
+      default: null
     },
     required: {
       type: Boolean,

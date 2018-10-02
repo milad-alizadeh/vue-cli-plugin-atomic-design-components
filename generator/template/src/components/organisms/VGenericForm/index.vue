@@ -22,6 +22,7 @@
         :value="formData[field.name]"
         :error="$v.formData[field.name] ? $v.formData[field.name].$error : false"
         :errorMessages="field.errorMessage || $getErrorMessages(field.name, field.visibleValidation)"
+        :validations="validations || null"
         @input="value => handleInput(field.name, value)"
         @change="value => handleInput(field.name, value)"
         @blur="$v.formData[field.name] ? $v.formData[field.name].$touch() : () => {}"
@@ -37,6 +38,7 @@ import VFormText from 'molecules/VFormText'
 import VFormRadio from 'molecules/VFormRadio'
 import VFormSelect from 'molecules/VFormSelect'
 import VFormCheckbox from 'molecules/VFormCheckbox'
+import VFormPayment from 'organisms/VFormPayment'
 import VButton from 'atoms/VButton'
 
 import validationErrorMessages from '@/mixins/validationErrorMessages'
@@ -49,6 +51,7 @@ export default {
     VFormRadio,
     VFormCheckbox,
     VFormSelect,
+    VFormPayment,
     VButton
   },
   mixins: [validationErrorMessages, scrollTo],

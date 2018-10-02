@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import VueInfoAddon from 'storybook-addon-vue-info'
 import { action } from '@storybook/addon-actions'
 import VGenericForm from '.'
-import { required, email, password, name } from '@/validations'
+import { required, email, password, name, creditCard, expiry } from '@/validations'
 import countryList from './country-list'
 import securityQuestions from './security-questions'
 
@@ -62,7 +62,13 @@ storiesOf('Organism - VGenericForm', module)
           },
           language: 'en',
           securityQuestion: '',
-          securityAnswer: ''
+          securityAnswer: '',
+          payment: {
+            cardHolder: '',
+            creditCardNumber: '',
+            securityCode: '',
+            expiry: ''
+          }
         },
         validations: {
           firstName: name,
@@ -73,7 +79,13 @@ storiesOf('Organism - VGenericForm', module)
           countryOfResidence: { required },
           securityQuestion: { required },
           securityAnswer: { required },
-          password
+          password,
+          payment: {
+            creditCard,
+            cardHolder: { required },
+            securityCode: { required },
+            expiry
+          }
         },
         fields: [
           {
@@ -132,17 +144,17 @@ storiesOf('Organism - VGenericForm', module)
               operator: '!=',
               value: ''
             }
+          },
+          {
+            name: 'payment',
+            component: 'VFormPayment',
+            label: {
+              creditCardNumber: 'Credit Card Number',
+              expiry: 'Expiry date',
+              cardHolder: 'Cardholder\'s Name',
+              securityCode: 'Security'
+            }
           }
-          // {
-          //   name: 'creditCard',
-          //   component: 'VFormCreditCard',
-          //   type: 'text',
-          //   label: {
-          //     creditCardNumber: 'Credit Card Number',
-          //     expiry: 'Expiry date',
-          //     cardHolder: 'Cardholder\'s Name'
-          //   }
-          // }
         ]
       }
     }
