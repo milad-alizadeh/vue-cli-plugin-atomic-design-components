@@ -38,6 +38,7 @@ import VFormText from 'molecules/VFormText'
 import VFormRadio from 'molecules/VFormRadio'
 import VFormSelect from 'molecules/VFormSelect'
 import VFormCheckbox from 'molecules/VFormCheckbox'
+import VFormTel from 'molecules/VFormTel'
 import VFormPayment from 'organisms/VFormPayment'
 import VButton from 'atoms/VButton'
 
@@ -52,6 +53,7 @@ export default {
     VFormCheckbox,
     VFormSelect,
     VFormPayment,
+    VFormTel,
     VButton
   },
   mixins: [validationErrorMessages, scrollTo],
