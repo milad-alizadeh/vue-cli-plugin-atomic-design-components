@@ -30,5 +30,19 @@ export default {
   },
   securityAnswer: {
     required: 'Please enter a security answer'
+  },
+  cardHolder: {
+    required: 'Please enter the name on your card'
+  },
+  creditCard: {
+    valid: 'Please enter a valid card number',
+    required: 'Please enter your card number'
+  },
+  securityCode: {
+    required: 'Please enter the security code on your card'
+  },
+  expiry: {
+    required: 'Please enter the expiry date on your card',
+    isFuture: 'Card expiry can not be set in past'
   }
 }

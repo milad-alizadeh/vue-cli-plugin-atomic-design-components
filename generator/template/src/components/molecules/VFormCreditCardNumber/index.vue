@@ -40,7 +40,7 @@ import VLabel from 'atoms/VLabel'
 import VInputCreditCard from 'atoms/VInputCreditCard'
 import VValidationMessages from 'molecules/VValidationMessages'
 
-import { uid } from '@/helpers'
+import uid from '@/helpers/uid'
 
 export default {
   name: 'VFormCreditCardNumber',

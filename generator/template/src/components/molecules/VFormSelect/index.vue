@@ -28,7 +28,7 @@
       @focus="$emit('focus')"
       @blur="$emit('blur')"
     />
-    
+
     <VValidationMessages :error="error" :errorMessages="errorMessages" />
   </div>
 </template>
@@ -36,8 +36,10 @@
 <script>
 import VLabel from 'atoms/VLabel'
 import VSelect from 'atoms/VSelect'
+
 import VValidationMessages from 'molecules/VValidationMessages'
-import { uid } from '@/helpers'
+
+import uid from '@/helpers/uid'
 
 export default {
   name: 'VFormSelect',

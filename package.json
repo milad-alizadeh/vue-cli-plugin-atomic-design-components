@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/milad-alizadeh/vue-cli-plugin-atomic-design-components/issues"
   },
+  "dependencies": {
+    "vue-cli-plugin-scss-base": "latest",
+    "vue-cli-plugin-atomic-design": "latest"
+  },
   "homepage": "https://github.com/milad-alizadeh/vue-cli-plugin-atomic-design-components#readme"
 }

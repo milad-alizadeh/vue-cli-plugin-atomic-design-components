@@ -13,15 +13,18 @@ module.exports = (api, options, rootOptions) => {
     let webapp = files['src/web-app.js']
     let main = files['src/main.js']
 
-    if (webapp) {
-      main = webapp
-    }
+    if (webapp) main = webapp
 
     if (main) {
       const lines = main.split(/\r?\n/g).reverse()
       const lastImportIndex = lines.findIndex(line => line.match(/^import/))
       lines[lastImportIndex] += `\nimport Vuelidate from 'vuelidate'\nVue.use(Vuelidate)`
-      files['src/web-app.js'] = lines.reverse().join('\n')
+
+      if (webapp) {
+        files['src/web-app.js'] = lines.reverse().join('\n')
+      } else {
+        files['src/main.js'] = lines.reverse().join('\n')
+      }
     }
   })
 }

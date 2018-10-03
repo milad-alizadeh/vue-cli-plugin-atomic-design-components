@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import { uid } from '@/helpers'
+import uid from '@/helpers/uid'
 
 export default {
   name: 'VPlaceholder',

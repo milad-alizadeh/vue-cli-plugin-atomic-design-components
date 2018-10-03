@@ -38,7 +38,10 @@ import VValidationMessages from 'molecules/VValidationMessages'
 import VInputText from 'atoms/VInputText'
 import VLabel from 'atoms/VLabel'
 
-import { uid, limitLength, isNumberKey, onlyDigits } from '@/helpers'
+import isNumberKey from '@/helpers/is-number-key'
+import onlyDigits from '@/helpers/only-digits'
+import limitLength from '@/helpers/limit-length'
+import uid from '@/helpers/uid'
 
 export default {
   name: 'VFormExpiryDate',

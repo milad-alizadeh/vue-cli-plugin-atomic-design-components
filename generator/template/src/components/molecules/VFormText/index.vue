@@ -40,7 +40,7 @@ import VInputText from 'atoms/VInputText'
 import VLabel from 'atoms/VLabel'
 import VValidationMessages from 'molecules/VValidationMessages'
 
-import { uid } from '@/helpers'
+import uid from '@/helpers/uid'
 
 export default {
   name: 'VFormText',

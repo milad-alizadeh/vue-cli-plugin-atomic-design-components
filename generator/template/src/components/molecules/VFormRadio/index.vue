@@ -45,7 +45,7 @@ import VText from 'atoms/VText'
 import VInputRadio from 'atoms/VInputRadio'
 import VValidationMessages from 'molecules/VValidationMessages'
 
-import { uid } from '@/helpers'
+import uid from '@/helpers/uid'
 
 export default {
   name: 'VFormRadio',

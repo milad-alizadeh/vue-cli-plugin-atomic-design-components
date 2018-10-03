@@ -5,13 +5,15 @@ export default {
     $getErrorMessages (field, isVisible = false) {
       let messageList = []
       const validations = this.$v
+      let currentValidation
 
       if (validations) {
-        let currentValidation
-
         for (let key in validations) {
+          if (key.charAt(0) === '$') continue
+
           if (key === field) {
             currentValidation = validations[key]
+            break
           } else {
             for (var key2 in validations[key]) {
               if (key2 === field) {

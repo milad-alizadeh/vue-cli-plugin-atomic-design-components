@@ -52,9 +52,47 @@ export const name = {
 }
 
 /**
+ * Expiry Date Validator
+ */
+export const expiry = {
+  isFuture: value => {
+    let year = value.slice(2, 4)
+    let monthIndex
+    let date
+
+    if (year.length === 2) {
+      year = '20' + value.slice(2, 4)
+      monthIndex = value.slice(0, 2)
+      date = new Date(year, monthIndex)
+      return date.getTime() > new Date().getTime()
+    }
+
+    return true
+  },
+  required: value => {
+    if (value.length) return true
+    return false
+  }
+}
+
+/**
  * Email Validator
  */
 export const email = emailValidator
+
+/**
+ * CreditCard Validator
+ */
+export const creditCard = {
+  valid: card => {
+    if (!card.number || card.number.length < 3) return true
+    return !!card.type
+  },
+  required: card => {
+    if (card.number.length) return true
+    return false
+  }
+}
 
 /**
  * Mac Address Validator

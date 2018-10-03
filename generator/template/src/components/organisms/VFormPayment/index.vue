@@ -61,14 +61,19 @@
 </template>
 
 <script>
+// Components
 import VFormText from 'molecules/VFormText'
 import VFormCreditCardNumber from 'molecules/VFormCreditCardNumber'
 import VFormExpiryDate from 'molecules/VFormExpiryDate'
 import VValidationMessages from 'molecules/VValidationMessages'
 
+// Validations
 import { required, creditCard, expiry } from '@/validations'
-import { limitLength, isNumberKey } from '@/helpers'
 import validationErrorMessages from '@/mixins/validationErrorMessages'
+
+// Helpers
+import isNumberKey from '@/helpers/is-number-key'
+import limitLength from '@/helpers/limit-length'
 
 export default {
   name: 'VFormCreditCard',
