@@ -1,25 +1,30 @@
 <template>
   <div :class="[
-    'v-m-form-tel',
-    `${error ? 'v-m-form-tel--error' : ''}`,
-    `${success ? 'v-m-form-tel--success' : ''}`,
-    `${disabled ? 'v-m-form-tel--disabled' : ''}`
+    'v-m-form-tel u-form-field',
+    `${error ? 'u-form-field--error' : ''}`,
+    `${disabled ? 'u-form-field--disabled' : ''}`
   ]">
-    <VLabel
-      v-if="label"
-      :error="error"
-    >
-      <template v-if="required">* </template>{{ label }}
-    </VLabel>
+    <div class="u-form-field__label">
+      <VLabel
+        v-if="label"
+        :error="error"
+      >
+        <template v-if="required">* </template>{{ label }}
+      </VLabel>
+    </div>
 
-    <VInputTel
-      :value="value"
-      @input="handleInput"
-      @blur="handleBlur"
-      :placeholder="placeholder"
-    />
+    <div class="u-form-field__input">
+      <VInputTel
+        :value="value"
+        @input="handleInput"
+        @blur="handleBlur"
+        :placeholder="placeholder"
+      />
+    </div>
 
-    <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    <div class="u-form-field__validation-messages">
+      <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    </div>
   </div>
 </template>
 
@@ -53,10 +58,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    success: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
@@ -83,36 +84,5 @@ export default {
 
 <style lang="scss">
 .v-m-form-tel {
-  .v-a-label {
-    margin-bottom: 1rem;
-  }
-
-  .v-a-input-tel {
-    margin-bottom: 1rem;
-  }
-
-  &--error, {
-    .v-a-text,
-    .v-a-label,
-    .v-a-input-tel {
-      color: $error
-    }
-
-    .v-a-input-tel {
-      border-color: $error
-    }
-  }
-
-  &--success, {
-    .v-a-text,
-    .v-a-label,
-    .v-a-input-tel {
-      color: $success
-    }
-
-    .v-a-input-tel {
-      border-color: $success
-    }
-  }
 }
 </style>

@@ -81,7 +81,9 @@ export default {
 
   methods: {
     removeSpace (string) {
-      return string.replace(/\s|\./g, '')
+      if (string) {
+        return string.replace(/\s|\./g, '')
+      }
     },
     handleChange (e) {
       this.creditCardNumber = this.removeSpace(e.target.value)
@@ -142,10 +144,11 @@ export default {
 
   input {
     width: 100%;
-    font-size: 1.6rem;
+    font-size: inherit;
     padding: .9rem 1rem;
     border: 0;
     background: none;
+    color: inherit;
   }
 }
 </style>

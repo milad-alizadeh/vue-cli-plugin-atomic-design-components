@@ -14,11 +14,12 @@ const wrapper = {
       disabled: Boolean
     }
     `,
+    name: 'name attribute for input',
+    errorMessages: 'The error messages shown if the input validation is failed',
     disabled: 'Whether this field is disabled',
     required: 'Whether this field is reuqired',
     errorMessage: 'The error message shown if the input validation is failed',
     error: 'Whether input value is invalid',
-    success: 'Whether input value is valid',
     value: 'Value of the field'
   }
 }
@@ -124,25 +125,5 @@ storiesOf('Molecules - VFormRadio', module)
           }
         ]
       }
-    }
-  }))
-  .add('valid', () => ({
-    ...wrapper,
-    template: `
-      <div>
-        <VFormRadio
-          label="What's your favourite city?"
-          :options="options"
-          v-model="selection"
-          success
-        />
-
-        <br/><br/>
-
-        Field value is: {{ selection }}
-      </div>
-    `,
-    data () {
-      return data
     }
   }))

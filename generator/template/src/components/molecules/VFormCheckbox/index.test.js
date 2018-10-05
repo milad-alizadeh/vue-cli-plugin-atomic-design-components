@@ -1,4 +1,4 @@
-import {mount} from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import VFormCheckbox from '.'
 
 describe('Molecule - VFormCheckbox', () => {
@@ -40,11 +40,10 @@ describe('Molecule - VFormCheckbox', () => {
   })
 
   test('Renders the coreect classes', () => {
-    wrapper.setProps({disabled: true, success: true, error: true})
+    wrapper.setProps({ disabled: true, error: true })
 
     expect(wrapper.attributes().class).toContain('error')
     expect(wrapper.attributes().class).toContain('disabled')
-    expect(wrapper.attributes().class).toContain('success')
   })
 
   test('Renders one checkbox if options is not passed', () => {

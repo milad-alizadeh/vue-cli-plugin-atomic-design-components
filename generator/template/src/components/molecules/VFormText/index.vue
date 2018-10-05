@@ -1,37 +1,42 @@
 <template>
   <div :class="[
-    'v-m-form-text',
-    `${error ? 'v-m-form-text--error' : ''}`,
-    `${success ? 'v-m-form-text--success' : ''}`,
-    `${disabled ? 'v-m-form-text--disabled' : ''}`
+    'v-m-form-text u-form-field',
+    `${error ? 'u-form-field--error' : ''}`,
+    `${disabled ? 'u-form-field--disabled' : ''}`
   ]">
-    <VLabel
-      v-if="label"
-      :htmlFor="`#${id}`"
-      :error="error"
-    >
-      <template v-if="required">* </template>{{ label }}
-    </VLabel>
+    <div class="u-form-field__label">
+      <VLabel
+        v-if="label"
+        :htmlFor="`#${id}`"
+        :error="error"
+      >
+        <template v-if="required">* </template>{{ label }}
+      </VLabel>
+    </div>
 
-    <VInputText
-      :id="id"
-      :error="error"
-      :type="type"
-      :required="required"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      :autocomplete="autocomplete"
-      :value="value"
-      :name="name"
-      :inputmode="inputmode"
-      :pattern="pattern"
-      @input="value => $emit('input', value)"
-      @focus="$emit('focus', $event)"
-      @blur="$emit('blur', $event)"
-      @keypress="$emit('keypress', $event)"
-    />
+    <div class="u-form-field__input">
+      <VInputText
+        :id="id"
+        :error="error"
+        :type="type"
+        :required="required"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :autocomplete="autocomplete"
+        :value="value"
+        :name="name"
+        :inputmode="inputmode"
+        :pattern="pattern"
+        @input="value => $emit('input', value)"
+        @focus="$emit('focus', $event)"
+        @blur="$emit('blur', $event)"
+        @keypress="$emit('keypress', $event)"
+      />
+    </div>
 
-    <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    <div class="u-form-field__validation-messages">
+      <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    </div>
   </div>
 </template>
 
@@ -85,10 +90,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    success: {
-      type: Boolean,
-      default: false
     }
   },
   computed: {
@@ -101,48 +102,5 @@ export default {
 
 <style lang="scss">
 .v-m-form-text {
-  $this: &;
-
-  .v-a-label {
-    margin-bottom: 1rem;
-  }
-
-  .v-a-input-text {
-    margin-bottom: 1rem;
-  }
-
-  &--error, {
-    .v-a-text,
-    .v-a-label,
-    .v-a-input-text {
-      color: $error
-    }
-
-    .v-a-input-text {
-      border-color: $error
-    }
-  }
-
-  &--success, {
-    .v-a-text,
-    .v-a-label,
-    .v-a-input-text {
-      color: $success
-    }
-
-    .v-a-input-text {
-      border-color: $success
-    }
-  }
-
-  &--disabled {
-    .v-a-input-text {
-      background: $grey-lighter;
-    }
-
-    .v-a-label {
-      color: $grey;
-    }
-  }
 }
 </style>

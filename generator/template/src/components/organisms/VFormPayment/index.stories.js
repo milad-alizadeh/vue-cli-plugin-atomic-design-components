@@ -22,21 +22,15 @@ storiesOf('Organism - VFormPayment', module)
         <pre>Field value is: {{ paymentData }}</pre>
       </div>
     `,
-    mounted () {
-      // setTimeout(() => {
-      //   this.paymentData = {
-      //     creditCard: {
-      //       number: '4111 1111 1111 1111'
-      //     },
-      //     cardHolder: 'Glenn Stuff',
-      //     securityCode: '313',
-      //     expiry: '11/18'
-      //   }
-      // }, 2000)
-    },
     data () {
       return {
         paymentData: {
+          creditCard: {
+            number: ''
+          },
+          cardHolder: '',
+          securityCode: '',
+          expiry: ''
         },
         label: {
           securityCode: 'Security Code',

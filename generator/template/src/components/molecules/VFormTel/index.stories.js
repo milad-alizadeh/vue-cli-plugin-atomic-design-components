@@ -3,7 +3,16 @@ import VueInfoAddon from 'storybook-addon-vue-info'
 import VFormTel from '.'
 
 const wrapper = {
-  components: { VFormTel }
+  components: { VFormTel },
+  propsDescription: {
+    label: 'Label text for the field',
+    value: 'Value of the select',
+    placeholder: 'Placeholder text for the input',
+    errorMessages: 'The error messages shown if the input validation is failed',
+    required: 'Whether the field is required',
+    error: 'Whether select value is invalid',
+    disabled: 'Disabled attribute for the select'
+  }
 }
 
 storiesOf('Molecules - VFormTel', module)
@@ -13,14 +22,14 @@ storiesOf('Molecules - VFormTel', module)
     template: `
       <div>
         <VFormTel
-          label="Full Name"
+          label="Phone Number"
           v-model="frieldValue"
           errorMessages="Please enter a valid phone number"
         />
 
         <br/><br/>
 
-        Field value is: {{ frieldValue }}
+        <pre>Field value is: {{ frieldValue }}</pre>
       </div>
     `,
     data () {

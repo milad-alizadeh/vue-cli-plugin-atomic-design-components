@@ -1,25 +1,26 @@
 <template>
   <fieldset :class="[
-    'v-m-form-radio',
-    `${error ? 'v-m-form-radio--error' : ''}`,
-    `${success ? 'v-m-form-radio--success' : ''}`,
-    `${disabled ? 'v-m-form-radio--disabled' : ''}`
+    'v-m-form-radio u-form-field',
+    `${error ? 'u-form-field--error' : ''}`,
+    `${disabled ? 'u-form-field--disabled' : ''}`
   ]">
-    <div class="v-m-form-radio__question" v-if="label">
+    <div class="v-m-form-radio__question u-form-field__label" v-if="label">
       <VText tag="legend">
         <template v-if="required">* </template>{{ label }}
       </VText>
     </div>
 
-    <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    <div class="u-form-field__validation-messages">
+      <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    </div>
 
-    <div class="v-m-form-radio__options">
+    <div class="v-m-form-radio__options u-form-field__label">
       <div
         v-for="option in options"
         :key="option.value"
         :class="[
           'v-m-form-radio__option',
-          `${option.disabled || disabled ? 'v-m-form-radio__option--disabled' : '' }`
+          `${option.disabled || disabled ? 'u-form-field__option--disabled' : '' }`
         ]"
       >
         <VLabel>
@@ -78,10 +79,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    success: {
-      type: Boolean,
-      default: false
     }
   },
   computed: {
@@ -104,11 +101,6 @@ export default {
 
 <style lang="scss">
 .v-m-form-radio {
-  $this: &;
-
-  &__question {
-    margin-bottom: 1.5rem;
-  }
 
   &__option {
     margin-bottom: 1.5rem;
@@ -120,36 +112,6 @@ export default {
     .v-a-label {
       display: inline-flex;
       cursor: pointer;
-    }
-
-    &--disabled {
-      .v-a-label {
-        color: $grey;
-        cursor: not-allowed;
-      }
-
-      .v-a-input-radio__circle {
-        background: $grey-light;
-      }
-    }
-  }
-
-  &--error {
-    .v-a-text{
-      color: $error
-    }
-  }
-
-  &--success {
-    .v-a-text {
-      color: $success
-    }
-  }
-
-  &--disabled {
-    .v-a-text,
-    .v-a-label {
-      color: $grey
     }
   }
 }

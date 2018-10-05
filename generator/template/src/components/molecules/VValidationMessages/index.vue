@@ -8,7 +8,7 @@
         >{{ message }}</VText>
       </template>
 
-      <template v-else>
+      <template v-else-if="typeof errorMessages[0] === 'object'">
         <div
           v-for="message in errorMessages"
           :key="message.text"
@@ -45,18 +45,8 @@ export default {
 
 <style lang="scss">
 .v-m-validation-messages {
-  &__message {
-    &--error {
-      .v-a-text {
-        color: $error !important;
-      }
-    }
-
-    &--success {
-      .v-a-text {
-        color: $success !important;
-      }
-    }
+  .v-a-text {
+    color: inherit;
   }
 }
 </style>

@@ -102,12 +102,13 @@ export default {
   position: relative;
 
   input {
-    font-size: 1.6rem;
+    font-size: inherit;
     line-height: 1;
     padding: .8rem 1rem;
     background: none !important;
     width: 100%;
     border: 0;
+    color: inherit;
   }
 
   &__icon {
@@ -118,20 +119,12 @@ export default {
     top: 0;
     bottom: 0;
     margin: auto;
-
-    &-graphic {
-
-    }
   }
 
   &--password {
     input {
       padding-right: 4rem !important;
     }
-  }
-
-  &:focus {
-    box-shadow: 0 0 .6rem rgba($black, .4)
   }
 }
 </style>

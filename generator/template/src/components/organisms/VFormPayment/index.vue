@@ -68,7 +68,7 @@ import VFormExpiryDate from 'molecules/VFormExpiryDate'
 import VValidationMessages from 'molecules/VValidationMessages'
 
 // Validations
-import { required, creditCard, expiry } from '@/validations'
+import { required, creditCard, expiry, minLength } from '@/validations'
 import validationErrorMessages from '@/mixins/validationErrorMessages'
 
 // Helpers
@@ -129,7 +129,7 @@ export default {
         return {
           payment: {
             creditCard,
-            cardHolder: { required },
+            cardHolder: { required, minLength: minLength(3) },
             securityCode: { required },
             expiry
           }

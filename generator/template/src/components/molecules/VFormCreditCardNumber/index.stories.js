@@ -3,7 +3,18 @@ import VueInfoAddon from 'storybook-addon-vue-info'
 import VFormCreditCardNumber from '.'
 
 const wrapper = {
-  components: { VFormCreditCardNumber }
+  components: { VFormCreditCardNumber },
+  propsDescription: {
+    label: 'The label for all the options. Generally is a question',
+    placeholder: 'Placeholder text for input',
+    disabled: 'Whether this field is disabled',
+    autocomplete: 'Autocomplete attribute used for browser autocomplete',
+    name: 'name attribute for input',
+    required: 'Whether this field is reuqired',
+    errorMessages: 'The error messages shown if the input validation is failed',
+    error: 'Whether input value is invalid',
+    value: 'Value of the field'
+  }
 }
 
 storiesOf('Molecules - VFormCreditCardNumber', module)
@@ -18,8 +29,7 @@ storiesOf('Molecules - VFormCreditCardNumber', module)
         />
 
         <br/><br/>
-
-        Field value is: {{ creditCard }}
+        <pre>Field value is: {{ creditCard }}</pre>
       </div>
     `,
     data () {
@@ -54,13 +64,3 @@ storiesOf('Molecules - VFormCreditCardNumber', module)
       }
     }
   }))
-// {
-//   name: 'creditCard',
-//   component: 'VFormCreditCardNumber',
-//   type: 'text',
-//   label: {
-//     creditCardNumber: 'Credit Card Number',
-//     expiry: 'Expiry date',
-//     cardHolder: 'Cardholder\'s Name'
-//   }
-// }

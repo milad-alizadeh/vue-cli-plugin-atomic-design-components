@@ -15,9 +15,9 @@ const wrapper = {
     `,
     disabled: 'Whether this field is disabled',
     required: 'Whether this field is reuqired',
-    errorMessage: 'The error message shown if the input validation is failed',
+    name: 'name attribute for input',
+    errorMessages: 'The error messages shown if the input validation is failed',
     error: 'Whether input value is invalid',
-    success: 'Whether input value is valid',
     value: 'Value of the field',
     checked: 'Used to check the input by default. Works only on single checkboxes'
   }
@@ -136,22 +136,6 @@ storiesOf('Molecules - VFormCheckbox', module)
           v-model="selection"
           error
           errorMessage="Please select one of the available options"
-        />
-      </div>
-    `,
-    data () {
-      return data
-    }
-  }))
-  .add('valid', () => ({
-    ...wrapper,
-    template: `
-      <div>
-        <VFormCheckbox
-          label="What's your favourite city?"
-          :options="options"
-          v-model="selection"
-          success
         />
       </div>
     `,

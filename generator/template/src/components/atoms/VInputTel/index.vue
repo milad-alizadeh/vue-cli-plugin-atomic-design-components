@@ -13,7 +13,6 @@
 
 <script>
 import VueTelInput from 'vue-tel-input'
-import 'vue-tel-input/dist/vue-tel-input.css'
 
 export default {
   name: 'VInputTel',
@@ -64,18 +63,9 @@ export default {
 </script>
 
 <style lang="scss">
+  @import '../../../../node_modules/vue-tel-input/dist/vue-tel-input.css';
+
   .v-a-input-tel {
-    $border-color: $grey-light;
-    $border-radius: .3rem;
-    $focus: 0 0 .6rem rgba($black, .4);
-    border: .1rem solid $border-color;
-    border-radius: $border-radius;
-
-    &:focus-within {
-      box-shadow: $focus;
-      border: .1rem solid $border-color;
-    }
-
     .vue-tel-input {
       border: 0;
       border-radius: 0;
@@ -88,8 +78,9 @@ export default {
     }
 
     input {
-      font-size: 1.6rem;
+      font-size: inherit;
       padding: .8rem 1rem;
+      color: inherit;
       line-height: 1;
     }
 
@@ -111,14 +102,14 @@ export default {
       top: calc(100% + .1rem);
       left: -.1rem;
       right: -.1rem;
-      border: .1rem solid $border-color;
+      border: .1rem solid $grey-lighter;
       border-top: 0;
-      border-radius: $border-radius;
+      border-radius: .3rem;
       -webkit-overflow-scrolling: touch;
     }
 
     li.last-preferred {
-      border-bottom: .1rem solid $border-color;
+      border-bottom: .1rem solid $grey-lighter;
     }
 
   }

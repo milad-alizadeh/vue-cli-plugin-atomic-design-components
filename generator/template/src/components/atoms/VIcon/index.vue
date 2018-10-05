@@ -3,10 +3,11 @@
     :class="[
       'v-a-icon',
       `v-a-icon--${color}`,
-      `v-a-icon--${size}`
+      `v-a-icon--${size}`,
+      `v-a-icon--${name}`
     ]"
   >
-    <component v-if="svg" :is="svg" />
+    <component v-if="svg && svg.render" :is="svg" />
   </div>
 </template>
 

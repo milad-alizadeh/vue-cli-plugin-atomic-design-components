@@ -32,7 +32,8 @@ export default {
     required: 'Please enter a security answer'
   },
   cardHolder: {
-    required: 'Please enter the name on your card'
+    required: 'Please enter the name on your card',
+    minLength: 'Card holder\'s name needs to be at least 3 characters'
   },
   creditCard: {
     valid: 'Please enter a valid card number',
@@ -43,6 +44,7 @@ export default {
   },
   expiry: {
     required: 'Please enter the expiry date on your card',
-    isFuture: 'Card expiry can not be set in past'
+    isFuture: 'Expiry date can not be set in past',
+    valid: 'Please enter a valid expiry date'
   }
 }

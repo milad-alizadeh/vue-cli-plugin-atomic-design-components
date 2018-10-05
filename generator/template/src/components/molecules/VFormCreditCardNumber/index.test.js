@@ -1,13 +1,15 @@
 import { mount } from '@vue/test-utils'
-import VFormTel from '.'
+import VFormCreditCard from '.'
 
-describe('Molecule - VFormTel', () => {
+describe('Molecule - VFormCreditCard', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = mount(VFormTel, {
+    wrapper = mount(VFormCreditCard, {
       propsData: {
-        value: ''
+        value: {
+          number: '5253111111111111'
+        }
       }
     })
   })
@@ -16,21 +18,21 @@ describe('Molecule - VFormTel', () => {
     expect(wrapper.find({ name: 'VLabel' }).exists()).toBe(false)
 
     wrapper.setProps({
-      label: 'Enter your telephone number'
+      label: 'Credit Card Number'
     })
 
-    expect(wrapper.find({ name: 'VLabel' }).text()).toContain('Enter your telephone number')
+    expect(wrapper.find({ name: 'VLabel' }).text()).toContain('Credit Card Number')
   })
 
   test('Shows error message if available', () => {
     expect(wrapper.find({ name: 'VValidationMessages' }).text()).toBe('')
 
     wrapper.setProps({
-      errorMessages: 'Please enter your name',
+      errorMessages: 'Please enter a valid credit card number',
       error: true
     })
 
-    expect(wrapper.find({ name: 'VValidationMessages' }).text()).toContain('Please enter your name')
+    expect(wrapper.find({ name: 'VValidationMessages' }).text()).toContain('Please enter a valid credit card number')
   })
 
   test('Renders the coreect classes', () => {
@@ -38,5 +40,10 @@ describe('Molecule - VFormTel', () => {
 
     expect(wrapper.attributes().class).toContain('error')
     expect(wrapper.attributes().class).toContain('disabled')
+  })
+
+  test('Renders the right credit card icon', () => {
+    let iconClass = wrapper.find({ name: 'VIcon' }).attributes().class
+    expect(iconClass).toContain('credit-card-mastercard')
   })
 })

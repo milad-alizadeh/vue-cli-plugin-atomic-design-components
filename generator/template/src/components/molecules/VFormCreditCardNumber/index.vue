@@ -1,23 +1,25 @@
 <template>
   <fieldset
     :class="[
-      'v-m-form-credit-card-number',
-      `${error ? 'v-m-form-credit-card-number--error' : ''}`,
-      `${success ? 'v-m-form-credit-card-number--success' : ''}`,
-      `${disabled ? 'v-m-form-credit-card-number--disabled' : ''}`
+      'v-m-form-credit-card-number u-form-field',
+      `${error ? 'u-form-field--error' : ''}`,
+      `${disabled ? 'u-form-field--disabled' : ''}`
     ]"
   >
-    <VLabel
-      v-if="label"
-      :htmlFor="`#card-number${uid}`"
-    >{{ label }}</VLabel>
+    <div class="u-form-field__label">
+      <VLabel
+        v-if="label"
+        :htmlFor="`#card-number${uid}`"
+      >{{ label }}</VLabel>
+    </div>
 
-    <div class="v-m-form-credit-card-number__field">
+    <div class="v-m-form-credit-card-number__field u-form-field__input">
       <VInputCreditCard
         v-model="creditCard"
         :id="`card-number${uid}`"
         :placeholder="placeholder"
         @blur="$emit('blur')"
+        :required="required"
         @focus="$emit('focus')"
       />
 
@@ -30,7 +32,10 @@
       </transition>
     </div>
 
-    <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    <div class="u-form-field__validation-messages">
+      <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    </div>
+
   </fieldset>
 </template>
 
@@ -64,11 +69,11 @@ export default {
       type: Boolean,
       default: false
     },
-    error: {
+    required: {
       type: Boolean,
       default: false
     },
-    success: {
+    error: {
       type: Boolean,
       default: false
     },
@@ -101,58 +106,12 @@ export default {
 
 <style lang="scss">
 .v-m-form-credit-card-number {
-  .v-a-label {
-    margin-bottom: 1rem;
-  }
-
-  .v-a-input-credit-card {
-    margin-bottom: 1rem;
-  }
-
   .v-a-icon {
     position: absolute;
     right: 1rem;
     bottom: 0;
     top: 0;
     margin: auto;
-  }
-
-  &__field {
-    position: relative;
-  }
-
-  &--error, {
-    .v-a-text,
-    .v-a-label,
-    .v-a-input-credit-card {
-      color: $error
-    }
-
-    .v-a-input-credit-card {
-      border-color: $error
-    }
-  }
-
-  &--success, {
-    .v-a-text,
-    .v-a-label,
-    .v-a-input-credit-card {
-      color: $success
-    }
-
-    .v-a-input-credit-card {
-      border-color: $success
-    }
-  }
-
-  &--disabled {
-    .v-a-input-credit-card {
-      background: $grey-lighter;
-    }
-
-    .v-a-label {
-      color: $grey;
-    }
   }
 }
 </style>

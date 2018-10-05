@@ -1,35 +1,40 @@
 <template>
   <div
     :class="[
-      'v-m-form-select',
-      `${disabled ? 'v-m-form-select--disabled' : ''}`,
-      `${error ? 'v-m-form-select--error' : ''}`,
-      `${success ? 'v-m-form-select--success' : ''}`
+      'v-m-form-select u-form-field',
+      `${disabled ? 'u-form-field--disabled' : ''}`,
+      `${error ? 'u-form-field--error' : ''}`
     ]"
   >
-    <VLabel
-      v-if="label"
-      :htmlFor="`#${id}`"
-      :error="error"
-    >
-      <template v-if="required">* </template>{{ label }}
-    </VLabel>
+    <div class="u-form-field__label">
+      <VLabel
+        v-if="label"
+        :htmlFor="`#${id}`"
+        :error="error"
+      >
+        <template v-if="required">* </template>{{ label }}
+      </VLabel>
+    </div>
 
-    <VSelect
-      :value="value"
-      :disabled="disabled"
-      :required="required"
-      :id="id"
-      :emptyValueLabel="emptyValueLabel"
-      :options="options"
-      :autocomplete="autocomplete"
-      :name="name"
-      @change="value => $emit('input', value)"
-      @focus="$emit('focus')"
-      @blur="$emit('blur')"
-    />
+    <div class="u-form-field__input">
+      <VSelect
+        :value="value"
+        :disabled="disabled"
+        :required="required"
+        :id="id"
+        :emptyValueLabel="emptyValueLabel"
+        :options="options"
+        :autocomplete="autocomplete"
+        :name="name"
+        @change="value => $emit('input', value)"
+        @focus="$emit('focus')"
+        @blur="$emit('blur')"
+      />
+    </div>
 
-    <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    <div class="u-form-field__validation-messages">
+      <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    </div>
   </div>
 </template>
 
@@ -74,10 +79,6 @@ export default {
     error: {
       type: Boolean,
       default: false
-    },
-    success: {
-      type: Boolean,
-      default: false
     }
   },
   computed: {
@@ -90,55 +91,8 @@ export default {
 
 <style lang="scss">
 .v-m-form-select {
-  .v-a-label {
-    margin-bottom: 1rem;
-  }
-
   .v-a-select {
-    margin-bottom: 1rem;
     width: 100%;
-  }
-
-  &--error {
-    .v-a-text,
-    .v-a-label,
-    .v-a-select {
-      color: $error
-    }
-
-    .v-a-select__input {
-      border-color: $error
-    }
-
-    .v-a-select__arrow {
-      fill: $error
-    }
-  }
-
-  &--success {
-    .v-a-text,
-    .v-a-label,
-    .v-a-select {
-      color: $success
-    }
-
-    .v-a-select__input {
-      border-color: $success
-    }
-
-    .v-a-select__arrow {
-      fill: $success
-    }
-  }
-
-  &--disabled {
-    .v-a-select {
-      background: $grey-lighter;
-    }
-
-    .v-a-label {
-      color: $grey;
-    }
   }
 }
 </style>

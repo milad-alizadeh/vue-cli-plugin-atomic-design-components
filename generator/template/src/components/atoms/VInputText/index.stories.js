@@ -10,6 +10,10 @@ const wrapper = {
     value: 'Value of the input',
     required: 'Adds the required attribute to input',
     placeholder: 'Placeholder text for the input',
+    name: 'name attribute for input',
+    pattern: 'pattern attribute for input (used for mobile keypad)',
+    autocomplete: 'Autocomplete attribute used for browser autocomplete',
+    inputmode: 'inputmode attribute for input (used for mobile keypad)',
     id: 'Id attribute for the input'
   }
 }

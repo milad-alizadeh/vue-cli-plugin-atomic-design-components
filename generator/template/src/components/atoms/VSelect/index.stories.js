@@ -6,7 +6,12 @@ const wrapper = {
   components: { VSelect },
   propsDescription: {
     options: 'Available options for the select. A single option format is: { label: String, value: String }',
-    value: 'Value of Select box'
+    value: 'Value of Select box',
+    disabled: 'Disables the select by adding "disabled" attribute',
+    required: 'Adds the required attribute to input',
+    name: 'name attribute for select',
+    id: 'Id attribute for the select',
+    emptyValueLabel: 'The value of empty (default) label'
   }
 }
 

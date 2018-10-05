@@ -69,6 +69,13 @@ export const expiry = {
 
     return true
   },
+  valid: value => {
+    if (value.length > 0 && value.length < 4) {
+      return false
+    }
+
+    return true
+  },
   required: value => {
     if (value.length) return true
     return false
@@ -85,11 +92,16 @@ export const email = emailValidator
  */
 export const creditCard = {
   valid: card => {
-    if (!card.number || card.number.length < 3) return true
+    let { type, number } = card
+    // Do not validate if card number is empty or is less than 2 characters
+    if (!card.number || card.number.length < 2) return true
+    // It needs to be at least minimum character specified in the type
+    if (card.type && number.length < type.lengths[0]) return false
+
     return !!card.type
   },
   required: card => {
-    if (card.number.length) return true
+    if (card.number && card.number.length) return true
     return false
   }
 }

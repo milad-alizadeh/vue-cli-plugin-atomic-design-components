@@ -1,4 +1,4 @@
-import {mount} from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import VFormRadio from '.'
 
 describe('Molecule - VFormRadio', () => {
@@ -43,10 +43,9 @@ describe('Molecule - VFormRadio', () => {
   })
 
   test('Renders the coreect classes', () => {
-    wrapper.setProps({ disabled: true, success: true, error: true })
+    wrapper.setProps({ disabled: true, error: true })
 
     expect(wrapper.attributes().class).toContain('error')
     expect(wrapper.attributes().class).toContain('disabled')
-    expect(wrapper.attributes().class).toContain('success')
   })
 })

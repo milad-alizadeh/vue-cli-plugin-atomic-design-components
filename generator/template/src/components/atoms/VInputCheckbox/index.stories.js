@@ -12,7 +12,8 @@ const wrapper = {
     required: 'Adds the required attribute to input',
     trueValue: 'The returned value if the checkbox is single and checked. for example "1" instead of true',
     falseValue: 'The returned value if If the checkbox is single and NOT checked. for example "0" instead of false',
-    id: 'Id attribute for the input'
+    id: 'Id attribute for the input',
+    name: 'name attribute for input'
   }
 }
 

@@ -1,12 +1,11 @@
 <template>
   <fieldset :class="[
-    'v-m-form-checkbox',
-    `${error ? 'v-m-form-checkbox--error' : ''}`,
-    `${success ? 'v-m-form-checkbox--success' : ''}`,
-    `${disabled ? 'v-m-form-checkbox--disabled' : ''}`
+    'v-m-form-checkbox u-form-field',
+    `${error ? 'u-form-field--error' : ''}`,
+    `${disabled ? 'u-form-field--disabled' : ''}`
   ]">
     <div
-      class="v-m-form-checkbox__question"
+      class="v-m-form-checkbox__question u-form-field__label"
       v-if="label && options"
     >
       <VText tag="legend">
@@ -14,7 +13,9 @@
       </VText>
     </div>
 
-    <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    <div class="u-form-field__validation-messages">
+      <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    </div>
 
     <div
       v-if="options"
@@ -25,6 +26,7 @@
         :key="option.value"
         :class="[
           'v-m-form-checkbox__option',
+          'u-form-field__label',
           `${option.disabled || disabled ? 'v-m-form-checkbox__option--disabled' : '' }`
         ]"
       >
@@ -46,7 +48,7 @@
       <div
         :class="[
           'v-m-form-checkbox__option',
-          `${disabled ? 'v-m-form-checkbox__option--disabled' : '' }`
+          `${disabled ? 'u-form-field--disabled' : '' }`
         ]"
       >
         <VLabel>
@@ -69,7 +71,7 @@ import VText from 'atoms/VText'
 import VInputCheckbox from 'atoms/VInputCheckbox'
 import VValidationMessages from 'molecules/VValidationMessages'
 
-import { uid } from '@/helpers'
+import uid from '@/helpers/uid'
 
 export default {
   name: 'VFormCheckbox',
@@ -105,10 +107,6 @@ export default {
       default: false
     },
     disabled: {
-      type: Boolean,
-      default: false
-    },
-    success: {
       type: Boolean,
       default: false
     }
@@ -150,10 +148,6 @@ export default {
     margin-top: -1rem;
   }
 
-  &__question {
-    margin-bottom: 1.5rem;
-  }
-
   &__option {
     margin-bottom: 1.5rem;
 
@@ -164,36 +158,6 @@ export default {
     .v-a-label {
       display: inline-flex;
       cursor: pointer;
-    }
-
-    &--disabled {
-      .v-a-label {
-        color: $grey;
-        cursor: not-allowed;
-      }
-
-      .v-a-input-checkbox__box {
-        background: $grey-light;
-      }
-    }
-  }
-
-  &--error {
-    .v-a-text{
-      color: $error
-    }
-  }
-
-  &--success {
-    .v-a-text {
-      color: $success
-    }
-  }
-
-  &--disabled {
-    .v-a-text,
-    .v-a-label {
-      color: $grey
     }
   }
 }

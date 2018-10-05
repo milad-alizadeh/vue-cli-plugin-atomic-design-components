@@ -70,16 +70,18 @@ export default {
   $background: $grey-light;
   position: relative;
   display: inline-flex;
+  border: .1rem solid $grey-light;
+  border-radius: .3rem;
 
   &__input {
+    border: 0;
     padding: .8rem 1.2rem;
     display: block;
-    font-size: 1.6rem;
+    font-size: inherit;
     padding-right: 5rem;
-    border: .1rem solid $grey-light;
-    border-radius: .3rem;
-    background: $white;
+    background: inherit;
     width: 100%;
+    color: inherit;
 
     &:focus {
       box-shadow: 0 0 .6rem rgba($black, .4)

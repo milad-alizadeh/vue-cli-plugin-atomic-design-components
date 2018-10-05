@@ -1,35 +1,41 @@
 <template>
   <div :class="[
-    'v-m-form-expiry-date',
-    `${error ? 'v-m-form-expiry-date--error' : ''}`,
-    `${success ? 'v-m-form-expiry-date--success' : ''}`,
-    `${disabled ? 'v-m-form-expiry-date--disabled' : ''}`
+    'v-m-form-expiry-date u-form-field',
+    `${error ? 'u-form-field--error' : ''}`,
+    `${disabled ? 'u-form-field--disabled' : ''}`
   ]">
-    <VLabel
-      v-if="label"
-      :htmlFor="`#${id}`"
-    >
-      <template v-if="required">* </template>{{ label }}
-    </VLabel>
-    <VInputText
-      v-model="formattedExpiry"
-      :id="id"
-      type="text"
-      :required="required"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      :name="name"
-      :autocomplete="autocomplete"
-      pattern="[0-9/]+"
-      inputmode="numeric"
-      @focus="$emit('focus', $event)"
-      @blur="$emit('blur', $event)"
-      @keypress="format"
-      @change="handleChange"
-      @paste="onPaste"
-    />
+    <div class="u-form-field__label">
+      <VLabel
+        v-if="label"
+        :htmlFor="`#${id}`"
+      >
+        <template v-if="required">* </template>{{ label }}
+      </VLabel>
+    </div>
 
-    <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    <div class="u-form-field__input">
+      <VInputText
+        v-model="formattedExpiry"
+        :id="id"
+        type="text"
+        :required="required"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :name="name"
+        :autocomplete="autocomplete"
+        pattern="[0-9/]+"
+        inputmode="numeric"
+        @focus="$emit('focus', $event)"
+        @blur="$emit('blur', $event)"
+        @keypress="format"
+        @change="handleChange"
+        @paste="onPaste"
+      />
+    </div>
+
+    <div class="u-form-field__validation-messages">
+      <VValidationMessages :error="error" :errorMessages="errorMessages" />
+    </div>
   </div>
 </template>
 
@@ -80,10 +86,6 @@ export default {
     autocomplete: {
       type: String,
       default: 'cc-exp'
-    },
-    success: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
@@ -178,48 +180,5 @@ export default {
 
 <style lang="scss">
 .v-m-form-expiry-date {
-  $this: &;
-
-  .v-a-label {
-    margin-bottom: 1rem;
-  }
-
-  .v-a-input-text {
-    margin-bottom: 1rem;
-  }
-
-  &--error, {
-    .v-a-text,
-    .v-a-label,
-    .v-a-input-text {
-      color: $error
-    }
-
-    .v-a-input-text {
-      border-color: $error
-    }
-  }
-
-  &--success, {
-    .v-a-text,
-    .v-a-label,
-    .v-a-input-text {
-      color: $success
-    }
-
-    .v-a-input-text {
-      border-color: $success
-    }
-  }
-
-  &--disabled {
-    .v-a-input-text {
-      background: $grey-lighter;
-    }
-
-    .v-a-label {
-      color: $grey;
-    }
-  }
 }
 </style>
