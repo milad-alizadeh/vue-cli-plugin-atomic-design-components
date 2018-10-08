@@ -39,7 +39,7 @@ const options = [
   }
 ]
 
-storiesOf('Molecules - VFormSelect', module)
+storiesOf('Molecule - VFormSelect', module)
   .addDecorator(VueInfoAddon)
   .add('default', () => ({
     ...wrapper,

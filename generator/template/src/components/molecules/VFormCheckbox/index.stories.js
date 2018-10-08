@@ -46,7 +46,7 @@ const data = {
   ]
 }
 
-storiesOf('Molecules - VFormCheckbox', module)
+storiesOf('Molecule - VFormCheckbox', module)
   .addDecorator(VueInfoAddon)
   .add('single', () => ({
     ...wrapper,

@@ -12,10 +12,14 @@
 
 <script>
 export default {
+  name: 'VHamburger',
   props: {
-    isOpen: Boolean
+    isOpen: {
+      type: Boolean,
+      default: false
+    }
   }
-};
+}
 </script>
 
 <style lang="scss">

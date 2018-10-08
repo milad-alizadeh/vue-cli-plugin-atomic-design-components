@@ -3,16 +3,23 @@ import VueInfoAddon from 'storybook-addon-vue-info'
 import { action } from '@storybook/addon-actions'
 import VHamburger from '.'
 
+const wrapper = {
+  components: { VHamburger },
+  propsDescription: {
+    isOpen: 'Whether the hamburger button is open'
+  }
+}
+
 storiesOf('Atom - VHamburger', module)
   .addDecorator(VueInfoAddon)
   .add('default', () => ({
-    components: { VHamburger },
+    ...wrapper,
     template: '<VHamburger :onClick="action" />',
     methods: {
       action: action('hamburger clicked')
     }
   }))
   .add('open', () => ({
-    components: { VHamburger },
+    ...wrapper,
     template: '<VHamburger isOpen />'
   }))

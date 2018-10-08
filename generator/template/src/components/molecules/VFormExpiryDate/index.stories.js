@@ -17,7 +17,7 @@ const wrapper = {
   }
 }
 
-storiesOf('Molecules - VFormExpiryDate', module)
+storiesOf('Molecule - VFormExpiryDate', module)
   .addDecorator(VueInfoAddon)
   .add('default', () => ({
     ...wrapper,

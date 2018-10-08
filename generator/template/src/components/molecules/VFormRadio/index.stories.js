@@ -48,7 +48,7 @@ const data = {
   ]
 }
 
-storiesOf('Molecules - VFormRadio', module)
+storiesOf('Molecule - VFormRadio', module)
   .addDecorator(VueInfoAddon)
   .add('default', () => ({
     ...wrapper,

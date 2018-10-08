@@ -15,7 +15,7 @@ const wrapper = {
   }
 }
 
-storiesOf('Molecules - VFormTel', module)
+storiesOf('Molecule - VFormTel', module)
   .addDecorator(VueInfoAddon)
   .add('default', () => ({
     ...wrapper,

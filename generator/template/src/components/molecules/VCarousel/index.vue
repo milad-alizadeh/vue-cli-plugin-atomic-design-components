@@ -13,7 +13,7 @@
       <slot></slot>
     </div>
 
-    <ul class="v-m-carousel__controls">
+    <ul v-if="arrowNavigation" class="v-m-carousel__controls">
       <li class="v-m-carousel__control v-m-carousel__control--prev" @click="previous()">
         <transition name="fade">
           <VIcon name="arrow-left" size="medium" v-if="loop || currentSlide > 0" />
@@ -27,7 +27,7 @@
       </li>
     </ul>
 
-    <ul class="v-m-carousel__dotted-nav" v-if="totalSlideNumber > 1">
+    <ul class="v-m-carousel__dotted-nav" v-if="dottedNav && totalSlideNumber > 1">
       <li
         v-for="(n, index) in totalSlideNumber"
         @click="currentSlide = index"
@@ -53,6 +53,14 @@ export default {
     loop: {
       type: Boolean,
       default: false
+    },
+    dottedNav: {
+      type: Boolean,
+      default: true
+    },
+    arrowNavigation: {
+      type: Boolean,
+      default: true
     }
   },
   data () {

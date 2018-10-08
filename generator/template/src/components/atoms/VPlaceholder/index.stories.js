@@ -35,7 +35,7 @@ storiesOf('Atom - VPlaceholder', module)
 
         <br/><p>Paragraph Placeholder</p><br>
 
-        <VPlaceholder type="text" :lines="5"/>
+        <VPlaceholder type="text" :lines="5" />
 
         <br/><p>Paragraph Placeholder non-rounded corners</p><br>
 

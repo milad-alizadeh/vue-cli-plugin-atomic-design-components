@@ -17,7 +17,7 @@ const wrapper = {
   }
 }
 
-storiesOf('Molecules - VFormCreditCardNumber', module)
+storiesOf('Molecule - VFormCreditCardNumber', module)
   .addDecorator(VueInfoAddon)
   .add('default', () => ({
     ...wrapper,

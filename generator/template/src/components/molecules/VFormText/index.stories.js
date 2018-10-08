@@ -21,7 +21,7 @@ const wrapper = {
   }
 }
 
-storiesOf('Molecules - VFormText', module)
+storiesOf('Molecule - VFormText', module)
   .addDecorator(VueInfoAddon)
   .add('default', () => ({
     ...wrapper,

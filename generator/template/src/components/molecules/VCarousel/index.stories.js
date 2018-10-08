@@ -10,7 +10,7 @@ const wrapper = {
   }
 }
 
-storiesOf('Molecules - VCarousel', module)
+storiesOf('Molecule - VCarousel', module)
   .addDecorator(VueInfoAddon)
   .add('default', () => ({
     ...wrapper,
@@ -32,6 +32,38 @@ storiesOf('Molecules - VCarousel', module)
     ...wrapper,
     template: `
       <VCarousel loop>
+        <VCarouselSlide backgroundColor="blue">
+          Slide 1
+        </VCarouselSlide>
+        <VCarouselSlide backgroundColor="red">
+          Slide 2
+        </VCarouselSlide>
+        <VCarouselSlide backgroundColor="gold">
+          Slide 3
+        </VCarouselSlide>
+      </VCarousel>
+    `
+  }))
+  .add('no dotted navigation', () => ({
+    ...wrapper,
+    template: `
+      <VCarousel :dottedNav="false">
+        <VCarouselSlide backgroundColor="blue">
+          Slide 1
+        </VCarouselSlide>
+        <VCarouselSlide backgroundColor="red">
+          Slide 2
+        </VCarouselSlide>
+        <VCarouselSlide backgroundColor="gold">
+          Slide 3
+        </VCarouselSlide>
+      </VCarousel>
+    `
+  }))
+  .add('no arrow navigation', () => ({
+    ...wrapper,
+    template: `
+      <VCarousel :arrowNavigation="false">
         <VCarouselSlide backgroundColor="blue">
           Slide 1
         </VCarouselSlide>

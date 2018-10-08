@@ -7,7 +7,7 @@ const wrapper = {
   propsDescription: {}
 }
 
-storiesOf('Molecules - VCarouselSlide', module)
+storiesOf('Molecule - VCarouselSlide', module)
   .addDecorator(VueInfoAddon)
   .add('background', () => ({
     ...wrapper,
