@@ -101,7 +101,6 @@ export default {
 
 <style lang="scss">
 .v-m-form-radio {
-
   &__option {
     margin-bottom: 1.5rem;
 

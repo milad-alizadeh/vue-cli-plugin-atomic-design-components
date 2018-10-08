@@ -63,54 +63,54 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../../../../node_modules/vue-tel-input/dist/vue-tel-input.css';
+@import '../../../../node_modules/vue-tel-input/dist/vue-tel-input.css';
 
-  .v-a-input-tel {
-    .vue-tel-input {
-      border: 0;
-      border-radius: 0;
-      position: relative;
+.v-a-input-tel {
+  .vue-tel-input {
+    border: 0;
+    border-radius: 0;
+    position: relative;
 
-      &:focus-within {
-        box-shadow: none;
-        border: 0;
-      }
-    }
-
-    input {
-      font-size: inherit;
-      padding: .8rem 1rem;
-      color: inherit;
-      line-height: 1;
-    }
-
-    .iti-flag {
+    &:focus-within {
       box-shadow: none;
+      border: 0;
     }
-
-    .dropdown {
-      border-radius: 0;
-      position: static;
-    }
-
-    .dropdown-item {
-      padding: .4rem .8rem;
-    }
-
-    ul {
-      width: auto;
-      top: calc(100% + .1rem);
-      left: -.1rem;
-      right: -.1rem;
-      border: .1rem solid $grey-lighter;
-      border-top: 0;
-      border-radius: .3rem;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    li.last-preferred {
-      border-bottom: .1rem solid $grey-lighter;
-    }
-
   }
+
+  input {
+    font-size: inherit;
+    padding: .8rem 1rem;
+    color: inherit;
+    line-height: 1;
+  }
+
+  .iti-flag {
+    box-shadow: none;
+  }
+
+  .dropdown {
+    border-radius: 0;
+    position: static;
+  }
+
+  .dropdown-item {
+    padding: .4rem .8rem;
+  }
+
+  ul {
+    width: auto;
+    top: calc(100% + .1rem);
+    left: -.1rem;
+    right: -.1rem;
+    border: .1rem solid $grey-lighter;
+    border-top: 0;
+    border-radius: .3rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  li.last-preferred {
+    border-bottom: .1rem solid $grey-lighter;
+  }
+
+}
 </style>

@@ -164,34 +164,34 @@ export default {
 </script>
 
 <style lang="scss">
-  .v-a-placeholder {
-    max-width: 50rem;
-    $this: &;
+.v-a-placeholder {
+  max-width: 50rem;
+  $this: &;
 
-    &__graphic {
-      display: block;
+  &__graphic {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--image {
+    background: $grey-lighter;
+
+    .v-a-placeholder__graphic-container {
       width: 100%;
-      height: 100%;
+      position: relative;
     }
 
-    &--image {
-      background: $grey-lighter;
-
-      .v-a-placeholder__graphic-container {
-        width: 100%;
-        position: relative;
-      }
-
-      .v-a-placeholder__graphic {
-        position: absolute;
-        width: 40%;
-        height: 40%;
-        max-width: 15rem;
-        max-height: 15rem;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
+    .v-a-placeholder__graphic {
+      position: absolute;
+      width: 40%;
+      height: 40%;
+      max-width: 15rem;
+      max-height: 15rem;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
   }
+}
 </style>

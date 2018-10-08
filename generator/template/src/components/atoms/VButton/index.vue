@@ -50,66 +50,66 @@ export default {
 </script>
 
 <style lang="scss">
-  .v-a-button {
-    background: $blue;
-    border-radius: .3rem;
-    color: $white;
-    cursor: pointer;
-    display: inline-flex;
-    font-family: inherit;
-    font-size: 1.6rem;
-    line-height: 1;
-    padding: 1rem;
+.v-a-button {
+  background: $blue;
+  border-radius: .3rem;
+  color: $white;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 1.6rem;
+  line-height: 1;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  user-select: none;
+
+  &__label {
     position: relative;
-    overflow: hidden;
-    text-align: center;
-    user-select: none;
+  }
 
-    &__label {
-      position: relative;
-    }
+  &:focus {
+    box-shadow: 0 0 .5rem rgba($black, .4)
+  }
 
-    &:focus {
-      box-shadow: 0 0 .5rem rgba($black, .4)
-    }
+  &::before {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition: background .3s;
+  }
 
+  &:hover {
     &::before {
-      content: '';
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      transition: background .3s;
+      background: rgba(black, .2);
     }
+  }
+
+  &--success {
+    background: $success;
+  }
+
+  &--error {
+    background: $error;
+  }
+
+  &--warning {
+    background: $warning;
+  }
+
+  &--disabled {
+    background: $disabled;
+    cursor: not-allowed;
 
     &:hover {
       &::before {
-        background: rgba(black, .2);
-      }
-    }
-
-    &--success {
-      background: $success;
-    }
-
-    &--error {
-      background: $error;
-    }
-
-    &--warning {
-      background: $warning;
-    }
-
-    &--disabled {
-      background: $disabled;
-      cursor: not-allowed;
-
-      &:hover {
-        &::before {
-          background: none;
-        }
+        background: none;
       }
     }
   }
+}
 </style>

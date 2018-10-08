@@ -179,6 +179,5 @@ export default {
 </script>
 
 <style lang="scss">
-.v-m-form-expiry-date {
-}
+.v-m-form-expiry-date {}
 </style>

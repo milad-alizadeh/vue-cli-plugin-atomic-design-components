@@ -38,44 +38,44 @@ export default {
 </script>
 
 <style lang="scss">
-  .v-a-text {
-    color: $black;
-    font-weight: normal;
+.v-a-text {
+  color: $black;
+  font-weight: normal;
 
-    &--x-large {
-      @include heading-x-large()
-    }
-
-    &--large {
-      @include heading-large()
-    }
-
-    &--medium {
-      @include heading-medium()
-    }
-
-    &--small {
-      @include text-medium();
-    }
-
-    &--x-small {
-      @include text-small();
-    }
-
-    &--bold {
-      font-weight: bold;
-    }
-
-    &--light {
-      font-weight: lighter;
-    }
-
-    strong, a {
-      font-weight: bold;
-    }
-
-    a {
-      color: $gold;
-    }
+  &--x-large {
+    @include heading-x-large()
   }
+
+  &--large {
+    @include heading-large()
+  }
+
+  &--medium {
+    @include heading-medium()
+  }
+
+  &--small {
+    @include text-medium();
+  }
+
+  &--x-small {
+    @include text-small();
+  }
+
+  &--bold {
+    font-weight: bold;
+  }
+
+  &--light {
+    font-weight: lighter;
+  }
+
+  strong, a {
+    font-weight: bold;
+  }
+
+  a {
+    color: $gold;
+  }
+}
 </style>

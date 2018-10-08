@@ -83,6 +83,5 @@ export default {
 </script>
 
 <style lang="scss">
-.v-m-form-tel {
-}
+.v-m-form-tel {}
 </style>

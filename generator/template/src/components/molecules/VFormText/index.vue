@@ -101,6 +101,5 @@ export default {
 </script>
 
 <style lang="scss">
-.v-m-form-text {
-}
+.v-m-form-text {}
 </style>
