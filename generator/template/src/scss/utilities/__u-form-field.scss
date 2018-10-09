@@ -1,0 +1,71 @@
+.u-form-field {
+  $this: &;
+
+  &__label {
+    @include text-medium();
+    margin-bottom: 1rem;
+  }
+
+  &__input {
+    @include text-medium();
+    border: .1rem solid $grey-light;
+    border-radius: .3rem;
+
+    > div {
+      border-radius: 0;
+      border: 0;
+    }
+
+    &:focus-within {
+      box-shadow: 0 0 .6rem rgba($black, .4);
+    }
+  }
+
+  &__validation-messages {
+    margin-top: 1rem;
+  }
+
+  &--error {
+    #{$this}__validation-messages,
+    #{$this}__input,
+    #{$this}__label {
+      color: $error
+    }
+
+    #{$this}__input {
+      border-color: $error;
+    }
+
+    .v-a-input-radio__circle,
+    .v-a-input-checkbox__box {
+      background: $error
+    }
+
+    .v-a-select__arrow {
+      fill: $error
+    }
+  }
+
+  &--disabled,
+  &__option--disabled {
+    #{$this}__input {
+      background: $grey-lighter;
+      color: $grey;
+      cursor: not-allowed
+    }
+
+    #{$this}__label {
+      color: $grey;
+    }
+
+    .v-a-label {
+      color: $grey;
+      cursor: not-allowed !important;
+    }
+
+    .v-a-input-radio__circle,
+    .v-a-input-checkbox__box {
+      background: $grey
+    }
+  }
+}
