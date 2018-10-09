@@ -1,7 +1,5 @@
-import { shallowMount } from '@vue/test-utils'
-import { createRenderer } from 'vue-server-renderer'
-import NavList from '.'
-
+import { mount } from '@vue/test-utils'
+import VNavList from '.'
 const mockRoutePush = jest.fn()
 
 const options = {
@@ -9,21 +7,14 @@ const options = {
     list: [
       {
         label: 'Home',
-        link: '/home'
+        to: '/home'
       }, {
         label: 'About',
-        link: '/about'
+        to: '/about'
       }
     ]
   },
-  stubs: {
-    NavItem: {
-      template: `
-        <li @click="$emit('click')">
-          <slot></slot>
-        </li>`
-    }
-  },
+  stubs: ['router-link'],
   mocks: {
     $router: {
       push: mockRoutePush
@@ -31,23 +22,11 @@ const options = {
   }
 }
 
-describe('Molecule - NavList', () => {
+describe('Molecule - VNavList', () => {
   test('renders correctly with the right props', () => {
-    const wrapper = shallowMount(NavList, options)
-
+    const wrapper = mount(VNavList, options)
     expect(wrapper.findAll('li').length).toBe(2)
     expect(wrapper.html()).toContain('Home')
     expect(wrapper.html()).toContain('About')
-  })
-
-  test('has same html structure', () => {
-    const wrapper = shallowMount(NavList, options)
-
-    createRenderer().renderToString(wrapper.vm, (err, str) => {
-      if (err) {
-        throw new Error(err)
-      }
-      expect(str).toMatchSnapshot()
-    })
   })
 })

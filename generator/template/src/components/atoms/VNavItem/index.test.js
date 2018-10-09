@@ -7,11 +7,11 @@ const wrapper = mount(VNavItem, {
 
 describe('Atom - VNavItem', () => {
   test('renders correctly with the right props', () => {
-    expect(wrapper.find('.a-nav-item').exists()).toBe(true)
+    expect(wrapper.find('.v-a-nav-item').exists()).toBe(true)
   })
 
   test('click', () => {
-    wrapper.find('li').trigger('click')
+    wrapper.trigger('click')
     expect(wrapper.emitted().click).toBeTruthy()
   })
 })
