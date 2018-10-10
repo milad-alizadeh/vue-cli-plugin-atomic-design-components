@@ -44,6 +44,8 @@
 <script>
 import VIcon from 'atoms/VIcon'
 
+import debounce from '@/helpers/debounce'
+
 export default {
   name: 'VCarousel',
   components: {
@@ -77,10 +79,10 @@ export default {
     this.getTotalSlidesNumber()
   },
   created () {
-    window.addEventListener('resize', this.debounce(this.calculateDimensions, 100))
+    window.addEventListener('resize', debounce(this.calculateDimensions, 100))
   },
   beforeDestroy () {
-    window.removeEventListener('resize', this.debounce(this.calculateDimensions, 100))
+    window.removeEventListener('resize', debounce(this.calculateDimensions, 100))
   },
   computed: {
     positionX () {
@@ -88,16 +90,6 @@ export default {
     }
   },
   methods: {
-    debounce (fn, time) {
-      let timeout
-
-      return function () {
-        const functionCall = () => fn.apply(this, arguments)
-
-        clearTimeout(timeout)
-        timeout = setTimeout(functionCall, time)
-      }
-    },
     getTotalSlidesNumber () {
       let slides = this.$slots.default.filter(node => {
         if (node.tag) return node

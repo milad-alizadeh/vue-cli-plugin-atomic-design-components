@@ -27,7 +27,7 @@
         :class="[
           'v-m-form-checkbox__option',
           'u-form-field__label',
-          `${option.disabled || disabled ? 'v-m-form-checkbox__option--disabled' : '' }`
+          `${option.disabled || disabled ? 'u-form-field__option--disabled' : '' }`
         ]"
       >
         <VLabel>

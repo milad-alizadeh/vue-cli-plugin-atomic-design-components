@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss">
 .v-a-label {
-  font-size: 1.6rem;
+  font-size: inherit;
   user-select: none;
   display: flex;
   align-items: center;

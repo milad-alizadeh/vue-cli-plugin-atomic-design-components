@@ -26,7 +26,7 @@ export default {
     size: {
       type: String,
       validator (value) {
-        return ['small', 'medium', 'large'].indexOf(value) !== -1
+        return ['x-small', 'small', 'medium', 'large'].indexOf(value) !== -1
       },
       default: 'small'
     }
@@ -65,6 +65,11 @@ export default {
 <style lang="scss">
 .v-a-icon {
   display: block;
+
+  &--x-small {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
 
   &--small {
     width: 2.4rem;

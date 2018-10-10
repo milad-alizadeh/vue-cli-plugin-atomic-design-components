@@ -67,7 +67,7 @@ storiesOf('Atom - VPlaceholder', module)
 
         <br/>
 
-        <VPlaceholder type="image" :speed=".7" imageGraphic="logo" />
+        <VPlaceholder type="image" :speed=".7" imageGraphic="yosushi-logo" />
       </div>
     `
   }))
@@ -75,7 +75,7 @@ storiesOf('Atom - VPlaceholder', module)
     ...wrapper,
     template: `
       <div>
-        <VPlaceholder type="image" :speed="1.5" imageGraphic="logo" />
+        <VPlaceholder type="image" :speed="1.5" imageGraphic="yosushi-logo" />
 
         <br/>
 
