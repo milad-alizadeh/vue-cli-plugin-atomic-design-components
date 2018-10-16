@@ -5,8 +5,10 @@ import VImage from '.'
 const wrapper = {
   components: { VImage },
   propsDescription: {
-    src: 'Image src',
+    src: 'Image src. Can be a url or local filename which loads from assets folder. All image urls are served through images.wi-5.com compression server.',
     alt: 'Image alt attribute',
+    srcset: 'Image srcset attribute',
+    sizes: 'Image sizes attribute',
     picture: 'Whether a picture tag should be rendered',
     sources: 'Sources for picture tag (if picture prop is set)'
   }
@@ -14,6 +16,15 @@ const wrapper = {
 
 storiesOf('Atom - VImage', module)
   .addDecorator(VueInfoAddon)
+  .add('local image', () => ({
+    ...wrapper,
+    template: `
+      <VImage
+        src="logo.png"
+        alt="Vue Logo"
+      />
+    `
+  }))
   .add('url', () => ({
     ...wrapper,
     template: `
@@ -22,11 +33,17 @@ storiesOf('Atom - VImage', module)
       />
     `
   }))
-  .add('picture', () => ({
+  .add('picture tag', () => ({
     ...wrapper,
     template: `
       <VImage
-        src="https://source.unsplash.com/random/1000x800"
+        src="logo.png"
+        :sources="[
+          {
+            srcset: 'logo-mono.png',
+            media: '(max-width: 400px)'
+          }
+        ]"
         picture
       />
     `

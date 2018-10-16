@@ -9,14 +9,16 @@
       v-if="!picture"
       :alt="alt"
       :src="imageSrc"
+      :srcset="srcset"
+      :sizes="sizes"
       ref="imageNode"
     >
     <picture v-else>
       <source
         v-for="source in calculatedSources"
         :key="source.srcset"
-        :media="source.sizes"
-        :srcset="source.src"
+        :media="source.media"
+        :srcset="source.srcset"
       />
       <img
         :alt="alt"
@@ -37,29 +39,13 @@ export default {
       required: true
     },
     alt: String,
-    srcset: Object,
+    srcset: String,
+    sizes: String,
     picture: {
       type: Boolean,
       default: false
     },
-    sources: {
-      type: Array,
-      default () {
-        return [
-          {
-            srcset: 400,
-            sizes: '(max-width: 400px)'
-          },
-          {
-            srcset: 600,
-            sizes: '(max-width: 600px)'
-          },
-          {
-            srcset: 800
-          }
-        ]
-      }
-    }
+    sources: Array
   },
   mounted () {
     this.loadImage()
@@ -68,6 +54,7 @@ export default {
     return {
       imageSrc: null,
       imageIsLoaded: false,
+      imageProxyUrl: 'https://images.wi-5.com',
       calculatedSources: []
     }
   },
@@ -85,17 +72,27 @@ export default {
       // Check webp support from Vuex store
       let webp = this.$store ? this.$store.state.global.webp : false
 
-      this.calculatedSources = this.sources.map(source => {
-        let src = `${this.imageSrc}?width=${source.srcset}`
+      if (this.sources) {
+        this.calculatedSources = this.sources.map(source => {
+          let srcset
+          let src = this.imageSrc
 
-        if (webp) src = `${src}&format=webp`
+          if (isUrl(src)) {
+            if (src.indexOf(this.imageProxyUrl) > -1) {
+              srcset = typeof source.srcset === 'number' ? `${this.imageSrc}?width=${source.srcset}` : source.srcset
+              if (webp) srcset = `${srcset}&format=webp`
+            } else {
+              srcset = `${this.imageProxyUrl}/${source.srcset}`
+            }
+          } else {
+            srcset = require(`../../../assets/${source.srcset}`)
+          }
 
-        if (webp === null) src = null
+          source.srcset = srcset
 
-        source.src = src
-
-        return source
-      })
+          return source
+        })
+      }
     }
   },
   computed: {
@@ -103,10 +100,10 @@ export default {
       let { src } = this
 
       if (isUrl(src)) {
-        return src.indexOf('images.wi-5.com') !== -1 ? src : `https://images.wi-5.com/${src}`
+        return src.indexOf(this.imageProxyUrl) === -1 ? `${this.imageProxyUrl}/${src}` : src
       }
 
-      return require(`@/assets/${src}`)
+      return require(`../../../assets/${src}`)
     }
   }
 }
@@ -114,6 +111,9 @@ export default {
 
 <style lang="scss">
 .v-a-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   img {
     max-width: 100%;

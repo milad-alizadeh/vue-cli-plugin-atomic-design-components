@@ -9,61 +9,65 @@
       class="v-a-placeholder__graphic-container"
       :style="type === 'image' ? `padding-top: ${100 / aspectRatio}%` : null"
     >
-      <svg
-        :viewBox="computedViewBox"
-        class="v-a-placeholder__graphic"
-      >
-        <defs>
-          <component
-            v-if="graphic"
-            :is="graphic.default"
-            :lines="lines"
-            :lineScale="lineScale * 10"
-            :lineHeight="lineHeight"
-            :roundedCorners="roundedCorners"
-            :shapeId="shapeId"
-          ></component>
+      <transition name="fade">
+        <svg
+          :viewBox="computedViewBox"
+          class="v-a-placeholder__graphic"
+          @loaded="isLoaded = true"
+          v-show="isLoaded"
+        >
+          <defs>
+            <component
+              v-if="graphic"
+              :is="graphic.default"
+              :lines="lines"
+              :lineScale="lineScale * 10"
+              :lineHeight="lineHeight"
+              :roundedCorners="roundedCorners"
+              :shapeId="shapeId"
+            ></component>
 
-          <linearGradient id="gradient1">
-            <stop :stop-color="color1" offset="0">
-              <animate
-                v-if="animation"
-                attributeName="offset"
-                values="-1; 1"
-                :dur="`${speed}s`"
-                repeatCount="indefinite"
-              />
-            </stop>
-            <stop :stop-color="color2" offset=".5">
-              <animate
-                v-if="animation"
-                attributeName="offset"
-                values="-.5; 1.5"
-                :dur="`${speed}s`"
-                repeatCount="indefinite"
-              />
-            </stop>
-            <stop :stop-color="color1" offset="1">
-              <animate
-                v-if="animation"
-                attributeName="offset"
-                values="0; 2"
-                :dur="`${speed}s`"
-                repeatCount="indefinite"
-              />
-            </stop>
-          </linearGradient>
-        </defs>
-        <rect
-          class="v-a-placeholder__content"
-          x="0"
-          y="0"
-          width="100%"
-          height="100%"
-          fill="url(#gradient1)"
-          :clip-path="`url(#${shapeId})`"
-        />
-      </svg>
+            <linearGradient id="gradient1">
+              <stop :stop-color="color1" offset="0">
+                <animate
+                  v-if="animation"
+                  attributeName="offset"
+                  values="-1; 1"
+                  :dur="`${speed}s`"
+                  repeatCount="indefinite"
+                />
+              </stop>
+              <stop :stop-color="color2" offset=".5">
+                <animate
+                  v-if="animation"
+                  attributeName="offset"
+                  values="-.5; 1.5"
+                  :dur="`${speed}s`"
+                  repeatCount="indefinite"
+                />
+              </stop>
+              <stop :stop-color="color1" offset="1">
+                <animate
+                  v-if="animation"
+                  attributeName="offset"
+                  values="0; 2"
+                  :dur="`${speed}s`"
+                  repeatCount="indefinite"
+                />
+              </stop>
+            </linearGradient>
+          </defs>
+          <rect
+            class="v-a-placeholder__content"
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            fill="url(#gradient1)"
+            :clip-path="`url(#${shapeId})`"
+          />
+        </svg>
+      </transition>
     </div>
   </div>
 </template>
@@ -119,12 +123,14 @@ export default {
       default: 1.5
     }
   },
-  created () {
-    this.loadGraphic()
+  created: async function () {
+    await this.loadGraphic()
+    this.isLoaded = true
   },
   data () {
     return {
-      graphic: null
+      graphic: null,
+      isLoaded: false
     }
   },
   computed: {

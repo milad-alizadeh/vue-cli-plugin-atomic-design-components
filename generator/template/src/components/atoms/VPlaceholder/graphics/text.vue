@@ -1,4 +1,4 @@
-z<template functional>
+<template functional>
   <clipPath :id="props.shapeId">
     <rect
       v-for="(n, index) in props.lines"
@@ -12,5 +12,3 @@ z<template functional>
     />
   </clipPath>
 </template>
-<script>
-</script>

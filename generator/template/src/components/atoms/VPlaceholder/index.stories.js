@@ -5,7 +5,7 @@ import VPlaceholder from '.'
 const wrapper = {
   components: { VPlaceholder },
   propsDescription: {
-    type: `Type of placeholder. Options: ['bullet-list', 'text']`,
+    type: `Type of placeholder. Options: ['bullet-list', 'text', 'image']`,
     imageGraphic: `Available only on 'image' type. The name of graphic to be used as the center icon`,
     aspectRatio: `Available only on 'image' type. The ratio of the placeholder box. It equals to width/height. for example 400x300 image ratio will be 400/300 = 1.33`,
     lines: `Available only on ['text', 'bullet-list'] type. The number of lines of placeholders.`,
