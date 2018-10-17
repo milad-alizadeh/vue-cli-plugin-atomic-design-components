@@ -16,9 +16,9 @@
     <div class="u-form-field__input">
       <VInputTel
         :value="value"
+        :placeholder="placeholder"
         @input="handleInput"
         @blur="handleBlur"
-        :placeholder="placeholder"
       />
     </div>
 

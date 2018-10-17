@@ -16,15 +16,15 @@
     <div class="u-form-field__input">
       <VInputText
         v-model="formattedExpiry"
-        :id="id"
         type="text"
+        pattern="[0-9/]+"
+        inputmode="numeric"
+        :id="id"
         :required="required"
         :placeholder="placeholder"
         :disabled="disabled"
         :name="name"
         :autocomplete="autocomplete"
-        pattern="[0-9/]+"
-        inputmode="numeric"
         @focus="$emit('focus', $event)"
         @blur="$emit('blur', $event)"
         @keypress="format"
@@ -146,7 +146,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.v-m-form-expiry-date {}
-</style>

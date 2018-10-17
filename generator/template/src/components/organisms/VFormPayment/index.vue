@@ -11,24 +11,24 @@
       <VFormText
         v-model="payment.cardHolder"
         type="text"
+        autocomplete="cc-name"
         :label="label.cardHolder"
         :error="$v.payment.cardHolder.$error"
-        @blur="$v.payment.cardHolder.$touch()"
         :errorMessages="$getErrorMessages('cardHolder')"
         :placeholder="placeholder.cardHolder"
-        autocomplete="cc-name"
+        @blur="$v.payment.cardHolder.$touch()"
       />
     </div>
 
     <div class="v-o-form-payment__section v-o-form-payment__section--card-number">
       <VFormCreditCardNumber
         v-model="payment.creditCard"
+        autocomplete="cc-number"
         :label="label.creditCardNumber"
         :placeholder="placeholder.creditCardNumber"
         :error="$v.payment.creditCard.$error"
-        @blur="$v.payment.creditCard.$touch()"
         :errorMessages="$getErrorMessages('creditCard')"
-        autocomplete="cc-number"
+        @blur="$v.payment.creditCard.$touch()"
       />
     </div>
 
@@ -36,25 +36,25 @@
       <VFormText
         v-model="payment.securityCode"
         type="text"
-        autocomplete="cc-csc"
-        :error="$v.payment.securityCode.$error"
-        @blur="$v.payment.securityCode.$touch()"
-        :errorMessages="$getErrorMessages('securityCode')"
-        @keypress="handleSecurityKeypress"
         pattern="\d*"
+        autocomplete="cc-csc"
         inputmode="numeric"
+        :error="$v.payment.securityCode.$error"
+        :errorMessages="$getErrorMessages('securityCode')"
         :label="label.securityCode + `${payment.creditCard.type ? ` (${payment.creditCard.type.code.name})` : ''}`"
         :placeholder="placeholder.securityCode"
+        @blur="$v.payment.securityCode.$touch()"
+        @keypress="handleSecurityKeypress"
       />
 
       <VFormExpiryDate
         v-model="payment.expiry"
+        autocomplete="cc-exp"
         :label="label.expiry"
         :placeholder="placeholder.expiry"
         :error="$v.payment.expiry.$error"
-        @blur="$v.payment.expiry.$touch()"
         :errorMessages="$getErrorMessages('expiry')"
-        autocomplete="cc-exp"
+        @blur="$v.payment.expiry.$touch()"
       />
     </div>
   </div>

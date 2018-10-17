@@ -33,6 +33,7 @@
 import isUrl from '@/helpers/is-url'
 
 export default {
+  name: 'VImage',
   props: {
     src: {
       type: String,

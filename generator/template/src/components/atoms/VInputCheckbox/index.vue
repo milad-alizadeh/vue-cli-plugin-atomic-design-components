@@ -1,8 +1,8 @@
 <template>
   <div class="v-a-input-checkbox">
     <input
-      type="checkbox"
       class="v-a-input-checkbox__input"
+      type="checkbox"
       :value="value"
       :id="id"
       :checked="shouldBeChecked"

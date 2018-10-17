@@ -14,6 +14,7 @@
 import VNavItem from 'atoms/VNavItem'
 
 export default {
+  name: 'VNavList',
   props: {
     list: Array
   },

@@ -17,11 +17,11 @@
     <div class="v-m-form-radio__options u-form-field__label">
       <div
         v-for="option in options"
-        :key="option.value"
         :class="[
           'v-m-form-radio__option',
           `${option.disabled || disabled ? 'u-form-field__option--disabled' : '' }`
         ]"
+        :key="option.value"
       >
         <VLabel>
           <VInputRadio

@@ -3,22 +3,22 @@
     <div class="v-m-lazy-image__inner" :style="`padding-top: ${ 1 / aspectRatio * 100 }%`">
       <transition-group name="fade-long">
         <VPlaceholder
+          v-show="!isLoaded"
+          key="1"
           type="image"
           :aspectRatio="aspectRatio"
           :imageGraphic="placeholderGraphic"
-          v-show="!isLoaded"
-          key="1"
         />
         <VImage
           v-show="isLoaded"
-          @loaded="handleOnload"
+          key="2"
           :src="src"
           :alt="alt"
           :srcset="srcset"
           :picture="picture"
           :sources="sources"
           :sizes="sizes"
-          key="2"
+          @loaded="handleOnload"
         />
       </transition-group>
     </div>

@@ -1,8 +1,8 @@
 <template>
   <div class="v-a-input-radio">
     <input
-      type="radio"
       class="v-a-input-radio__input"
+      type="radio"
       :value="value"
       :id="id"
       :checked="shouldBeChecked"

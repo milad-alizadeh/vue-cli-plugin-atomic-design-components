@@ -1,7 +1,7 @@
 <template>
   <div
-    class="v-m-carousel"
     ref="carousel"
+    class="v-m-carousel"
     @touchend="handleTouchend"
     @touchstart="handleTouchstart"
   >
@@ -16,13 +16,21 @@
     <ul v-if="arrowNavigation" class="v-m-carousel__controls">
       <li class="v-m-carousel__control v-m-carousel__control--prev" @click="previous()">
         <transition name="fade">
-          <VIcon name="arrow-left" size="medium" v-if="loop || currentSlide > 0" />
+          <VIcon
+            v-if="loop || currentSlide > 0"
+            name="arrow-left"
+            size="medium"
+          />
         </transition>
       </li>
 
       <li class="v-m-carousel__control v-m-carousel__control--next" @click="next()">
         <transition name="fade">
-          <VIcon name="arrow-right" size="medium" v-if="loop || currentSlide < totalSlideNumber - 1"/>
+          <VIcon
+            v-if="loop || currentSlide < totalSlideNumber - 1"
+            name="arrow-right"
+            size="medium"
+          />
         </transition>
       </li>
     </ul>
@@ -30,12 +38,12 @@
     <ul class="v-m-carousel__dotted-nav" v-if="dottedNav && totalSlideNumber > 1">
       <li
         v-for="(n, index) in totalSlideNumber"
-        @click="currentSlide = index"
-        :key="index"
         :class="[
           'v-m-carousel__dot',
           `${ index === currentSlide ? 'v-m-carousel__dot--active' : ''}`
         ]"
+        :key="index"
+        @click="currentSlide = index"
       ></li>
     </ul>
   </div>

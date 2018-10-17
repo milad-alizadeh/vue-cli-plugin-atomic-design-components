@@ -1,12 +1,12 @@
 <template>
   <div class="v-a-input-tel">
     <VueTelInput
-      @onInput="onInput"
-      @onBlur="$emit('blur', { phone, error, country })"
+      ref="inputField"
+      v-model="phone"
       :preferredCountries="preferredCountries"
       :placeholder="placeholder"
-      v-model="phone"
-      ref="inputField"
+      @onInput="onInput"
+      @onBlur="$emit('blur', { phone, error, country })"
     />
   </div>
 </template>
@@ -111,6 +111,5 @@ export default {
   li.last-preferred {
     border-bottom: .1rem solid $grey-lighter;
   }
-
 }
 </style>

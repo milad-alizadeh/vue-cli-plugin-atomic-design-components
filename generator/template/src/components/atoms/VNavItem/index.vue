@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: 'VNavItem',
   props: {
     to: [String, Object],
     href: String

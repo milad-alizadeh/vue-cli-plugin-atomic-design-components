@@ -11,10 +11,10 @@
     >
       <transition name="fade">
         <svg
-          :viewBox="computedViewBox"
-          class="v-a-placeholder__graphic"
-          @loaded="isLoaded = true"
           v-show="isLoaded"
+          class="v-a-placeholder__graphic"
+          :viewBox="computedViewBox"
+          @loaded="isLoaded = true"
         >
           <defs>
             <component
@@ -42,8 +42,8 @@
                   v-if="animation"
                   attributeName="offset"
                   values="-.5; 1.5"
-                  :dur="`${speed}s`"
                   repeatCount="indefinite"
+                  :dur="`${speed}s`"
                 />
               </stop>
               <stop :stop-color="color1" offset="1">
@@ -51,8 +51,8 @@
                   v-if="animation"
                   attributeName="offset"
                   values="0; 2"
-                  :dur="`${speed}s`"
                   repeatCount="indefinite"
+                  :dur="`${speed}s`"
                 />
               </stop>
             </linearGradient>

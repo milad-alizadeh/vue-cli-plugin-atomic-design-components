@@ -13,8 +13,8 @@
     :to="to"
     :target="computedTarget"
     :type="type"
-    @click="$emit('click', $event)"
     :disabled="disabled"
+    @click="$emit('click', $event)"
   >
     <span class="v-a-button__label">
       <slot></slot>
