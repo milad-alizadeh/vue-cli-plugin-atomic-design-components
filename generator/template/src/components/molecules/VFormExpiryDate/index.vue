@@ -103,7 +103,9 @@ export default {
         return this.formatDate(this.expiry)
       },
       set (newVal) {
-        this.expiry = onlyDigits(newVal).slice(0, 4)
+        this.lastDate = this.expiry
+        if (newVal.length === 1 && newVal > 1) newVal = `0${newVal}`
+        this.expiry = this.lastDate.length >= newVal.length ? '' : onlyDigits(newVal).slice(0, 4)
         this.$emit('input', this.expiry)
       }
     }
@@ -134,45 +136,12 @@ export default {
       }
     },
     formatDate (date) {
-      let digitDate = date
-      let formatted = ''
-      let length = digitDate.length
-      let month = ''
-      let year = ''
-
-      if (length) {
-        switch (length) {
-          case 1:
-            month = digitDate.slice(0, 1)
-            if (month > 1) month = `0${month}`
-            break
-
-          case 2:
-            month = digitDate.slice(0, 2)
-            if (month > 12) month = 12
-            break
-
-          case 3:
-            month = digitDate.slice(0, 2)
-            year = digitDate.charAt(2)
-            break
-
-          default:
-            month = digitDate.slice(0, 2)
-            year = digitDate.slice(2, 4)
-        }
-
-        formatted = month + (month.length >= 2 ? `/${year}` : '')
-
-        if (this.lastDate.length >= digitDate.length) {
-          this.lastDate = ''
-          return ''
-        } else {
-          this.lastDate = digitDate
-        }
+      if (date.length > 2) {
+        let month = date.slice(0, 2)
+        let year = date.slice(2, 4)
+        return `${month}/${year}`
       }
-
-      return formatted
+      return date
     }
   }
 }
