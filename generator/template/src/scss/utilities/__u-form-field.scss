@@ -46,6 +46,14 @@
     }
   }
 
+  .v-m-validation-messages__message--success {
+    color: $success
+  }
+
+  .v-m-validation-messages__message--error {
+    color: $error
+  }
+
   &--disabled,
   &__option--disabled {
     #{$this}__input {
