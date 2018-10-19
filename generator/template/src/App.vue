@@ -1,3 +1,10 @@
+---
+extend: '@vue/cli-service/generator/template/src/App.vue'
+replace:
+  - !!js/regexp /<script[^]*?<\/script>/
+  - !!js/regexp /<template[^]*?<\/template>/
+---
+
 <template>
   <div id="app">WebApp</div>
 </template>
@@ -22,7 +29,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '@/scss/base.scss';
-</style>
