@@ -1,3 +1,18 @@
+const appTemplate = require('./app-template')
+
+const addLine = (string, match, line) => {
+  let lines = string.split(/\r?\n/g).reverse()
+  let lastImportIndex = lines.findIndex(line => line.match(match))
+  let alreadyAdded = lines.find(line => line.indexOf(line) > -1)
+
+  if (!alreadyAdded) {
+    lines[lastImportIndex] += `\n${line}`
+    return lines.reverse().join('\n')
+  }
+
+  return string
+}
+
 module.exports = (api, options, rootOptions) => {
   api.extendPackage({
     dependencies: {
@@ -16,19 +31,22 @@ module.exports = (api, options, rootOptions) => {
     if (webapp) main = webapp
 
     if (main) {
-      let lines = main.split(/\r?\n/g).reverse()
-      let lastImportIndex = lines.findIndex(line => line.match(/^import/))
-      let alreadyImported = lines.find(line => line.indexOf('import Vuelidate') > -1)
+      let content = addLine(main, /^import/, `import Vuelidate from 'vuelidate'`)
+      let newContent = addLine(content, /^import Vuelidate from 'vuelidate'/, 'Vue.use(Vuelidate)')
 
-      if (!alreadyImported) {
-        lines[lastImportIndex] += `\nimport Vuelidate from 'vuelidate'\nVue.use(Vuelidate)`
-
-        if (webapp) {
-          files['src/web-app.js'] = lines.reverse().join('\n')
-        } else {
-          files['src/main.js'] = lines.reverse().join('\n')
-        }
+      if (webapp) {
+        files['src/web-app.js'] = newContent
+      } else {
+        files['src/main.js'] = newContent
       }
+    }
+
+    if (files['src/App.vue']) {
+      files['src/App.vue'] = appTemplate
+    }
+
+    if (files['src/scss/utilities/_utilities']) {
+      files['src/scss/utilities/_utilities'] = addLine(main, /^@import/, `@import 'u-form-field;'`)
     }
   })
 }
