@@ -1,4 +1,4 @@
-#vue-cli-plugin-atomic-design-components
+# vue-cli-plugin-atomic-design-components
 
 TThis is Vue cli 3 plugin is a collection of generically used Vue components based on [Atomic Design ](http://bradfrost.com/blog/post/atomic-web-design/) methodology. This plugin is NOT an off the shelf library like Bootstrap or Vuetify but rather a starting point to save development time on generically used components and giving maximum control.
 
