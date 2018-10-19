@@ -45,8 +45,12 @@ module.exports = (api, options, rootOptions) => {
       files['src/App.vue'] = appTemplate
     }
 
-    if (files['src/scss/utilities/_utilities']) {
-      files['src/scss/utilities/_utilities'] = addLine(main, /^@import/, `@import 'u-form-field;'`)
+    if (files['src/scss/utilities/_utilities.scss']) {
+      let utilities = files['src/scss/utilities/_utilities.scss']
+      files['src/scss/utilities/_utilities.scss'] = addLine(utilities, /^@import/, `@import 'u-form-field;'`)
+    } else {
+      files['src/scss/utilities/_utilities.scss'] = `@import 'u-visually-hidden';
+@import 'u-form-field';`
     }
   })
 }
