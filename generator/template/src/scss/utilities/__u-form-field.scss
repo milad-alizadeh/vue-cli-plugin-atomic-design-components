@@ -10,6 +10,7 @@
     @include text-medium();
     border: .1rem solid $grey-light;
     border-radius: .3rem;
+    position: relative;
 
     > div {
       border-radius: 0;
