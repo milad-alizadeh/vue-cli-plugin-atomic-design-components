@@ -34,12 +34,6 @@
 </template>
 
 <script>
-import VFormText from 'molecules/VFormText'
-import VFormRadio from 'molecules/VFormRadio'
-import VFormSelect from 'molecules/VFormSelect'
-import VFormCheckbox from 'molecules/VFormCheckbox'
-import VFormTel from 'molecules/VFormTel'
-import VFormPayment from 'organisms/VFormPayment'
 import VButton from 'atoms/VButton'
 
 import validationErrorMessages from '@/mixins/validationErrorMessages'
@@ -48,12 +42,12 @@ import scrollTo from '@/mixins/scrollTo'
 export default {
   name: 'VGenericForm',
   components: {
-    VFormText,
-    VFormRadio,
-    VFormCheckbox,
-    VFormSelect,
-    VFormPayment,
-    VFormTel,
+    VFormText: () => import('molecules/VFormText'),
+    VFormRadio: () => import('molecules/VFormRadio'),
+    VFormSelect: () => import('molecules/VFormSelect'),
+    VFormCheckbox: () => import('molecules/VFormCheckbox'),
+    VFormTel: () => import('molecules/VFormTel'),
+    VFormPayment: () => import('organisms/VFormPayment'),
     VButton
   },
   mixins: [validationErrorMessages, scrollTo],
