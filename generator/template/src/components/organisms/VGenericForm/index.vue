@@ -42,12 +42,14 @@ import scrollTo from '@/mixins/scrollTo'
 export default {
   name: 'VGenericForm',
   components: {
+    /* eslint-disable vue/no-unused-components */
     VFormText: () => import('molecules/VFormText'),
     VFormRadio: () => import('molecules/VFormRadio'),
     VFormSelect: () => import('molecules/VFormSelect'),
     VFormCheckbox: () => import('molecules/VFormCheckbox'),
     VFormTel: () => import('molecules/VFormTel'),
     VFormPayment: () => import('organisms/VFormPayment'),
+    /* eslint-enable vue/no-unused-components */
     VButton
   },
   mixins: [validationErrorMessages, scrollTo],
