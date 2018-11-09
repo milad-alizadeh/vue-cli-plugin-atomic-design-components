@@ -20,7 +20,6 @@
 
 <script>
 import VLogo from 'atoms/VLogo'
-import VIcon from 'atoms/VIcon'
 import VHamburger from 'atoms/VHamburger'
 import VNavList from 'molecules/VNavList'
 
@@ -42,7 +41,6 @@ export default {
   components: {
     VHamburger,
     VNavList,
-    VIcon,
     VLogo
   }
 }

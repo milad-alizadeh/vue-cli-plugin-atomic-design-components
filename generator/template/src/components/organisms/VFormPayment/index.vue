@@ -65,7 +65,6 @@
 import VFormText from 'molecules/VFormText'
 import VFormCreditCardNumber from 'molecules/VFormCreditCardNumber'
 import VFormExpiryDate from 'molecules/VFormExpiryDate'
-import VValidationMessages from 'molecules/VValidationMessages'
 
 // Validations
 import { required, creditCard, expiry, minLength } from '@/validations'
@@ -80,8 +79,7 @@ export default {
   components: {
     VFormCreditCardNumber,
     VFormText,
-    VFormExpiryDate,
-    VValidationMessages
+    VFormExpiryDate
   },
   mixins: [validationErrorMessages],
   props: {
