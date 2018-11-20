@@ -25,20 +25,13 @@ module.exports = (api, options, rootOptions) => {
   api.render('./template')
 
   api.postProcessFiles(files => {
-    let webapp = files['src/web-app.js']
     let main = files['src/main.js']
-
-    if (webapp) main = webapp
 
     if (main) {
       let content = addLine(main, /^import/, `import Vuelidate from 'vuelidate'`)
       let newContent = addLine(content, /^import Vuelidate from 'vuelidate'/, 'Vue.use(Vuelidate)')
 
-      if (webapp) {
-        files['src/web-app.js'] = newContent
-      } else {
-        files['src/main.js'] = newContent
-      }
+      files['src/main.js'] = newContent
     }
 
     if (files['src/App.vue']) {
