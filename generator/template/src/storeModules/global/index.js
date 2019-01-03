@@ -25,7 +25,7 @@ const mutations = {
     state.windowWidth = windowWidth
   },
 
-  setScrollTop () {
+  setScrollTop (state) {
     state.scrollTop = pageOffset()
   }
 }
