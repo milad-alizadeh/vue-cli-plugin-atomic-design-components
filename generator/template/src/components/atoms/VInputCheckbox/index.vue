@@ -26,7 +26,7 @@ export default {
     event: 'input'
   },
   props: {
-    /** Value of checkbox */.
+    /** Value of checkbox */
     value: {
       type: [String, Boolean],
       reqruied: true

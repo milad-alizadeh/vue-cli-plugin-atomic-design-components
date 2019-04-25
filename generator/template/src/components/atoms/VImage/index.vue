@@ -35,7 +35,7 @@ import isUrl from '@/helpers/is-url'
 export default {
   name: 'VImage',
   props: {
-    /** src. Can be a url or local filename which loads from assets folder*/
+    /** src. Can be a url or local filename which loads from assets folder */
     src: {
       type: String,
       required: true
@@ -77,7 +77,7 @@ export default {
     },
     async setSources () {
       // Check webp support from Vuex store
-      let webp = this.$store ? this.$store.state.global.webp : false
+      // let webp = this.$store ? this.$store.state.global.webp : false
 
       if (this.sources) {
         this.calculatedSources = this.sources.map(source => {

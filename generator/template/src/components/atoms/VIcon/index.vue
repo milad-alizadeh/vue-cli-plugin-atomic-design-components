@@ -25,7 +25,7 @@ export default {
       type: String,
       default: 'black'
     },
-    /** Icon size. Options: ['small', 'medium', 'large'] */ 
+    /** Icon size. Options: ['small', 'medium', 'large'] */
     size: {
       type: String,
       validator (value) {

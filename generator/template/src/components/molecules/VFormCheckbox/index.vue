@@ -123,7 +123,7 @@ export default {
     required: {
       type: Boolean,
       default: false
-    },
+    }
   },
   computed: {
     id () {
