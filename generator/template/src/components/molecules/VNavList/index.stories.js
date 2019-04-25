@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import { withInfo } from 'storybook-addon-vue-info'
 import VNavList from '.'
 
 let list = [
@@ -20,7 +20,7 @@ const wrapper = {
 }
 
 storiesOf('Molecule - VNavList', module)
-  .addDecorator(VueInfoAddon)
+  .addDecorator(withInfo)
   .add('default', () => ({
     ...wrapper,
     template: '<VNavList :list="list" />',

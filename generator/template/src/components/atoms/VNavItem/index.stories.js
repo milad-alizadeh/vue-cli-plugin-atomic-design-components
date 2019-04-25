@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import { withInfo } from 'storybook-addon-vue-info'
 import VNavItem from '.'
 
 const wrapper = {
@@ -10,7 +10,7 @@ const wrapper = {
 }
 
 storiesOf('Atom - VNavItem', module)
-  .addDecorator(VueInfoAddon)
+  .addDecorator(withInfo)
   .add('default', () => ({
     ...wrapper,
     template: '<VNavItem to="/nav-item-1" @click="action">Sample Nav Item</VNavItem>'

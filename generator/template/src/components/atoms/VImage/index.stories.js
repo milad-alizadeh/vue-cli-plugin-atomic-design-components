@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import { withInfo } from 'storybook-addon-vue-info'
 import VImage from '.'
 
 const wrapper = {
@@ -15,7 +15,7 @@ const wrapper = {
 }
 
 storiesOf('Atom - VImage', module)
-  .addDecorator(VueInfoAddon)
+  .addDecorator(withInfo)
   .add('local image', () => ({
     ...wrapper,
     template: `

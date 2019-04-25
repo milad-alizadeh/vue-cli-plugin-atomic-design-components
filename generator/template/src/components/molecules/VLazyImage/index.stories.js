@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import { withInfo } from 'storybook-addon-vue-info'
 import VLazyImage from '.'
 
 const wrapper = {
@@ -15,8 +15,8 @@ const wrapper = {
   }
 }
 
-storiesOf('Atom - VLazyImage', module)
-  .addDecorator(VueInfoAddon)
+storiesOf('Molecule - VLazyImage', module)
+  .addDecorator(withInfo)
   .add('default', () => ({
     ...wrapper,
     template: `

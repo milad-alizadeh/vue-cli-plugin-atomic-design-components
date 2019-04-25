@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import { withInfo } from 'storybook-addon-vue-info'
 import { action } from '@storybook/addon-actions'
 import VHamburger from '.'
 
@@ -11,7 +11,7 @@ const wrapper = {
 }
 
 storiesOf('Atom - VHamburger', module)
-  .addDecorator(VueInfoAddon)
+  .addDecorator(withInfo)
   .add('default', () => ({
     ...wrapper,
     template: '<VHamburger :onClick="action" />',

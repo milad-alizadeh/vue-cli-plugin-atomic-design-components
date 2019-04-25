@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import { withInfo } from 'storybook-addon-vue-info'
 import VFormCheckbox from '.'
 
 const wrapper = {
@@ -47,7 +47,7 @@ const data = {
 }
 
 storiesOf('Molecule - VFormCheckbox', module)
-  .addDecorator(VueInfoAddon)
+  .addDecorator(withInfo)
   .add('single', () => ({
     ...wrapper,
     template: `

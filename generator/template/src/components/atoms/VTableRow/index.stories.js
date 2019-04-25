@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import { withInfo } from 'storybook-addon-vue-info'
 import VTableRow from '.'
 import VTableCell from '../VTableCell'
 
@@ -8,7 +8,7 @@ const wrapper = {
 }
 
 storiesOf('Atom - VTableRow', module)
-  .addDecorator(VueInfoAddon)
+  .addDecorator(withInfo)
   .add('default', () => ({
     ...wrapper,
     template: `

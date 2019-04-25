@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import { withInfo } from 'storybook-addon-vue-info'
 import VFormExpiryDate from '.'
 
 const wrapper = {
@@ -18,7 +18,7 @@ const wrapper = {
 }
 
 storiesOf('Molecule - VFormExpiryDate', module)
-  .addDecorator(VueInfoAddon)
+  .addDecorator(withInfo)
   .add('default', () => ({
     ...wrapper,
     template: `

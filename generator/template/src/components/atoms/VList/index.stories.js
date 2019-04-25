@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import { withInfo } from 'storybook-addon-vue-info'
 import VList from '.'
 
 const wrapper = {
@@ -10,7 +10,7 @@ const wrapper = {
 }
 
 storiesOf('Atom - VList', module)
-  .addDecorator(VueInfoAddon)
+  .addDecorator(withInfo)
   .add('unorderd', () => ({
     ...wrapper,
     template: `

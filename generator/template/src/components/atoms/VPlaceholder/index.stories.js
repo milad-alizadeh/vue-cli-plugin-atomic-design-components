@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import { withInfo } from 'storybook-addon-vue-info'
 import VPlaceholder from '.'
 
 const wrapper = {
@@ -20,7 +20,7 @@ const wrapper = {
 }
 
 storiesOf('Atom - VPlaceholder', module)
-  .addDecorator(VueInfoAddon)
+  .addDecorator(withInfo)
   .add('text', () => ({
     ...wrapper,
     template: `<VPlaceholder type="text" :lines="3"/>`

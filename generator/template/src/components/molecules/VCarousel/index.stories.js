@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import { withInfo } from 'storybook-addon-vue-info'
 import VCarousel from '.'
 import VCarouselSlide from '../VCarouselSlide'
 
@@ -11,7 +11,7 @@ const wrapper = {
 }
 
 storiesOf('Molecule - VCarousel', module)
-  .addDecorator(VueInfoAddon)
+  .addDecorator(withInfo)
   .add('default', () => ({
     ...wrapper,
     template: `

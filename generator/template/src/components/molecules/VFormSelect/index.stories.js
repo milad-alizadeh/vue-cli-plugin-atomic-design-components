@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import { withInfo } from 'storybook-addon-vue-info'
 import VFormSelect from '.'
 
 const wrapper = {
@@ -40,7 +40,7 @@ const options = [
 ]
 
 storiesOf('Molecule - VFormSelect', module)
-  .addDecorator(VueInfoAddon)
+  .addDecorator(withInfo)
   .add('default', () => ({
     ...wrapper,
     template: `

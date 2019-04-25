@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import VueInfoAddon from 'storybook-addon-vue-info'
+import { withInfo } from 'storybook-addon-vue-info'
 import { action } from '@storybook/addon-actions'
 import VGenericForm from '.'
 import { required, email, password, name, creditCard, expiry } from '@/validations'
@@ -16,7 +16,7 @@ const wrapper = {
 }
 
 storiesOf('Organism - VGenericForm', module)
-  .addDecorator(VueInfoAddon)
+  .addDecorator(withInfo)
   .add('default', () => ({
     ...wrapper,
     template: `
