@@ -31,10 +31,12 @@
 export default {
   name: 'VTable',
   props: {
+    /** Enable/Dsiable sticky header for the table */
     stickyHeader: {
       type: Boolean,
       default: false
     },
+    /** max-height of table */
     maxHeight: Number
   }
 }
@@ -47,10 +49,6 @@ export default {
   max-width: 100%;
   display: inline-flex;
   overflow: auto;
-
-  @media screen and (max-width: $small) {
-
-  }
 
   &::-webkit-scrollbar {
     -webkit-appearance: none;

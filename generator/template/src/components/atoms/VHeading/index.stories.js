@@ -3,10 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VHeading from '.'
 
 const wrapper = {
-  components: { VHeading },
-  propsDescription: {
-    level: `VHeading level. Options[1, 2, 3, 4]. For example '1' will result in a <h1> tag`
-  }
+  components: { VHeading }
 }
 
 storiesOf('Atom - VHeading', module)
@@ -21,4 +18,4 @@ storiesOf('Atom - VHeading', module)
         <VHeading :level="4">Heading 4</VHeading>
       </div>
     `
-  }))
+  }), { info: true })

@@ -3,10 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VAccordion from '.'
 
 const wrapper = {
-  components: { VAccordion },
-  propsDescription: {
-    items: 'An array of accordion items. Array item format is { title: String, content: String }'
-  }
+  components: { VAccordion }
 }
 
 const items = [
@@ -38,4 +35,4 @@ storiesOf('Molecule - VAccordion', module)
         items
       }
     }
-  }))
+  }), { info: true })

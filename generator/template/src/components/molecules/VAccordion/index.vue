@@ -16,6 +16,7 @@ export default {
     VAccordionItem
   },
   props: {
+    /** An array of accordion items. Array item format is { title: String, content: String } */
     items: {
       type: Array,
       required: true

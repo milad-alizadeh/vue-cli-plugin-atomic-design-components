@@ -15,14 +15,17 @@
 export default {
   name: 'VIcon',
   props: {
+    /** Icon name. This is the svg filename located in 'atoms/Icon/icons' without .svg extension */
     name: {
       required: true,
       type: String
     },
+    /** Icon color */
     color: {
       type: String,
       default: 'black'
     },
+    /** Icon size. Options: ['small', 'medium', 'large'] */ 
     size: {
       type: String,
       validator (value) {

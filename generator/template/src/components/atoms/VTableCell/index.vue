@@ -3,9 +3,7 @@
     :is="tag"
     :class="[
       'v-a-table-cell',
-      heading ? 'v-a-table-cell--heading' : '',
-      nowrap ? 'v-a-table-cell--nowrap' : '',
-      textAlign ? `v-a-table-cell--text-${textAlign}` : ''
+      heading ? 'v-a-table-cell--heading' : ''
     ]"
   >
     <slot></slot>
@@ -16,17 +14,8 @@
 export default {
   name: 'VTableCell',
   props: {
+    /** Whther this cell should be a <th> instead of <td> */
     heading: {
-      type: Boolean,
-      default: false
-    },
-    textAlign: {
-      type: String,
-      validator (value) {
-        return ['left', 'right', 'center', 'justify'].indexOf(value) > -1
-      }
-    },
-    nowrap: {
       type: Boolean,
       default: false
     }
@@ -46,29 +35,9 @@ export default {
   border: .1rem solid $grey-light;
   text-align: left;
 
-  &--text-right {
-    text-align: right;
-  }
-
-  &--text-left {
-    text-align: left;
-  }
-
-  &--text-center {
-    text-align: center;
-  }
-
-  &--text-justify {
-    text-align: justify;
-  }
-
   &--heading {
     font-weight: bold;
     background: $white;
-  }
-
-  &--nowrap {
-    white-space: nowrap;
   }
 }
 </style>

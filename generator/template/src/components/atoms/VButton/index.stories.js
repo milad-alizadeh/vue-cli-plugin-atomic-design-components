@@ -4,15 +4,7 @@ import { action } from '@storybook/addon-actions'
 import VButton from '.'
 
 const wrapper = {
-  components: { VButton },
-  propsDescription: {
-    success: 'Sucess mode',
-    warning: 'Warning mode',
-    error: 'Error mode',
-    disabled: 'Disabled mode',
-    to: '"to" prop for vue-router - renders a <router-link>',
-    href: '"href" for link - renders an <a> component'
-  }
+  components: { VButton }
 }
 
 storiesOf('Atom - VButton', module)
@@ -20,33 +12,33 @@ storiesOf('Atom - VButton', module)
   .add('default', () => ({
     ...wrapper,
     template: '<VButton>Click here</VButton>'
-  }))
+  }), { info: true })
   .add('success', () => ({
     ...wrapper,
     template: '<VButton success>Click here</VButton>'
-  }))
+  }), { info: true })
   .add('error', () => ({
     ...wrapper,
     template: '<VButton error>Click here</VButton>'
-  }))
+  }), { info: true })
   .add('warning', () => ({
     ...wrapper,
     template: '<VButton warning>Click here</VButton>'
-  }))
+  }), { info: true })
   .add('disabled', () => ({
     ...wrapper,
     template: '<VButton disabled>Click here</VButton>'
-  }))
+  }), { info: true })
   .add('link', () => ({
     ...wrapper,
     template: '<VButton href="https://google.com">Click here</VButton>'
-  }))
+  }), { info: true })
   .add('router-link', () => ({
     ...wrapper,
     template: `<VButton :to="{ name: 'Home' }">Click here</VButton>`
-  }))
+  }), { info: true })
   .add('click event', () => ({
     ...wrapper,
     template: '<VButton @click="action">Click here</VButton>',
     methods: { action: action('button clicked') }
-  }))
+  }), { info: true })

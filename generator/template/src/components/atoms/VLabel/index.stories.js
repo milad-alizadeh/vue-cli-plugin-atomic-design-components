@@ -3,11 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VLabel from '.'
 
 const wrapper = {
-  components: { VLabel },
-  propsDescription: {
-    htmlFor: '"for" attribute for label',
-    required: 'If label is for a required input'
-  }
+  components: { VLabel }
 }
 
 storiesOf('Atom - VLabel', module)
@@ -40,7 +36,7 @@ storiesOf('Atom - VLabel', module)
         option: null
       }
     }
-  }))
+  }), { info: true })
   .add('htmlFor', () => ({
     ...wrapper,
     template: `
@@ -49,4 +45,4 @@ storiesOf('Atom - VLabel', module)
         <input type="text" id="text-input" />
       </div>
     `
-  }))
+  }), { info: true })

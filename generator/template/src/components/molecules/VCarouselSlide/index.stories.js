@@ -3,8 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VCarouselSlide from '../VCarouselSlide'
 
 const wrapper = {
-  components: { VCarouselSlide },
-  propsDescription: {}
+  components: { VCarouselSlide }
 }
 
 storiesOf('Molecule - VCarouselSlide', module)
@@ -16,4 +15,4 @@ storiesOf('Molecule - VCarouselSlide', module)
         Slide Content
       </VCarouselSlide>
     `
-  }))
+  }), { info: true })

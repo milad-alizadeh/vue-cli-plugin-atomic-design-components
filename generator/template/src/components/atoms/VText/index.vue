@@ -1,10 +1,6 @@
 <template>
   <component
-    :class="[
-      'v-a-text',
-      `v-a-text--${size}`,
-      `v-a-text--${weight}`
-    ]"
+    class="v-a-text"
     :is="`${tag}`"
   >
     <slot></slot>
@@ -15,23 +11,10 @@
 export default {
   name: 'VText',
   props: {
+    /** The html tag to be used for tex wrapper */
     tag: {
       type: String,
       default: 'p'
-    },
-    size: {
-      type: String,
-      validator (value) {
-        return ['x-large', 'large', 'medium', 'small', 'x-small'].indexOf(value) !== -1
-      },
-      default: 'small'
-    },
-    weight: {
-      type: String,
-      validator (value) {
-        return ['normal', 'bold', 'light'].indexOf(value) !== -1
-      },
-      default: 'normal'
     }
   }
 }
@@ -41,34 +24,6 @@ export default {
 .v-a-text {
   color: $black;
   font-weight: normal;
-
-  &--x-large {
-    @include heading-x-large()
-  }
-
-  &--large {
-    @include heading-large()
-  }
-
-  &--medium {
-    @include heading-medium()
-  }
-
-  &--small {
-    @include text-medium();
-  }
-
-  &--x-small {
-    @include text-small();
-  }
-
-  &--bold {
-    font-weight: bold;
-  }
-
-  &--light {
-    font-weight: lighter;
-  }
 
   strong, a {
     font-weight: bold;

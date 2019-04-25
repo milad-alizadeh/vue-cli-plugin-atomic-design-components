@@ -17,4 +17,4 @@ storiesOf('Atom - VTableRow', module)
         <VTableCell>Cell 2</VTableCell>
       </VTableRow>
     `
-  }))
+  }), { info: true })

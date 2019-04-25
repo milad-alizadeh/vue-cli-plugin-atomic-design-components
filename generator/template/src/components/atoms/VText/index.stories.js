@@ -3,12 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VText from '.'
 
 const wrapper = {
-  components: { VText },
-  propsDescription: {
-    size: `Size of the loader. Options ['x-small', 'small', 'medium', 'large', 'x-large']`,
-    weight: `Size of the loader. Options ['light', 'normal', 'bold']`,
-    tag: `The html tag to be used for tex wrapper`
-  }
+  components: { VText }
 }
 
 storiesOf('Atom - VText', module)
@@ -24,12 +19,12 @@ storiesOf('Atom - VText', module)
         <VText size="x-small">Sample text x-small</VText>
       </div>
     `
-  }))
+  }), { info: true })
   .add('weight', () => ({
     ...wrapper,
     template: '<VText weight="bold">Sample bold text</VText>'
-  }))
+  }), { info: true })
   .add('tag', () => ({
     ...wrapper,
     template: `<VText tag="span">Sample text with '&#x3C;span&#x3E;' tag</VText>`
-  }))
+  }), { info: true })

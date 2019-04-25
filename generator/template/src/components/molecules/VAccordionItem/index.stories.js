@@ -3,10 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VAccordionItem from '.'
 
 const wrapper = {
-  components: { VAccordionItem },
-  propsDescription: {
-    isOpen: 'Whether the accordion item should be expanded'
-  }
+  components: { VAccordionItem }
 }
 
 storiesOf('Molecule - VAccordionItem', module)
@@ -22,7 +19,7 @@ storiesOf('Molecule - VAccordionItem', module)
         </template>
       </VAccordionItem>
     `
-  }))
+  }), { info: true })
   .add('isOpen', () => ({
     ...wrapper,
     template: `
@@ -34,4 +31,4 @@ storiesOf('Molecule - VAccordionItem', module)
         </template>
       </VAccordionItem>
     `
-  }))
+  }), { info: true })

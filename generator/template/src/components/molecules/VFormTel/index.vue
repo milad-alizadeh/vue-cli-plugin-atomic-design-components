@@ -41,20 +41,26 @@ export default {
     VValidationMessages
   },
   props: {
+    /** Label text for the field */
     label: String,
+    /** Value of the select */
     value: {
       type: [String, Object],
       default: ''
     },
+    /** Placeholder text for the input */
     placeholder: {
       type: String,
       default: ''
     },
+    /** The error messages shown if the input validation is failed */
     errorMessages: [String, Array],
+    /** Whether the field is required */
     required: {
       type: Boolean,
       default: false
     },
+    /** Disabled attribute for the select */
     disabled: {
       type: Boolean,
       default: false

@@ -26,14 +26,23 @@
 export default {
   name: 'VButton',
   props: {
+    /** "href" for link - renders an <a> component */
     href: String,
+    /** Type attribute for button - ie type="submit" */
     type: String,
+    /** ID attribute */
     id: String,
+    /** "to" prop for vue-router - renders a <router-link> */
     to: [Object, String],
+    /** target attrbitue for the <a> tag */
     target: String,
+    /** Success mode */
     success: Boolean,
+    /** Warning mode */
     warning: Boolean,
+    /** Error mode */
     error: Boolean,
+    /** Disabled mode */
     disabled: Boolean
   },
   computed: {

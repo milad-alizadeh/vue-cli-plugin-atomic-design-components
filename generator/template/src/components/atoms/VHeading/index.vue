@@ -14,6 +14,7 @@
 export default {
   name: 'VHeading',
   props: {
+    /** Heading level. Options[1, 2, 3, 4]. For example '1' will result in a <h1> tag */
     level: {
       type: Number,
       validation (val) {

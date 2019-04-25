@@ -3,15 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VInputRadio from '.'
 
 const wrapper = {
-  components: { VInputRadio },
-  propsDescription: {
-    value: 'Value of radio button.',
-    checked: 'Whether the radio is checked. Can also be checked programatically using v-bind.',
-    modelValue: 'This is a necessary prop for using v-model with this component. Should NOT be set',
-    disabled: 'Disables the input by adding "disabled" attribute',
-    required: 'Adds the required attribute to input',
-    id: 'Id attribute for the input'
-  }
+  components: { VInputRadio }
 }
 
 storiesOf('Atom - VInputRadio', module)
@@ -45,4 +37,4 @@ storiesOf('Atom - VInputRadio', module)
         selectedValue: null
       }
     }
-  }))
+  }), { info: true })

@@ -6,7 +6,6 @@
       type="text"
       pattern="[0-9 ]+"
       inputmode="numeric"
-      :required="required"
       :disabled="disabled"
       :autocomplete="autocomplete"
       :name="name"
@@ -26,24 +25,26 @@ import creditCardType from 'credit-card-type'
 export default {
   name: 'VInputCreditCard',
   props: {
-    required: {
-      type: Boolean,
-      default: false
-    },
+    /** Disables the input by adding "disabled" attribute */
     disabled: {
       type: Boolean,
       default: false
     },
+    /** Autocomplete attribute used for browser autocomplete */
     autocomplete: {
       type: String,
       default: 'cc-number'
     },
+    /** Value of credit card field */
     value: {
       type: [Object, String],
       default: ''
     },
+    /** Id attribute for the input */
     id: String,
+    /** name attribute for credit card input */
     name: String,
+    /** Placeholder text for the input */
     placeholder: String
   },
   data () {

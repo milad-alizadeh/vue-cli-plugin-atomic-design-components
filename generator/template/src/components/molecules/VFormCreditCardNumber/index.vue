@@ -19,7 +19,7 @@
         :id="`card-number${uid}`"
         :placeholder="placeholder"
         @blur="$emit('blur')"
-        :required="required"
+        :name="name"
         @focus="$emit('focus')"
       />
 
@@ -56,28 +56,38 @@ export default {
     VValidationMessages
   },
   props: {
+    /** The label for all the options. Generally is a question */
     label: String,
+    /** Value of the field */
     value: {
       type: Object,
       required: true
     },
+    /** Placeholder text for input */
     placeholder: {
       type: String,
       default: '•••• •••• •••• ••••'
     },
+    /** Whether this field is disabled */
     disabled: {
       type: Boolean,
       default: false
     },
+    /** Whether this field is reuqired */
     required: {
       type: Boolean,
       default: false
     },
+    /** Whether input value is invalid */
     error: {
       type: Boolean,
       default: false
     },
+    /** name attribute for input */
+    name: String,
+    /** /** Autocomplete attribute used for browser autocomplete */
     autocomplete: String,
+    /** The error messages shown if the input validation is failed */
     errorMessages: [String, Array]
   },
   computed: {

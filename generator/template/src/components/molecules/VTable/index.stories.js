@@ -72,7 +72,7 @@ storiesOf('Molecule - VTable', module)
         </template>
       </VTable>
     `
-  }))
+  }), { info: true })
   .add('stickyHeader', () => ({
     ...wrapper,
     template: `
@@ -129,4 +129,4 @@ storiesOf('Molecule - VTable', module)
         </template>
       </VTable>
     `
-  }))
+  }), { info: true })

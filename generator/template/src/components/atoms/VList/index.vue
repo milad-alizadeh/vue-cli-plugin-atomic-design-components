@@ -14,6 +14,7 @@
 export default {
   name: 'VList',
   props: {
+    /** Whether the list is an ordred list */
     ordered: Boolean
   }
 }

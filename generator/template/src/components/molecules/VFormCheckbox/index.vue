@@ -35,7 +35,6 @@
             v-model="selectedValue"
             :value="option.value"
             :disabled="disabled ? disabled : option.disabled"
-            :required="required"
             :name="name"
           />
 
@@ -86,30 +85,45 @@ export default {
     event: 'change'
   },
   props: {
+    /** The label for all the options. Generally is a question */
     label: String,
+    /** An array of option objects. displayed as chekcboxes. A single option format is:
+    {
+      label: String,
+      value: String,
+      disabled: Boolean
+    }
+    */
     options: Array,
+    /** The error messages shown if the input validation is failed */
     errorMessages: [String, Array],
+    /** Name attribute for input */
     name: String,
+    /** Used to check the input by default. Works only on single checkboxes */
     checked: {
       type: Boolean,
       default: false
     },
+    /** Value of the field */
     value: {
       type: [Array, Boolean],
       required: true
     },
+    /** Whether input value is invalid */
     error: {
       type: Boolean,
       default: false
     },
+    /** Whether this field is disabled */
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    /** Whether field is required */
     required: {
       type: Boolean,
       default: false
     },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
   },
   computed: {
     id () {

@@ -5,7 +5,6 @@
       v-model="localValue"
       :name="name"
       :disabled="disabled"
-      :required="required"
       :id="id"
       @change="$emit('change', $event.target.value)"
     >
@@ -33,24 +32,26 @@ export default {
     event: 'change'
   },
   props: {
+    /** Available options for the select. A single option format is: { label: String, value: String } */
     options: {
       type: Array,
       reqruied: true
     },
+    /** Value of Select box */
     value: {
       type: String,
       default: ''
     },
+    /** Disables the select by adding "disabled" attribute */
     disabled: {
       type: Boolean,
       default: false
     },
-    required: {
-      type: Boolean,
-      default: false
-    },
+    /** id attribute for select */
     id: String,
+    /** name attribute for select */
     name: String,
+    /** The value of empty (default) label */
     emptyValueLabel: {
       type: String,
       default: 'Please select one'

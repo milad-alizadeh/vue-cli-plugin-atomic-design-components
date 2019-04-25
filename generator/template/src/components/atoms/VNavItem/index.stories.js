@@ -3,10 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VNavItem from '.'
 
 const wrapper = {
-  components: { VNavItem },
-  propsDescription: {
-    list: 'An array of nav item objects. List format: { label: String, to: [String, Array], href: String }'
-  }
+  components: { VNavItem }
 }
 
 storiesOf('Atom - VNavItem', module)
@@ -14,4 +11,4 @@ storiesOf('Atom - VNavItem', module)
   .add('default', () => ({
     ...wrapper,
     template: '<VNavItem to="/nav-item-1" @click="action">Sample Nav Item</VNavItem>'
-  }))
+  }), { info: true })

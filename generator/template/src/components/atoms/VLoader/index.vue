@@ -13,6 +13,7 @@
 export default {
   name: 'VLoader',
   props: {
+    /** Size of the loader. Options ['small', 'medium', 'large'] */
     size: {
       type: String,
       default: 'medium',

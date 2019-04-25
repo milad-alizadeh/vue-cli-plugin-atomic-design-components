@@ -4,10 +4,7 @@ import { action } from '@storybook/addon-actions'
 import VHamburger from '.'
 
 const wrapper = {
-  components: { VHamburger },
-  propsDescription: {
-    isOpen: 'Whether the hamburger button is open'
-  }
+  components: { VHamburger }
 }
 
 storiesOf('Atom - VHamburger', module)
@@ -18,8 +15,8 @@ storiesOf('Atom - VHamburger', module)
     methods: {
       action: action('hamburger clicked')
     }
-  }))
+  }), { info: true })
   .add('open', () => ({
     ...wrapper,
     template: '<VHamburger isOpen />'
-  }))
+  }), { info: true })

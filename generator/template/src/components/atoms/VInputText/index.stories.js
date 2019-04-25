@@ -3,19 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VInputText from '.'
 
 const wrapper = {
-  components: { VInputText },
-  propsDescription: {
-    type: `Type of the text input. Options ['text', 'email', 'url', 'tel', 'search', 'password']`,
-    disabled: 'Disables the input by adding "disabled" attribute',
-    value: 'Value of the input',
-    required: 'Adds the required attribute to input',
-    placeholder: 'Placeholder text for the input',
-    name: 'name attribute for input',
-    pattern: 'pattern attribute for input (used for mobile keypad)',
-    autocomplete: 'Autocomplete attribute used for browser autocomplete',
-    inputmode: 'inputmode attribute for input (used for mobile keypad)',
-    id: 'Id attribute for the input'
-  }
+  components: { VInputText }
 }
 
 storiesOf('Atom - VInputText', module)
@@ -35,7 +23,7 @@ storiesOf('Atom - VInputText', module)
         inputValue: 'Default Value'
       }
     }
-  }))
+  }), { info: true })
   .add('type', () => ({
     ...wrapper,
     template: `
@@ -48,4 +36,4 @@ storiesOf('Atom - VInputText', module)
         inputValue: ''
       }
     }
-  }))
+  }), { info: true })

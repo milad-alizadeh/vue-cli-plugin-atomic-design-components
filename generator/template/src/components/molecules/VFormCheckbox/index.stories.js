@@ -3,24 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VFormCheckbox from '.'
 
 const wrapper = {
-  components: { VFormCheckbox },
-  propsDescription: {
-    label: 'The label for all the options. Generally is a question',
-    options: `An array of option objects. displayed as chekcboxes. A single option format is:
-    {
-      label: String,
-      value: String,
-      disabled: Boolean
-    }
-    `,
-    disabled: 'Whether this field is disabled',
-    required: 'Whether this field is reuqired',
-    name: 'name attribute for input',
-    errorMessages: 'The error messages shown if the input validation is failed',
-    error: 'Whether input value is invalid',
-    value: 'Value of the field',
-    checked: 'Used to check the input by default. Works only on single checkboxes'
-  }
+  components: { VFormCheckbox }
 }
 
 const data = {
@@ -69,7 +52,7 @@ storiesOf('Molecule - VFormCheckbox', module)
         selection: false
       }
     }
-  }))
+  }), { info: true })
   .add('single - disabled', () => ({
     ...wrapper,
     template: `
@@ -86,7 +69,7 @@ storiesOf('Molecule - VFormCheckbox', module)
         selection: false
       }
     }
-  }))
+  }), { info: true })
   .add('multiple', () => ({
     ...wrapper,
     template: `
@@ -106,7 +89,7 @@ storiesOf('Molecule - VFormCheckbox', module)
     data () {
       return data
     }
-  }))
+  }), { info: true })
   .add('disabled', () => ({
     ...wrapper,
     template: `
@@ -125,7 +108,7 @@ storiesOf('Molecule - VFormCheckbox', module)
         selection: []
       }
     }
-  }))
+  }), { info: true })
   .add('invalid', () => ({
     ...wrapper,
     template: `
@@ -142,4 +125,4 @@ storiesOf('Molecule - VFormCheckbox', module)
     data () {
       return data
     }
-  }))
+  }), { info: true })

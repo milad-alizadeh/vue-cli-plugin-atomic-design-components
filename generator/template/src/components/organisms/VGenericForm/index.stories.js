@@ -7,12 +7,7 @@ import countryList from './country-list'
 import securityQuestions from './security-questions'
 
 const wrapper = {
-  components: { VGenericForm },
-  propsDescription: {
-    fields: 'An array objects. Each object represent a form field for example VFormText.',
-    validations: 'An object including validations of the specific',
-    value: 'Value of the form object. Includes all form fields'
-  }
+  components: { VGenericForm }
 }
 
 storiesOf('Organism - VGenericForm', module)
@@ -158,4 +153,4 @@ storiesOf('Organism - VGenericForm', module)
         ]
       }
     }
-  }))
+  }), { info: true })

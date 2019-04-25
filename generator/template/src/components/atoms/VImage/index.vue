@@ -35,17 +35,23 @@ import isUrl from '@/helpers/is-url'
 export default {
   name: 'VImage',
   props: {
+    /** src. Can be a url or local filename which loads from assets folder*/
     src: {
       type: String,
       required: true
     },
+    /** alt attribute */
     alt: String,
+    /** srcset attribute */
     srcset: String,
+    /** sizes attribute */
     sizes: String,
+    /** Whether a picture tag should be rendered */
     picture: {
       type: Boolean,
       default: false
     },
+    /** Sources for picture tag (if picture prop is set) */
     sources: Array
   },
   mounted () {
@@ -77,20 +83,8 @@ export default {
         this.calculatedSources = this.sources.map(source => {
           let srcset
           let src = this.imageSrc
-
-          if (isUrl(src)) {
-            if (src.indexOf(this.imageProxyUrl) > -1) {
-              srcset = typeof source.srcset === 'number' ? `${this.imageSrc}?width=${source.srcset}` : source.srcset
-              if (webp) srcset = `${srcset}&format=webp`
-            } else {
-              srcset = `${this.imageProxyUrl}/${source.srcset}`
-            }
-          } else {
-            srcset = require(`../../../assets/${source.srcset}`)
-          }
-
+          srcset = isUrl(src) ? source.srcset : require(`../../../assets/${source.srcset}`)
           source.srcset = srcset
-
           return source
         })
       }

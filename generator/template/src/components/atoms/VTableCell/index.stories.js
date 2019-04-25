@@ -11,4 +11,4 @@ storiesOf('Atom - VTableCell', module)
   .add('default', () => ({
     ...wrapper,
     template: '<VTableCell>Table Cell Content</VTableCell>'
-  }))
+  }), { info: true })

@@ -20,14 +20,17 @@ export default {
     VueTelInput
   },
   props: {
+    /** The value of tel input */
     value: {
       type: [String, Object],
       default: ''
     },
+    /** placeholder text for the tel input */
     placeholder: {
       type: String,
       default: ''
     },
+    /** An array of prefered countries to show at the top of dropdown */
     preferredCountries: {
       type: Array,
       default () {

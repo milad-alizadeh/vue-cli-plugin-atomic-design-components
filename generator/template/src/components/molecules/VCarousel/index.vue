@@ -51,7 +51,6 @@
 
 <script>
 import VIcon from 'atoms/VIcon'
-
 import debounce from '@/helpers/debounce'
 
 export default {
@@ -60,14 +59,19 @@ export default {
     VIcon
   },
   props: {
+    /** If the carousel should loop once it\'s finished */
     loop: {
       type: Boolean,
       default: false
     },
+
+    /** Enable/Disable dotted navgation */
     dottedNav: {
       type: Boolean,
       default: true
     },
+
+    /** Enable/Disable arrow navgation */
     arrowNavigation: {
       type: Boolean,
       default: true

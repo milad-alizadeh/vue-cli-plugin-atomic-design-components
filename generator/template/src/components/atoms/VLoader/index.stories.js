@@ -3,10 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VLoader from '.'
 
 const wrapper = {
-  components: { VLoader },
-  propsDescription: {
-    size: `Size of the loader. Options ['small', 'medium', 'large']`
-  }
+  components: { VLoader }
 }
 
 storiesOf('Atom - VLoader', module)
@@ -14,12 +11,12 @@ storiesOf('Atom - VLoader', module)
   .add('small', () => ({
     ...wrapper,
     template: '<VLoader size="small"/>'
-  }))
+  }), { info: true })
   .add('medium', () => ({
     ...wrapper,
     template: '<VLoader size="medium"/>'
-  }))
+  }), { info: true })
   .add('large', () => ({
     ...wrapper,
     template: '<VLoader size="large"/>'
-  }))
+  }), { info: true })

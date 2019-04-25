@@ -41,6 +41,7 @@ export default {
     VIcon
   },
   props: {
+    /** Whether the accordion item should be expanded */
     isOpen: {
       type: Boolean,
       defualt: false

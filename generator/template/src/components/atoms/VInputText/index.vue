@@ -10,7 +10,6 @@
       :type="inputType"
       :value="value"
       :disabled="disabled"
-      :required="required"
       :name="name"
       :autocomplete="autocomplete"
       :placeholder="placeholder"
@@ -40,6 +39,7 @@
 export default {
   name: 'VInputText',
   props: {
+    /** Type of the text input. Options ['text', 'email', 'url', 'tel', 'search', 'password'] */
     type: {
       type: String,
       required: true,
@@ -54,29 +54,33 @@ export default {
         ]
       }
     },
+    /** Disables the input by adding "disabled" attribute */
     disabled: {
       type: Boolean,
       default: false
     },
+    /** Autocomplete attribute used for browser autocomplete */
     autocomplete: {
       type: String,
       default: 'on'
     },
-    required: {
-      type: Boolean,
-      default: false
-    },
+    /** Value of the input */
     value: {
       type: String,
       default: ''
     },
+    /** Placeholder text for the input */
     placeholder: {
       type: String,
       default: ''
     },
+    /** Id attribute for the input */
     id: String,
+    /** name attribute for the input */
     name: String,
+    /** pattern attribute for input (used for mobile keypad) */
     pattern: String,
+    /** inputmode attribute for input (used for mobile keypad) */
     inputmode: String
   },
   data () {

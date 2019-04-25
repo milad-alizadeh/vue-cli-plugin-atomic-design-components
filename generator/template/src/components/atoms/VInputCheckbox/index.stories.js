@@ -3,18 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VInputCheckbox from '.'
 
 const wrapper = {
-  components: { VInputCheckbox },
-  propsDescription: {
-    value: 'Value of radio button.',
-    checked: 'Whether the radio is checked. Can also be checked programatically using v-bind.',
-    modelValue: 'This is a necessary prop for using v-model with this component. Should NOT be set',
-    disabled: 'Disables the input by adding "disabled" attribute',
-    required: 'Adds the required attribute to input',
-    trueValue: 'The returned value if the checkbox is single and checked. for example "1" instead of true',
-    falseValue: 'The returned value if If the checkbox is single and NOT checked. for example "0" instead of false',
-    id: 'Id attribute for the input',
-    name: 'name attribute for input'
-  }
+  components: { VInputCheckbox }
 }
 
 storiesOf('Atom - VInputCheckbox', module)
@@ -38,7 +27,7 @@ storiesOf('Atom - VInputCheckbox', module)
         selectedValue: null
       }
     }
-  }))
+  }), { info: true })
   .add('multiple options', () => ({
     ...wrapper,
     template: `
@@ -68,4 +57,4 @@ storiesOf('Atom - VInputCheckbox', module)
         selectedValue: ['option1', 'option3']
       }
     }
-  }))
+  }), { info: true })

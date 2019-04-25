@@ -3,16 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VInputCreditCard from '.'
 
 const wrapper = {
-  components: { VInputCreditCard },
-  propsDescription: {
-    required: 'Adds the required attribute to input',
-    disabled: 'Disables the input by adding "disabled" attribute',
-    autocomplete: 'Autocomplete attribute used for browser autocomplete',
-    value: 'Value of credit card field',
-    id: 'Id attribute for the input',
-    name: 'name attribute for credit card input',
-    placeholder: 'Placeholder text for the input'
-  }
+  components: { VInputCreditCard }
 }
 
 storiesOf('Atom - VInputCreditCard', module)
@@ -35,7 +26,7 @@ storiesOf('Atom - VInputCreditCard', module)
         }
       }
     }
-  }))
+  }), { info: true })
   .add('disabled', () => ({
     ...wrapper,
     template: `
@@ -49,4 +40,4 @@ storiesOf('Atom - VInputCreditCard', module)
         }
       }
     }
-  }))
+  }), { info: true })

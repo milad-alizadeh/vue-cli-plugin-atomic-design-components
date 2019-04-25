@@ -40,4 +40,4 @@ storiesOf('Organism - VFormPayment', module)
         }
       }
     }
-  }))
+  }), { info: true })

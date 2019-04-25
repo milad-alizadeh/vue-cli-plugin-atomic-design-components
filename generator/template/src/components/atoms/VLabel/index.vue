@@ -11,7 +11,9 @@
 export default {
   name: 'VLabel',
   props: {
+    /** "for" attribute for label */
     htmlFor: String,
+    /** If label is for a required input */
     required: {
       type: Boolean,
       default: false

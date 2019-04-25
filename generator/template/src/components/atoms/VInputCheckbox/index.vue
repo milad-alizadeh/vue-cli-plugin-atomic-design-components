@@ -26,20 +26,26 @@ export default {
     event: 'input'
   },
   props: {
+    /** Value of checkbox */.
     value: {
       type: [String, Boolean],
       reqruied: true
     },
+    /** Whether the checkbox is checked. Can also be checked programatically using v-bind. */
     checked: {
       type: Boolean,
       default: false
     },
+    /** Disables the input by adding "disabled" attribute */
     disabled: {
       type: Boolean,
       default: false
     },
+    /** Id attribute for the input */
     id: String,
+    /** name attribute for input */
     name: String,
+    /** This is a necessary prop for using v-model with this component. Should NOT be set */
     modelValue: {
       default: undefined
     }

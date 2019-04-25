@@ -14,6 +14,7 @@
 export default {
   name: 'VHamburger',
   props: {
+    /** Whether the hamburger button is open */
     isOpen: {
       type: Boolean,
       default: false

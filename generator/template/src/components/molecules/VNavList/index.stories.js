@@ -13,10 +13,7 @@ let list = [
 ]
 
 const wrapper = {
-  components: { VNavList },
-  propsDescription: {
-    list: 'An array of nav item objects. List format: { label: String, to: [String, Array], href: String }'
-  }
+  components: { VNavList }
 }
 
 storiesOf('Molecule - VNavList', module)
@@ -29,4 +26,4 @@ storiesOf('Molecule - VNavList', module)
         list
       }
     }
-  }))
+  }), { info: true })

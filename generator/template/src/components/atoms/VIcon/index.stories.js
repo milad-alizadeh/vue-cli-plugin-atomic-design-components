@@ -3,12 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VIcon from '.'
 
 const wrapper = {
-  components: { VIcon },
-  propsDescription: {
-    name: `Icon name. This is the svg filename located in 'atoms/Icon/icons' without .svg extension`,
-    color: `Icon color`,
-    size: `Icon size. Options: ['small', 'medium', 'large']`
-  }
+  components: { VIcon }
 }
 
 storiesOf('Atom - VIcon', module)
@@ -21,7 +16,7 @@ storiesOf('Atom - VIcon', module)
         <VIcon name="linkedin" />
       </div>
     `
-  }))
+  }), { info: true })
   .add('color', () => ({
     ...wrapper,
     template: `
@@ -30,7 +25,7 @@ storiesOf('Atom - VIcon', module)
         <VIcon name="twitter" color="black" />
       </div>
     `
-  }))
+  }), { info: true })
   .add('size', () => ({
     ...wrapper,
     template: `
@@ -40,4 +35,4 @@ storiesOf('Atom - VIcon', module)
       <VIcon name="twitter" size="large" />
     </div>
     `
-  }))
+  }), { info: true })

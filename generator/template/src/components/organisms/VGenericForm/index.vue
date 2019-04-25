@@ -54,13 +54,16 @@ export default {
   },
   mixins: [validationErrorMessages, scrollTo],
   props: {
+    /** An array objects. Each object represent a form field for example VFormText. */
     fields: {
       type: Array,
       required: true
     },
+    /** An object including validations of the specific */
     validations: {
       type: Object
     },
+    /** Value of the form object. Includes all form fields */
     value: {
       type: Object,
       required: true

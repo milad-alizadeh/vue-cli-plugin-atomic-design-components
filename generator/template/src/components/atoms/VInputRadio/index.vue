@@ -7,7 +7,6 @@
       :id="id"
       :checked="shouldBeChecked"
       :disabled="disabled"
-      :required="required"
       :name="name"
       @change="toggle"
     >
@@ -23,24 +22,26 @@ export default {
     event: 'change'
   },
   props: {
+    /** Value of radio button */
     value: {
       type: [String, Boolean],
       required: true
     },
+    /** Whether the radio is checked. Can also be checked programatically using v-bind. */
     checked: {
       type: Boolean,
       default: false
     },
+    /** Disables the input by adding "disabled" attribute */
     disabled: {
       type: Boolean,
       default: false
     },
-    required: {
-      type: Boolean,
-      default: false
-    },
+    /** Id attribute for the input */
     id: String,
+    /** name attribute for input */
     name: String,
+    /** This is a necessary prop for using v-model with this component. Should NOT be set */
     modelValue: {
       default: ''
     }

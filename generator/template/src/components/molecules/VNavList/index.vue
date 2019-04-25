@@ -16,6 +16,7 @@ import VNavItem from 'atoms/VNavItem'
 export default {
   name: 'VNavList',
   props: {
+    /** An array of nav item objects. List format: { label: String, to: [String, Array], href: String } */
     list: Array
   },
   components: {

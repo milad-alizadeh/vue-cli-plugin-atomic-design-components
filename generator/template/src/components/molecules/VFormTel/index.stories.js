@@ -3,16 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VFormTel from '.'
 
 const wrapper = {
-  components: { VFormTel },
-  propsDescription: {
-    label: 'Label text for the field',
-    value: 'Value of the select',
-    placeholder: 'Placeholder text for the input',
-    errorMessages: 'The error messages shown if the input validation is failed',
-    required: 'Whether the field is required',
-    error: 'Whether select value is invalid',
-    disabled: 'Disabled attribute for the select'
-  }
+  components: { VFormTel }
 }
 
 storiesOf('Molecule - VFormTel', module)
@@ -37,4 +28,4 @@ storiesOf('Molecule - VFormTel', module)
         frieldValue: ''
       }
     }
-  }))
+  }), { info: true })

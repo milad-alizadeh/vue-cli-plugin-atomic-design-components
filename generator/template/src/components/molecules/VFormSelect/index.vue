@@ -20,7 +20,6 @@
       <VSelect
         :value="value"
         :disabled="disabled"
-        :required="required"
         :id="id"
         :emptyValueLabel="emptyValueLabel"
         :options="options"
@@ -54,28 +53,38 @@ export default {
     VValidationMessages
   },
   props: {
+    /** Label text for the field */
     label: String,
+    /** Available options for the select. A single option format is: { label: String, value: String, disabled: Boolean } */
     options: {
       type: Array,
       required: true
     },
+    /** Value of the select */
     value: {
       type: String,
       required: true,
       default: ''
     },
+    /** Whether the field is required */
     required: {
       type: Boolean,
       default: false
     },
+    /** Disabled attribute for the select */
     disabled: {
       type: Boolean,
       default: false
     },
+    /** Placeholder text for first item in the select */
     emptyValueLabel: String,
+    /** Autocomplete attribute used for browser autocomplete */
     autocomplete: String,
+    /** The error messages shown if the input validation is failed */
     errorMessages: [String, Array],
+    /** name attribute for select */
     name: String,
+    /** Whether select value is invalid */
     error: {
       type: Boolean,
       default: false

@@ -4,10 +4,7 @@ import VCarousel from '.'
 import VCarouselSlide from '../VCarouselSlide'
 
 const wrapper = {
-  components: { VCarousel, VCarouselSlide },
-  propsDescription: {
-    loop: 'If the carousel should loop once it\'s finished'
-  }
+  components: { VCarousel, VCarouselSlide }
 }
 
 storiesOf('Molecule - VCarousel', module)
@@ -27,7 +24,7 @@ storiesOf('Molecule - VCarousel', module)
         </VCarouselSlide>
       </VCarousel>
     `
-  }))
+  }), { info: true })
   .add('loop', () => ({
     ...wrapper,
     template: `
@@ -43,7 +40,7 @@ storiesOf('Molecule - VCarousel', module)
         </VCarouselSlide>
       </VCarousel>
     `
-  }))
+  }), { info: true })
   .add('no dotted navigation', () => ({
     ...wrapper,
     template: `
@@ -59,7 +56,7 @@ storiesOf('Molecule - VCarousel', module)
         </VCarouselSlide>
       </VCarousel>
     `
-  }))
+  }), { info: true })
   .add('no arrow navigation', () => ({
     ...wrapper,
     template: `
@@ -75,4 +72,4 @@ storiesOf('Molecule - VCarousel', module)
         </VCarouselSlide>
       </VCarousel>
     `
-  }))
+  }), { info: true })

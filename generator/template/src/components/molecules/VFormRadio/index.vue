@@ -29,7 +29,6 @@
             :value="option.value"
             :checked="disabled ? false : option.checked"
             :disabled="disabled ? disabled : option.disabled"
-            :required="required"
             :name="name"
           />
 
@@ -61,21 +60,40 @@ export default {
     event: 'change'
   },
   props: {
+    /** The label for all the options. Generally is a question */
     label: String,
+    /** An array of option objects. displayed as radio buttons. Option format is:
+    {
+      label: String,
+      value: String,
+      checked: Boolean,
+      disabled: Boolean
+    }
+    */
     options: {
       type: Array,
       required: true
     },
+    /** The error message shown if the input validation is failed */
     errorMessages: [String, Array],
+    /** name attribute for input */
     name: String,
+    /** Whether input value is invalid */
     error: {
       type: Boolean,
       default: false
     },
+    /** Value of the field */
+    value: {
+      type: String,
+      default: ''
+    },
+    /** Whether this field is reuqired */
     required: {
       type: Boolean,
       default: false
     },
+    /** Whether this field is disabled */
     disabled: {
       type: Boolean,
       default: false

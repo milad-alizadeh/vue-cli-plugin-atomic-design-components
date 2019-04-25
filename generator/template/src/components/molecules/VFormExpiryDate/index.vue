@@ -57,32 +57,41 @@ export default {
     VLabel
   },
   props: {
+    /** name attribute for input */
     name: String,
+    /** Value of the field */
     value: {
       type: String,
       default: ''
     },
+    /** Label text for the field */
     label: {
       type: String,
       default: ''
     },
+    /** Placeholder text for input */
     placeholder: {
       type: String,
       default: 'MM/YY'
     },
+    /** The error messages shown if the input validation is failed */
     errorMessages: [String, Array],
+    /** Whether input value is invalid */
     error: {
       type: Boolean,
       default: false
     },
+    /** Whether this field is reuqired */
     required: {
       type: Boolean,
       default: false
     },
+    /** Whether this field is disabled */
     disabled: {
       type: Boolean,
       default: false
     },
+    /** Autocomplete attribute used for browser autocomplete */
     autocomplete: {
       type: String,
       default: 'cc-exp'

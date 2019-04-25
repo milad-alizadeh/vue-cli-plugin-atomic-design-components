@@ -78,6 +78,7 @@ import uid from '@/helpers/uid'
 export default {
   name: 'VPlaceholder',
   props: {
+    /** Type of placeholder. Options: ['bullet-list', 'text', 'image'] */
     type: {
       type: String,
       required: true,
@@ -85,39 +86,49 @@ export default {
         return ['text', 'image', 'bullet-list'].indexOf(val) !== -1
       }
     },
+    /** Available only on 'image' type. The name of graphic to be used as the center icon */
     imageGraphic: String,
+    /** Available only on 'image' type. The ratio of the placeholder box. It equals to width/height. for example 400x300 image ratio will be 400/300 = 1.33 */
     aspectRatio: {
       type: Number,
       default: 1.33
     },
+    /** Available only on ['text', 'bullet-list'] type. The number of lines of placeholders. */
     lines: {
       type: Number,
       default: 3
     },
+    /** Available only on ['text', 'bullet-list'] type. The scale multiplier for placeholder lines. For example '2' will double the size of each line */
     lineScale: {
       type: Number,
       default: 1
     },
+    /** Available only on ['text', 'bullet-list'] type. The space between each placeholder line. '1.5' would be 1.5 times the space */
     lineHeight: {
       type: Number,
       default: 1.5
     },
+    /** Available only on ['text', 'bullet-list'] type. Make each placeholder line rounded */
     roundedCorners: {
       type: Boolean,
       default: true
     },
+    /** The main background color for placeholder. Value in HEX or RGB */
     color1: {
       type: String,
       default: '#ccc'
     },
+    /** The second background color for placeholder. Value in HEX or RGB */
     color2: {
       type: String,
       default: '#f5f5f5'
     },
+    /** Disable/Enable animation on placeholder */
     animation: {
       type: Boolean,
       default: true
     },
+    /** The speed of animation in seconds */
     speed: {
       type: Number,
       default: 1.5

@@ -3,10 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VList from '.'
 
 const wrapper = {
-  components: { VList },
-  propsDescription: {
-    ordered: 'Whether the list is an ordred list'
-  }
+  components: { VList }
 }
 
 storiesOf('Atom - VList', module)
@@ -20,7 +17,7 @@ storiesOf('Atom - VList', module)
         <li>Item 3</li>
       </VList>
     `
-  }))
+  }), { info: true })
   .add('ordered', () => ({
     ...wrapper,
     template: `
@@ -30,4 +27,4 @@ storiesOf('Atom - VList', module)
         <li>Item 3</li>
       </VList>
     `
-  }))
+  }), { info: true })

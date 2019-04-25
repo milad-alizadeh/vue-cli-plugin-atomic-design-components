@@ -26,6 +26,7 @@ import VNavList from 'molecules/VNavList'
 export default {
   name: 'VHeader',
   props: {
+    /** An array of nav item objects. List format: { label: String, to: [String, Array], href: String } */
     navList: Array
   },
   data () {

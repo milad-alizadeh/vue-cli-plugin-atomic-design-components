@@ -3,25 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VFormRadio from '.'
 
 const wrapper = {
-  components: { VFormRadio },
-  propsDescription: {
-    label: 'The label for all the options. Generally is a question',
-    options: `An array of option objects. displayed as radio buttons. Option format is:
-    {
-      label: String,
-      value: String,
-      checked: Boolean,
-      disabled: Boolean
-    }
-    `,
-    name: 'name attribute for input',
-    errorMessages: 'The error messages shown if the input validation is failed',
-    disabled: 'Whether this field is disabled',
-    required: 'Whether this field is reuqired',
-    errorMessage: 'The error message shown if the input validation is failed',
-    error: 'Whether input value is invalid',
-    value: 'Value of the field'
-  }
+  components: { VFormRadio }
 }
 
 const data = {
@@ -69,7 +51,7 @@ storiesOf('Molecule - VFormRadio', module)
     data () {
       return data
     }
-  }))
+  }), { info: true })
   .add('disabled', () => ({
     ...wrapper,
     template: `
@@ -89,7 +71,7 @@ storiesOf('Molecule - VFormRadio', module)
     data () {
       return data
     }
-  }))
+  }), { info: true })
   .add('invalid', () => ({
     ...wrapper,
     template: `
@@ -126,4 +108,4 @@ storiesOf('Molecule - VFormRadio', module)
         ]
       }
     }
-  }))
+  }), { info: true })

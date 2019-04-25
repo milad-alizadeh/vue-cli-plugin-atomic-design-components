@@ -3,11 +3,7 @@ import { withInfo } from 'storybook-addon-vue-info'
 import VInputTel from '.'
 
 const wrapper = {
-  components: { VInputTel },
-  propsDescription: {
-    preferredCountries: 'An array of prefered countries to show at the top of dropdown',
-    value: 'The value of tel input'
-  }
+  components: { VInputTel }
 }
 
 storiesOf('Atom - VInputTel', module)
@@ -29,4 +25,4 @@ storiesOf('Atom - VInputTel', module)
         }
       }
     }
-  }))
+  }), { info: true })
