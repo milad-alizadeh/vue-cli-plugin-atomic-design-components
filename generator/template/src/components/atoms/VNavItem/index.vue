@@ -14,7 +14,9 @@ export default {
   name: 'VNavItem',
   props: {
     /** to attribute for <router-link> */
-    to: [String, Object],
+    to: {
+      type: [String, Object]
+    },
     /** href attribute for <a> */
     href: String
   }

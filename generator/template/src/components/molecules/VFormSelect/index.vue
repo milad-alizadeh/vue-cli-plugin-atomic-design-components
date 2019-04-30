@@ -81,7 +81,9 @@ export default {
     /** Autocomplete attribute used for browser autocomplete */
     autocomplete: String,
     /** The error messages shown if the input validation is failed */
-    errorMessages: [String, Array],
+    errorMessages: {
+      type: [String, Array]
+    },
     /** name attribute for select */
     name: String,
     /** Whether select value is invalid */

@@ -47,6 +47,7 @@ export default {
     name: String,
     /** This is a necessary prop for using v-model with this component. Should NOT be set */
     modelValue: {
+      type: String,
       default: undefined
     }
   },

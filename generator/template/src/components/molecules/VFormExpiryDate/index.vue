@@ -75,7 +75,9 @@ export default {
       default: 'MM/YY'
     },
     /** The error messages shown if the input validation is failed */
-    errorMessages: [String, Array],
+    errorMessages: {
+      type: [String, Array]
+    },
     /** Whether input value is invalid */
     error: {
       type: Boolean,

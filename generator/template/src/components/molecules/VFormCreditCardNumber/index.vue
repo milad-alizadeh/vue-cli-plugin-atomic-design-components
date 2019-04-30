@@ -88,7 +88,9 @@ export default {
     /** /** Autocomplete attribute used for browser autocomplete */
     autocomplete: String,
     /** The error messages shown if the input validation is failed */
-    errorMessages: [String, Array]
+    errorMessages: {
+      type: [String, Array]
+    }
   },
   computed: {
     uid () {
@@ -116,6 +118,8 @@ export default {
 
 <style lang="scss">
 .v-m-form-credit-card-number {
+  position: relative;
+
   .v-a-icon {
     position: absolute;
     right: 1rem;

@@ -96,7 +96,9 @@ export default {
     */
     options: Array,
     /** The error messages shown if the input validation is failed */
-    errorMessages: [String, Array],
+    errorMessages: {
+      type: [String, Array]
+    },
     /** Name attribute for input */
     name: String,
     /** Used to check the input by default. Works only on single checkboxes */

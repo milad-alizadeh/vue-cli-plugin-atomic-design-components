@@ -1,6 +1,4 @@
-import 'babel-polyfill'
-import { configure, addDecorator } from '@storybook/vue'
-import { setOptions } from '@storybook/addon-options'
+import { configure, addDecorator, addParameters } from '@storybook/vue'
 import StoryRouter from 'storybook-vue-router'
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -11,10 +9,10 @@ import './style.scss'
 Vue.use(Vuex)
 Vue.use(Vuelidate)
 
-setOptions({
-  hierarchyRootSeparator: / - /,
-  name: 'Vue Atomic Design',
-  url: '#'
+addParameters({
+  options: {
+    hierarchyRootSeparator: / - /
+  }
 })
 
 // Require all the .stories.js files from all components

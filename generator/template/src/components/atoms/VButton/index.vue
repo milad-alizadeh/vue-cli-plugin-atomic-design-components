@@ -33,7 +33,9 @@ export default {
     /** ID attribute */
     id: String,
     /** "to" prop for vue-router - renders a <router-link> */
-    to: [Object, String],
+    to: {
+      type: [Object, String]
+    },
     /** target attrbitue for the <a> tag */
     target: String,
     /** Success mode */

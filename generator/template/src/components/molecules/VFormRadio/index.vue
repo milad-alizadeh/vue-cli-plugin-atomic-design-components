@@ -75,7 +75,9 @@ export default {
       required: true
     },
     /** The error message shown if the input validation is failed */
-    errorMessages: [String, Array],
+    errorMessages: {
+      type: [String, Array]
+    },
     /** name attribute for input */
     name: String,
     /** Whether input value is invalid */

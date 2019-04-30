@@ -54,7 +54,9 @@ export default {
       default: ''
     },
     /** The error messages shown if the input validation is failed */
-    errorMessages: [String, Array],
+    errorMessages: {
+      type: [String, Array]
+    },
     /** Whether the field is required */
     required: {
       type: Boolean,

@@ -134,7 +134,9 @@ export default {
         }
       }
     },
-    errorMessages: [String, Array]
+    errorMessages: {
+      type: [String, Array]
+    }
   },
   methods: {
     handleSecurityKeypress (e) {
