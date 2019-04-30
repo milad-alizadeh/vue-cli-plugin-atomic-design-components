@@ -42,8 +42,7 @@ module.exports = (api, options, rootOptions) => {
       let utilities = files['src/scss/utilities/_utilities.scss']
       files['src/scss/utilities/_utilities.scss'] = addLine(utilities, /^@import/, `@import 'u-form-field';`)
     } else {
-      files['src/scss/utilities/_utilities.scss'] = `@import 'u-visually-hidden';
-@import 'u-form-field';`
+      files['src/scss/utilities/_utilities.scss'] = `@import 'u-visually-hidden';';`
     }
   })
 }
