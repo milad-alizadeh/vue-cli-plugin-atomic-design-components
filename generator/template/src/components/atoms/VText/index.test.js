@@ -7,19 +7,13 @@ describe('Atom - VText', () => {
 
     // With default props
     expect(wrapper.is('p')).toBe(true)
-    expect(wrapper.attributes().class).toContain('small')
-    expect(wrapper.attributes().class).toContain('normal')
 
     // With passed props
     wrapper.setProps({
-      tag: 'span',
-      weight: 'bold',
-      size: 'large'
+      tag: 'span'
     })
 
     expect(wrapper.is('span')).toBe(true)
-    expect(wrapper.attributes().class).toContain('large')
-    expect(wrapper.attributes().class).toContain('bold')
   })
 
   test('Renders slots', () => {

@@ -61,7 +61,6 @@ export default {
     return {
       imageSrc: null,
       imageIsLoaded: false,
-      imageProxyUrl: 'https://images.wi-5.com',
       calculatedSources: []
     }
   },
@@ -93,12 +92,7 @@ export default {
   computed: {
     calculatedSrc () {
       let { src } = this
-
-      if (isUrl(src)) {
-        return src.indexOf(this.imageProxyUrl) === -1 ? `${this.imageProxyUrl}/${src}` : src
-      }
-
-      return require(`../../../assets/${src}`)
+      return isUrl(src) ? src : require(`../../../assets/${src}`)
     }
   }
 }

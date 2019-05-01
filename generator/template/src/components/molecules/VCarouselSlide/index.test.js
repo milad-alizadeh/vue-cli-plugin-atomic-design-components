@@ -11,14 +11,4 @@ describe('Molecule - VCarouselSlide', () => {
 
     expect(wrapper.html()).toContain('Slide Content')
   })
-
-  test('Add the correct css class', () => {
-    const wrapper = mount(VCarouselSlide, {
-      propsData: {
-        backgroundColor: 'red'
-      }
-    })
-
-    expect(wrapper.attributes().class).toContain('red')
-  })
 })

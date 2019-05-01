@@ -27,7 +27,6 @@ describe('Atom - VInputRadio', () => {
 
     const input = wrapper.find('input')
     expect(input.attributes().value).toBe('Option 2')
-    expect(input.attributes().required).toBe('required')
     expect(input.attributes().disabled).toBe('disabled')
   })
 })

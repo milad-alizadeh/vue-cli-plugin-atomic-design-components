@@ -1,8 +1,5 @@
 import { mount } from '@vue/test-utils'
 import VImge from '.'
-import { toMatchImageSnapshot } from 'jest-image-snapshot'
-
-expect.extend({ toMatchImageSnapshot })
 
 describe('Atom - VImge', () => {
   test('Caclculate the src correctly', async () => {
@@ -12,7 +9,7 @@ describe('Atom - VImge', () => {
       }
     })
 
-    expect(wrapper.find('img').attributes().src).toBe('https://images.wi-5.com/https://via.placeholder.com/350x150')
+    expect(wrapper.find('img').attributes().src).toBe('https://via.placeholder.com/350x150')
   })
 
   test('renders a picture tag', async () => {

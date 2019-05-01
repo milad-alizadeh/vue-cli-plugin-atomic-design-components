@@ -1,128 +1,54 @@
-import { storiesOf } from '@storybook/vue'
-import { withInfo } from 'storybook-addon-vue-info'
+import { mount } from '@vue/test-utils'
 import VFormCheckbox from '.'
 
-const wrapper = {
-  components: { VFormCheckbox }
-}
+describe('Molecule - VFormCheckbox', () => {
+  let wrapper
 
-const data = {
-  selection: ['new-york', 'london'],
-  options: [
-    {
-      label: 'New York City',
-      value: 'new-york'
-    },
-    {
-      label: 'Paris - Disabled',
-      value: 'paris',
-      disabled: true
-    },
-    {
-      label: 'London',
-      value: 'london'
-    },
-    {
-      label: 'Amsterdam',
-      value: 'amsterdam'
-    }
-  ]
-}
-
-storiesOf('Molecule - VFormCheckbox', module)
-  .addDecorator(withInfo)
-  .add('single', () => ({
-    ...wrapper,
-    template: `
-      <div>
-        <VFormCheckbox
-          label="Do you accept our terms & conditions?"
-          v-model="selection"
-          required
-          checked
-        />
-
-        <br/><br/>
-
-        Field value is: {{ selection }}
-      </div>
-    `,
-    data () {
-      return {
-        selection: false
+  beforeEach(() => {
+    wrapper = mount(VFormCheckbox, {
+      propsData: {
+        value: ''
+      },
+      stubs: {
+        VText: true,
+        VLabel: {
+          name: 'VLabel',
+          template: '<label><slot></slot></label>'
+        },
+        VInputCheckbox: {
+          name: 'VInputCheckbox',
+          template: '<input type="checkbox" />'
+        }
       }
-    }
-  }), { info: true })
-  .add('single - disabled', () => ({
-    ...wrapper,
-    template: `
-      <div>
-        <VFormCheckbox
-          label="Do you accept our terms & conditions?"
-          v-model="selection"
-          disabled
-        />
-      </div>
-    `,
-    data () {
-      return {
-        selection: false
-      }
-    }
-  }), { info: true })
-  .add('multiple', () => ({
-    ...wrapper,
-    template: `
-      <div>
-        <VFormCheckbox
-          label="Choose some of your favourite cities"
-          :options="options"
-          v-model="selection"
-          required
-        />
+    })
+  })
 
-        <br/><br/>
+  test('Renders the label if passed', () => {
+    expect(wrapper.find('.v-m-form-checkbox__question').exists()).toBe(false)
 
-        Field value is: {{ selection }}
-      </div>
-    `,
-    data () {
-      return data
-    }
-  }), { info: true })
-  .add('disabled', () => ({
-    ...wrapper,
-    template: `
-      <div>
-        <VFormCheckbox
-          label="What's your favourite city?"
-          :options="options"
-          v-model="selection"
-          disabled
-        />
-      </div>
-    `,
-    data () {
-      return {
-        ...data,
-        selection: []
-      }
-    }
-  }), { info: true })
-  .add('invalid', () => ({
-    ...wrapper,
-    template: `
-      <div>
-        <VFormCheckbox
-          label="What's your favourite city?"
-          :options="options"
-          v-model="selection"
-          error
-          errorMessage="Please select one of the available options"
-        />
-      </div>
-    `,
-    data () {
-      return data
-    }
-  }), { info: true })
+    wrapper.setProps({
+      label: 'Choose your country',
+      options: [
+        {
+          label: 'Option 1',
+          value: 'option1'
+        }
+      ]
+    })
+
+    expect(wrapper.find('.v-m-form-checkbox__question').text()).toBe('Choose your country')
+  })
+
+  test('Renders the coreect classes', () => {
+    wrapper.setProps({ disabled: true, error: true })
+
+    expect(wrapper.attributes().class).toContain('error')
+    expect(wrapper.attributes().class).toContain('disabled')
+  })
+
+  test('Renders one checkbox if options is not passed', () => {
+    const input = wrapper.findAll({ name: 'VInputCheckbox' })
+
+    expect(input.length).toBe(1)
+  })
+})

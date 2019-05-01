@@ -47,14 +47,4 @@ describe('Molecule - VFormRadio', () => {
     expect(wrapper.attributes().class).toContain('error')
     expect(wrapper.attributes().class).toContain('disabled')
   })
-
-  test('Renders multiple checkbox if options is passed', () => {
-    const inputs = wrapper.findAll({ name: 'VInputRadio' })
-    const labels = wrapper.findAll({ name: 'VLabel' })
-
-    expect(inputs.length).toBe(2)
-    expect(labels.length).toBe(2)
-    expect(inputs.at(0).attributes().value).toBe('option1')
-    expect(labels.at(1).text()).toContain('Option 2')
-  })
 })

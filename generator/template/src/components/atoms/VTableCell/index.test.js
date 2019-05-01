@@ -21,20 +21,4 @@ describe('Atom - VTableCell', () => {
 
     expect(wrapper.is('th')).toBe(true)
   })
-
-  test('renders the correct css classes', () => {
-    const wrapper = mount(VTableCell, {
-      propsData: {
-        nowrap: true,
-        heading: true,
-        textAlign: 'right'
-      }
-    })
-
-    let cssClass = wrapper.attributes().class
-
-    expect(cssClass).toContain('nowrap')
-    expect(cssClass).toContain('heading')
-    expect(cssClass).toContain('text-right')
-  })
 })
