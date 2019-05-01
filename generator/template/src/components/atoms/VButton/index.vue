@@ -14,9 +14,10 @@
     :target="computedTarget"
     :type="type"
     :disabled="disabled"
-    @click="$emit('click', $event)"
+    @click="handleClick"
   >
     <span class="v-a-button__label">
+      <!-- @slot Main slot used for text -->
       <slot></slot>
     </span>
   </component>
@@ -46,6 +47,15 @@ export default {
     error: Boolean,
     /** Disabled mode */
     disabled: Boolean
+  },
+  methods: {
+    handleClick (event) {
+      /**
+       * Click event
+       * @type {Event}
+       */
+      this.$emit('click', event)
+    }
   },
   computed: {
     computedTarget () {
