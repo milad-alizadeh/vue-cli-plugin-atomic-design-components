@@ -6,8 +6,6 @@
       `v-a-icon--${size}`,
       `v-a-icon--${name}`
     ]"
-
-    v-if="svg"
     v-html="svg"
   >
   </div>
