@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-atomic-design-components",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Vue CLI plugin for adding a very basic UI library of components based on Atomic Design methodology",
   "main": "index.js",
   "repository": {
