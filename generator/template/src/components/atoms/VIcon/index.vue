@@ -6,8 +6,10 @@
       `v-a-icon--${size}`,
       `v-a-icon--${name}`
     ]"
+
+    v-if="svg"
+    v-html="svg"
   >
-    <component v-if="svg && svg.render" :is="svg" />
   </div>
 </template>
 
@@ -39,7 +41,7 @@ export default {
   },
   computed: {
     svgLoader () {
-      return () => import(`./icons/${this.name}.svg`)
+      return () => import(/* webpackChunkName: "Icon" */ `./icons/${this.name}.svg`)
     }
   },
   watch: {
@@ -58,7 +60,7 @@ export default {
         let comp = await this.svgLoader()
         this.svg = comp.default
       } catch (e) {
-        throw new Error('Could not load icon svg')
+        throw new Error(`Could not load icon svg - ${e}`)
       }
     }
   }
@@ -100,7 +102,6 @@ export default {
   svg {
     display: block;
     fill: currentColor;
-    stroke: currentColor;
     width: 100%;
     height: 100%;
   }
